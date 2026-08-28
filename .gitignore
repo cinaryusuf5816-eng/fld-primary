@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+
+.vscode/
+.vscode-shared/
+
+node_modules/
+
+.env
+.env.*

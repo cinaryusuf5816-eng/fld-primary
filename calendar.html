@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- 
+    <header class="site-header">
+        <p>Here is a calendar where you can track the days!</p>
+        <a href="index.html">🏠 Main Page</a>
+    </header>
+    -->
+
+    <!-- Calendar App Shell-->
+    <div class="app-shell">
+        <div id="sidebar-container"></div>
+
+        <main class="main-content calendar-main">
+            <div id="topbar-container"></div>
+
+            <section class="calendar-section">
+                <!-- Calendar-->
+
+                <!-- calendar header -->
+                <div class="calendar-header">
+
+                    <div class="calendar-view-options">
+                        <button class="view-button active">Month</button>
+                        <button class="view-button">Week</button>
+                        <button class="view-button">Day</button>
+                    </div>
+
+                    <div class="calendar-title">
+                        <h1 id="current-month">October 2026</h1>
+                    </div>
+
+                    <!-- calendar controls -->
+                    <div class="calendar-controls">
+
+                        <button class="add-event-button" id="add-event-button">
+                            + Add Event
+                        </button>
+
+                        <button id="previous-month">⬅️</button>
+                        <button id="today-button">Today</button>
+                        <button id="next-month">➡️</button>
+                    </div>
+
+                </div>
+
+                <!-- weekdays -->
+                <div class="calendar-weekdays">
+                    <div>MON</div>
+                    <div>TUE</div>
+                    <div>WED</div>
+                    <div>THU</div>
+                    <div>FRI</div>
+                    <div>SAT</div>
+                    <div>SUN</div>
+                </div>
+
+                <!-- days -->
+                <div class="calendar-grid" id="calendar-grid">
+
+                </div>
+
+            </section>
+
+            <footer class="site-footer">
+                <p>Militas • v0.2.6</p> <!-- version -->
+                <p>English Department Hub</p>
+                <p class="skaya-quote">Every legend begins with a teacher.</p>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- DAY MODAL -->
+    <div class="day-modal" id="day-modal">
+        <div class="day-modal-content">
+            <button class="day-modal-close" id="day-modal-close">✖️</button>
+
+            <div class="day-modal-header">
+                <p class="day-modal-date" id="day-modal-date"></p>
+                <h2 id="day-modal-title">Day Details</h2>
+            </div>
+
+            <button class="day-add-event-button" id="day-add-event-button">
+                ➕ Add Event
+            </button>
+
+            <div class="day-modal-events" id="day-modal-events">
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ADD EVENT MODAL -->
+    <div class="add-event-modal" id="add-event-modal">
+
+        <div class="add-event-modal-content">
+
+            <button class="add-event-modal-close" id="add-event-modal-close">
+                ✖️
+            </button>
+
+            <div class="add-event-modal-header">
+                <p>Calendar</p>
+                <h2>Add Event</h2>
+            </div>
+
+            <div class="add-event-form">
+
+                <label for="event-title">Title</label>
+                <input type="text" id="event-title" placeholder="e.g. Intensive English Programme">
+
+                <label for="event-start-date">Start Date</label>
+                <input type="date" id="event-start-date">
+
+                <label for="event-end-date">End Date
+                    <span>(Optional)</span>
+                </label>
+                <input type="date" id="event-end-date">
+
+                <label>Days</label>
+
+                <div class="event-day-shortcuts" id="event-day-shortcuts">
+                    <button type="button" id="select-weekdays">Weekdays</button>
+                    <button type="button" id="select-weekend">Weekend</button>
+                    <button type="button" id="select-every-day">Every Day</button>
+                
+                </div>
+
+                <div class="event-days-options" id="event-days-options">
+
+                    <div class="event-day-option">
+                        <input type="checkbox" id="event-monday" checked>
+                        <label for="event-monday">Mon</label>
+                    </div>
+
+                    <div class="event-day-option">
+                        <input type="checkbox" id="event-tuesday" checked>
+                        <label for="event-tuesday">Tue</label>
+                    </div>
+
+                    <div class="event-day-option">
+                        <input type="checkbox" id="event-wednesday" checked>
+                        <label for="event-wednesday">Wed</label>
+                    </div>
+
+                    <div class="event-day-option">
+                        <input type="checkbox" id="event-thursday" checked>
+                        <label for="event-thursday">Thu</label>
+                    </div>
+
+                    <div class="event-day-option">
+                        <input type="checkbox" id="event-friday" checked>
+                        <label for="event-friday">Fri</label>
+                    </div>
+
+                    <div class="event-day-option">
+                        <input type="checkbox" id="event-saturday">
+                        <label for="event-saturday">Sat</label>
+                    </div>
+
+                    <div class="event-day-option">
+                        <input type="checkbox" id="event-sunday">
+                        <label for="event-sunday">Sun</label>
+                    </div>
+
+                </div>
+
+                <div class="event-time-row">
+
+                    <div class="event-time-field">
+                        <label for="event-start-time">
+                            Start Time <span>Optional</span>
+                        </label>
+
+                        <input type="time" id="event-start-time">
+                    </div>
+
+                    <div class="event-time-field">
+                        <label for="event-end-time">
+                            End Time <span>Optional</span>
+                        </label>
+
+                        <input type="time" id="event-end-time">
+                    </div>
+                </div>
+
+
+                <label for="event-category">Category</label>
+                <select id="event-category">
+
+                    <option value="programme">
+                        Programme / Course
+                    </option>
+
+                    <option value="meeting">
+                        Meeting / Workshop
+                    </option>
+
+                    <option value="activity">
+                        Activity
+                    </option>
+
+                    <option value="material">
+                        Material
+                    </option>
+
+                </select>
+
+                <label for="event-description">Description</label>
+                <textarea id="event-description" placeholder="Optional Notes"></textarea>
+
+                <button class="save-event-button" id="save-event-button">
+                    Add Event
+                </button>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script src="calendar.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FLD Announcements</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="sayfa">
+
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+
+            <div id="topbar-container"></div>
+
+            <div class="announcements-page">
+
+                <!-- ==================== ANNOUNCEMENTS HEADER ==================== -->
+
+                <div class="announcements-header">
+
+                    <div class="announcements-title">
+                        <h1>Announcements</h1>
+                        <p>Stay updated with meetings, events and important reminders.</p>
+                    </div>
+
+                </div>
+
+                <!-- ==================== ANNOUNCEMENTS FILTERS ==================== -->
+
+                <div class="announcements-filters">
+
+                    <div class="announcement-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input type="text" placeholder="Search announcements...">
+                    </div>
+
+                    <select class="announcement-filter-select">
+
+                        <option value="all">All Types</option>
+                        <option value="meeting">Meeting</option>
+                        <option value="event">School Event</option>
+                        <option value="reminder">Reminder</option>
+                        <option value="deadline">Deadline</option>
+                    </select>
+
+                    <input type="date" class="announcement-date-filter">
+                </div>
+
+                <!-- ==================== ANNOUNCEMENTS TABS ==================== -->
+
+                <div class="announcements-tabs">
+
+                    <button class="announcement-tab active" data-filter="upcoming">
+                        Upcoming
+                    </button>
+
+                    <button class="announcement-tab" data-filter="past">
+                        Past
+                    </button>
+
+                    <button class="announcement-tab" data-filter="all">
+                        All
+                    </button>
+
+                </div>
+                <!-- ==================== ANNOUNCEMENTS LIST ==================== -->
+
+                <div class="announcements-list">
+
+                    <!-- ==================== TODAY ==================== -->
+
+                    <section class="announcement-group">
+
+                        <div class="announcement-group-header">
+
+                            <h2>Today</h2>
+
+                            <span class="announcement-count">
+                                1 Announcement
+                            </span>
+
+                        </div>
+
+                        <article class="announcement-card" data-status="upcoming"  data-date="2026-08-29">
+
+                            <div class="announcement-card-line meeting"></div>
+
+                            <div class="announcement-card-content">
+
+                                <div class="announcement-card-top">
+
+                                    <div>
+
+                                        <span class="announcement-type meeting">
+                                            Meeting
+                                        </span>
+
+                                        <h3>Department Meeting</h3>
+
+                                    </div>
+
+                                    <span class="announcement-time">
+                                        Today · 15:30
+                                    </span>
+
+                                </div>
+
+                                <p class="announcement-location">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Meeting Room A
+                                </p>
+
+                                <p class="announcement-description">
+                                    Monthly English department planning meeting.
+                                </p>
+
+                                <div class="announcement-card-bottom">
+
+                                    <span class="announcement-status">
+                                        Upcoming
+                                    </span>
+
+                                    <button class="announcement-details">
+                                        View Details
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </section>
+
+
+                    <!-- ==================== THIS WEEK ==================== -->
+
+                    <section class="announcement-group">
+
+                        <div class="announcement-group-header">
+
+                            <h2>This Week</h2>
+
+                            <span class="announcement-count">
+                                2 Announcements
+                            </span>
+
+                        </div>
+
+                        <article class="announcement-card" data-status="upcoming"  data-date="2026-08-29">
+
+                            <div class="announcement-card-line event"></div>
+
+                            <div class="announcement-card-content">
+
+                                <div class="announcement-card-top">
+
+                                    <div>
+
+                                        <span class="announcement-type event">
+                                            School Event
+                                        </span>
+
+                                        <h3>Book Fair</h3>
+
+                                    </div>
+
+                                    <span class="announcement-time">
+                                        Saturday · 11:00
+                                    </span>
+
+                                </div>
+
+                                <p class="announcement-location">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Main Hall
+                                </p>
+
+                                <p class="announcement-description">
+                                    Students and teachers are invited to visit the annual school book fair.
+                                </p>
+
+                                <div class="announcement-card-bottom">
+
+                                    <span class="announcement-status">
+                                        Upcoming
+                                    </span>
+
+                                    <button class="announcement-details">
+                                        View Details
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="announcement-card" data-status="upcoming"  data-date="2026-08-29">
+
+                            <div class="announcement-card-line reminder"></div>
+
+                            <div class="announcement-card-content">
+
+                                <div class="announcement-card-top">
+
+                                    <div>
+
+                                        <span class="announcement-type reminder">
+                                            Reminder
+                                        </span>
+
+                                        <h3>Submit Weekly Reports</h3>
+
+                                    </div>
+
+                                    <span class="announcement-time">
+                                        Friday · 16:00
+                                    </span>
+
+                                </div>
+
+                                <p class="announcement-location">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Online
+                                </p>
+
+                                <p class="announcement-description">
+                                    Please submit weekly classroom reports before the end of the day.
+                                </p>
+
+                                <div class="announcement-card-bottom">
+
+                                    <span class="announcement-status">
+                                        Upcoming
+                                    </span>
+
+                                    <button class="announcement-details">
+                                        View Details
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </section>
+
+
+                    <!-- ==================== NEXT WEEK ==================== -->
+
+                    <section class="announcement-group">
+
+                        <div class="announcement-group-header">
+
+                            <h2>Next Week</h2>
+
+                            <span class="announcement-count">
+                                2 Announcements
+                            </span>
+
+                        </div>
+
+                        <article class="announcement-card" data-status="upcoming"  data-date="2026-09-02">
+
+                            <div class="announcement-card-line meeting"></div>
+
+                            <div class="announcement-card-content">
+
+                                <div class="announcement-card-top">
+
+                                    <div>
+
+                                        <span class="announcement-type meeting">
+                                            Meeting
+                                        </span>
+
+                                        <h3>Parent Meeting</h3>
+
+                                    </div>
+
+                                    <span class="announcement-time">
+                                        Monday · 16:30
+                                    </span>
+
+                                </div>
+
+                                <p class="announcement-location">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Conference Hall
+                                </p>
+
+                                <p class="announcement-description">
+                                    Parent meeting to discuss student progress and upcoming activities.
+                                </p>
+
+                                <div class="announcement-card-bottom">
+
+                                    <span class="announcement-status">
+                                        Upcoming
+                                    </span>
+
+                                    <button class="announcement-details">
+                                        View Details
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+                        <article class="announcement-card" data-status="upcoming"  data-date="2026-08-30">
+
+                            <div class="announcement-card-line deadline"></div>
+
+                            <div class="announcement-card-content">
+
+                                <div class="announcement-card-top">
+
+                                    <div>
+
+                                        <span class="announcement-type deadline">
+                                            Deadline
+                                        </span>
+
+                                        <h3>Exam Materials Deadline</h3>
+
+                                    </div>
+
+                                    <span class="announcement-time">
+                                        Wednesday · 17:00
+                                    </span>
+
+                                </div>
+
+                                <p class="announcement-location">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    Teachers Office
+                                </p>
+
+                                <p class="announcement-description">
+                                    Final exam materials must be submitted before the deadline.
+                                </p>
+
+                                <div class="announcement-card-bottom">
+
+                                    <span class="announcement-status">
+                                        Upcoming
+                                    </span>
+
+                                    <button class="announcement-details">
+                                        View Details
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </section>
+
+
+                    <!-- ==================== LATER ==================== -->
+
+                    <section class="announcement-group">
+
+                        <div class="announcement-group-header">
+
+                            <h2>Later</h2>
+
+                            <span class="announcement-count">
+                                1 Announcement
+                            </span>
+
+                        </div>
+
+                        <article class="announcement-card" data-status="upcoming"  data-date="2026-08-29">
+
+                            <div class="announcement-card-line event"></div>
+
+                            <div class="announcement-card-content">
+
+                                <div class="announcement-card-top">
+
+                                    <div>
+
+                                        <span class="announcement-type event">
+                                            School Event
+                                        </span>
+
+                                        <h3>English Festival</h3>
+
+                                    </div>
+
+                                    <span class="announcement-time">
+                                        September 18 · 10:00
+                                    </span>
+
+                                </div>
+
+                                <p class="announcement-location">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                    School Garden
+                                </p>
+
+                                <p class="announcement-description">
+                                    A school-wide English festival with activities, games and student presentations.
+                                </p>
+
+                                <div class="announcement-card-bottom">
+
+                                    <span class="announcement-status">
+                                        Upcoming
+                                    </span>
+
+                                    <button class="announcement-details">
+                                        View Details
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </section>
+
+                </div>
+
+                <script src="announcements.js"></script>
+            </body>
+            </html>         

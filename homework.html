@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FLD Homework</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="sayfa">
+
+        <div id="sidebar-container"></div>
+
+
+        <main class="main-content">
+            <div id="topbar-container"></div>
+            <div class="homework-page">
+                <div class="homework-header">
+                    <div class="homework-title">
+                        <h1>Homework</h1>
+                        <p>Manage, Assign and track homework easily.</p>
+                    </div>
+
+                    <button class="add-homework-btn">
+                        <i class="fa-solid fa-plus"></i>
+                        Add Homework
+                    </button>
+                </div>
+                <!-- ==================== HOMEWORK TABS ==================== -->
+
+                <div class="homework-tabs">
+                    <a href="homework.html" class="homework-tab active">
+                        <i class="fa-regular fa-clipboard"></i>
+                        Overview
+                    </a>
+
+                    <a href="homework-check.html" class="homework-tab">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        Homework Check
+                    </a>
+                </div>
+                <!-- ==================== HOMEWORK OVERVIEW ==================== -->
+
+                <div class="homework-overview">
+
+                    <!-- Assigned Homework -->
+                    <section class="homework-card assigned-homework">
+
+                        <!-- Card Header -->
+                        <div class="homework-card-header">
+
+                            <div class="homework-card-title">
+
+                                <div class="homework-card-icon">
+                                    <i class="fa-solid fa-clipboard-check"></i>
+                                </div>
+
+                                <div>
+                                    <h2>Assigned Homework</h2>
+                                    <p>Past homework that has been assigned.</p>
+                                </div>
+
+                            </div>
+
+                            <a href="#" class="view-all-btn">
+                                View All
+                            </a>
+
+                        </div>
+
+                        <div class="homework-columns">
+                            <span>Date</span>
+                            <span>Homework</span>
+                            <span>Grade</span>
+                            <span>Status</span>
+                        </div>
+
+                        <!-- Homework Row -->
+                        <div class="homework-row">
+
+                            <div class="homework-date">
+                                <strong>12</strong>
+                                <span>AUG</span>
+                            </div>
+
+                            <div class="homework-info">
+                                <h3>Workbook p.28-29</h3>
+                                <p>Complete Pages 28 and 29.</p>
+                            </div>
+
+                            <span class="grade-badge">
+                                Grade 3
+                            </span>
+
+                            <span class="status-badge completed">
+                                <i class="fa-solid fa-check"></i>
+                                Completed
+                            </span>
+                        </div>
+
+                        <!-- Homework Row 2 -->
+                        <div class="homework-row">
+
+                            <div class="homework-date">
+                                <strong>10</strong>
+                                <span>AUG</span>
+                            </div>
+
+                            <div class="homework-info">
+                                <h3>Reading Comprehension</h3>
+                                <p>Read the text and answer the questions</p>
+                            </div>
+
+                            <span class="grade-badge">
+                                Grade 2
+                            </span>
+
+                            <span class="status-badge completed">
+                                <i class="fa-solid fa-check"></i>
+                                Completed
+                            </span>
+
+                        </div>
+
+                        <!-- Homework Row 3 -->
+                        <div class="homework-row">
+
+                            <div class="homework-date">
+                                <strong>08</strong>
+                                <span>AUG</span>
+                            </div>
+
+                            <div class="homework-info">
+                                <h3>Grammar Exercise</h3>
+                                <p>Do exercises on Past Simple.</p>
+                            </div>
+
+                            <span class="grade-badge">
+                                Grade 3
+                            </span>
+
+                            <span class="status-badge completed">
+                                <i class="fa-solid fa-check"></i>
+                                Completed
+                            </span>
+
+                        </div>
+
+
+                        <!-- Homework Row 4 -->
+                        <div class="homework-row">
+
+                            <div class="homework-date">
+                                <strong>05</strong>
+                                <span>AUG</span>
+                            </div>
+
+                            <div class="homework-info">
+                                <h3>Writing Practice</h3>
+                                <p>Write 5 sentences about your weekend.</p>
+                            </div>
+
+                            <span class="grade-badge">
+                                Grade 2
+                            </span>
+
+                            <span class="status-badge completed">
+                                <i class="fa-solid fa-check"></i>
+                                Completed
+                            </span>
+
+                        </div>
+
+                        <a href="#" class="homework-view-all">
+                            <span>View All Assigned</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+
+                    </section>
+
+
+                    <!-- Upcoming Homework -->
+                    <section class="homework-card upcoming-homework">
+
+                        <div class="homework-card-header">
+
+                            <div class="homework-card-title">
+
+                                <div class="homework-card-icon">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                </div>
+
+                                <div>
+                                    <h2>Upcoming Homework</h2>
+                                    <p>Homework that will be assigned.</p>
+                                </div>
+
+                            </div>
+
+                            <a href="#" class="view-all-btn">
+                                View All
+                            </a>
+
+                        </div>
+
+                        <!-- Column Titles -->
+                        <div class="homework-columns">
+                            <span>Date</span>
+                            <span>Homework</span>
+                            <span>Grade</span>
+                            <span>Due Date</span>
+                        </div>
+
+                        <!-- Upcoming Homework Row 1 -->
+                        <div class="homework-row">
+
+                            <div class="homework-date">
+                                <strong>22</strong>
+                                <span>AUG</span>
+                            </div>
+
+                            <div class="homework-info">
+                                <h3>Vocabulary Worksheet</h3>
+                                <p>Complete Unit 4 vocabulary exercises.</p>
+                            </div>
+
+                            <span class="grade-badge">
+                                Grade 3
+                            </span>
+
+                            <span class="due-date-badge">
+                                <i class="fa-regular fa-calendar"></i>
+                                Tomorrow
+                            </span>
+
+                        </div>
+
+                        <!-- Upcoming Homework Row 2 -->
+                        <div class="homework-row">
+
+                            <div class="homework-date">
+                                <strong>24</strong>
+                                <span>AUG</span>
+                            </div>
+
+                            <div class="homework-info">
+                                <h3>Reading Practice</h3>
+                                <p>Read Unit 4 text and answer the questions.</p>
+                            </div>
+
+                            <span class="grade-badge">
+                                Grade 2
+                            </span>
+
+                            <span class="due-date-badge">
+                                <i class="fa-regular fa-calendar"></i>
+                                2 Days
+                            </span>
+
+                        </div>
+
+
+                        <!-- Upcoming Homework Row 3 -->
+                        <div class="homework-row">
+
+                            <div class="homework-date">
+                                <strong>26</strong>
+                                <span>AUG</span>
+                            </div>
+
+                            <div class="homework-info">
+                                <h3>Grammar Worksheet</h3>
+                                <p>Complete Past Simple exercises.</p>
+                            </div>
+
+                            <span class="grade-badge">
+                                Grade 3
+                            </span>
+
+                            <span class="due-date-badge">
+                                <i class="fa-regular fa-calendar"></i>
+                                4 Days
+                            </span>
+
+                        </div>
+
+
+                        <!-- Upcoming Homework Row 4 -->
+                        <div class="homework-row">
+
+                            <div class="homework-date">
+                                <strong>28</strong>
+                                <span>AUG</span>
+                            </div>
+
+                            <div class="homework-info">
+                                <h3>Writing Task</h3>
+                                <p>Write a short paragraph about your weekend.</p>
+                            </div>
+
+                            <span class="grade-badge">
+                                Grade 2
+                            </span>
+
+                            <span class="due-date-badge">
+                                <i class="fa-regular fa-calendar"></i>
+                                6 Days
+                            </span>
+
+                        </div>
+
+                        <a href="#" class="homework-view-all">
+                            <span>View All Upcoming</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </section>
+
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+        </main>
+
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

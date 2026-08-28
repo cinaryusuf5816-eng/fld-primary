@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FLD Materials</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="sayfa">
+
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+
+            <div id="topbar-container"></div>
+
+            <div class="materials-page">
+
+                <!-- ==================== MATERIALS HEADER ==================== -->
+
+                <div class="materials-header">
+
+                    <div class="materials-title">
+                        <h1>Materials</h1>
+                        <p>Organize, access and reuse all your teaching materials.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== MATERIALS LAYOUT ==================== -->
+
+                <div class="materials-layout">
+
+
+                    <!-- ==================== LEFT CONTENT ==================== -->
+
+                    <div class="materials-main">
+
+
+                        <!-- ==================== FILTER CARD ==================== -->
+
+                        <section class="materials-filter-card">
+
+                            <div class="materials-filter-top">
+
+                                <!-- Search -->
+                                <div class="materials-search">
+
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                                    <input type="search" placeholder="Search materials...">
+
+                                </div>
+
+
+                                <!-- Grade -->
+                                <div class="materials-filter-group">
+
+                                    <label for="material-grade">
+                                        Grade
+                                    </label>
+
+                                    <select id="material-grade">
+                                        <option>All Grades</option>
+                                        <option>Grade 1</option>
+                                        <option>Grade 2</option>
+                                        <option>Grade 3</option>
+                                        <option>Grade 4</option>
+                                    </select>
+
+                                </div>
+
+
+                                <!-- Class -->
+                                <div class="materials-filter-group">
+
+                                    <label for="material-class">
+                                        Class
+                                    </label>
+
+                                    <select id="material-class">
+                                        <option>All Classes</option>
+                                        <option>Class A</option>
+                                        <option>Class B</option>
+                                        <option>Class C</option>
+                                    </select>
+
+                                </div>
+
+
+                                <!-- Type -->
+                                <div class="materials-filter-group">
+
+                                    <label for="material-type">
+                                        Type
+                                    </label>
+
+                                    <select id="material-type">
+                                        <option>All Types</option>
+                                        <option>PDF</option>
+                                        <option>Word</option>
+                                        <option>PowerPoint</option>
+                                        <option>Excel</option>
+                                        <option>Image</option>
+                                    </select>
+
+                                </div>
+
+
+                                <!-- Date -->
+                                <button class="materials-date-filter">
+
+                                    <i class="fa-regular fa-calendar"></i>
+
+                                    <span>
+                                        May 12, 2025 - May 18, 2025
+                                    </span>
+
+                                    <i class="fa-solid fa-chevron-down"></i>
+
+                                </button>
+
+                            </div>
+
+
+                            <!-- Quick Date Filters -->
+
+                            <div class="materials-filter-bottom">
+
+                                <div class="materials-date-buttons">
+
+                                    <button>
+                                        Today
+                                    </button>
+
+                                    <button class="active">
+                                        This Week
+                                    </button>
+
+                                    <button>
+                                        This Month
+                                    </button>
+
+                                    <button>
+                                        This Year
+                                    </button>
+
+                                </div>
+
+
+                                <button class="clear-material-filters">
+
+                                    <i class="fa-solid fa-filter-circle-xmark"></i>
+
+                                    Clear Filters
+
+                                </button>
+
+                            </div>
+
+                        </section>
+
+
+                        <!-- ==================== MATERIALS TABLE CARD ==================== -->
+
+                        <section class="materials-table-card">
+
+
+                            <!-- Table Top -->
+
+                            <div class="materials-table-top">
+
+                                <h2>
+                                    All Materials <span>(28)</span>
+                                </h2>
+
+
+                                <div class="materials-table-actions">
+
+                                    <span>
+                                        Sort by:
+                                    </span>
+
+
+                                    <select>
+                                        <option>Newest</option>
+                                        <option>Oldest</option>
+                                        <option>Name A-Z</option>
+                                        <option>Name Z-A</option>
+                                    </select>
+
+
+                                    <button class="material-view-button active">
+                                        <i class="fa-solid fa-list"></i>
+                                    </button>
+
+
+                                    <button class="material-view-button">
+                                        <i class="fa-solid fa-table-cells-large"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Table Header -->
+
+                            <div class="materials-table-header">
+
+                                <span>Name</span>
+
+                                <span>Type</span>
+
+                                <span>Grade / Class</span>
+
+                                <span>Date</span>
+
+                                <span>Actions</span>
+
+                            </div>
+
+
+                            <!-- ==================== MATERIAL ROW 1 ==================== -->
+
+                            <div class="material-row">
+
+                                <div class="material-name">
+
+                                    <div class="material-file-icon pdf">
+                                        <i class="fa-solid fa-file-pdf"></i>
+                                    </div>
+
+
+                                    <div class="material-name-info">
+                                        <h3>Unit 5 - Vocabulary List</h3>
+                                        <p>vocabulary_unit5.pdf</p>
+                                    </div>
+
+                                </div>
+
+
+                                <span class="material-type-badge pdf">
+                                    PDF
+                                </span>
+
+
+                                <div class="material-grade-class">
+
+                                    <span>
+                                        Grade 3
+                                    </span>
+
+                                    <span>
+                                        3-A
+                                    </span>
+
+                                </div>
+
+
+                                <div class="material-date">
+                                    <strong>May 18, 2025</strong>
+                                    <span>10:30 AM</span>
+                                </div>
+
+
+                                <div class="material-actions">
+
+                                    <button>
+                                        <i class="fa-solid fa-download"></i>
+                                    </button>
+
+                                    <button>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ==================== MATERIAL ROW 2 ==================== -->
+
+                            <div class="material-row">
+
+                                <div class="material-name">
+
+                                    <div class="material-file-icon docx">
+                                        <i class="fa-solid fa-file-word"></i>
+                                    </div>
+
+
+                                    <div class="material-name-info">
+                                        <h3>Grammar Exercise - Present Simple</h3>
+                                        <p>present_simple_exercise.docx</p>
+                                    </div>
+
+                                </div>
+
+
+                                <span class="material-type-badge docx">
+                                    Docx
+                                </span>
+
+
+                                <div class="material-grade-class">
+
+                                    <span>
+                                        Grade 3
+                                    </span>
+
+                                    <span>
+                                        3-B
+                                    </span>
+
+                                </div>
+
+
+                                <div class="material-date">
+                                    <strong>May 17, 2025</strong>
+                                    <span>03:15 PM</span>
+                                </div>
+
+
+                                <div class="material-actions">
+
+                                    <button>
+                                        <i class="fa-solid fa-download"></i>
+                                    </button>
+
+                                    <button>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ==================== MATERIAL ROW 3 ==================== -->
+
+                            <div class="material-row">
+
+                                <div class="material-name">
+
+                                    <div class="material-file-icon xlsx">
+                                        <i class="fa-solid fa-file-excel"></i>
+                                    </div>
+
+
+                                    <div class="material-name-info">
+                                        <h3>Assessment Results - Unit 4</h3>
+                                        <p>unit4_results.xlsx</p>
+                                    </div>
+
+                                </div>
+
+
+                                <span class="material-type-badge xlsx">
+                                    Xlsx
+                                </span>
+
+
+                                <div class="material-grade-class">
+
+                                    <span>
+                                        Grade 4
+                                    </span>
+
+                                    <span>
+                                        4-A
+                                    </span>
+
+                                </div>
+
+
+                                <div class="material-date">
+                                    <strong>May 16, 2025</strong>
+                                    <span>11:20 AM</span>
+                                </div>
+
+
+                                <div class="material-actions">
+
+                                    <button>
+                                        <i class="fa-solid fa-download"></i>
+                                    </button>
+
+                                    <button>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ==================== MATERIAL ROW 4 ==================== -->
+
+                            <div class="material-row">
+
+                                <div class="material-name">
+
+                                    <div class="material-file-icon pptx">
+                                        <i class="fa-solid fa-file-powerpoint"></i>
+                                    </div>
+
+
+                                    <div class="material-name-info">
+                                        <h3>Lesson 3 - Modal Verbs</h3>
+                                        <p>modal_verbs_lesson.pptx</p>
+                                    </div>
+
+                                </div>
+
+
+                                <span class="material-type-badge pptx">
+                                    Pptx
+                                </span>
+
+
+                                <div class="material-grade-class">
+
+                                    <span>
+                                        Grade 4
+                                    </span>
+
+                                    <span>
+                                        4-B
+                                    </span>
+
+                                </div>
+
+
+                                <div class="material-date">
+                                    <strong>May 16, 2025</strong>
+                                    <span>09:45 AM</span>
+                                </div>
+
+
+                                <div class="material-actions">
+
+                                    <button>
+                                        <i class="fa-solid fa-download"></i>
+                                    </button>
+
+                                    <button>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ==================== MATERIAL ROW 5 ==================== -->
+
+                            <div class="material-row">
+
+                                <div class="material-name">
+
+                                    <div class="material-file-icon image">
+                                        <i class="fa-solid fa-file-image"></i>
+                                    </div>
+
+
+                                    <div class="material-name-info">
+                                        <h3>Classroom Poster - Rules</h3>
+                                        <p>classroom_rules.png</p>
+                                    </div>
+
+                                </div>
+
+
+                                <span class="material-type-badge image">
+                                    Image
+                                </span>
+
+
+                                <div class="material-grade-class">
+
+                                    <span>
+                                        Grade 2
+                                    </span>
+
+                                    <span>
+                                        2-A
+                                    </span>
+
+                                </div>
+
+
+                                <div class="material-date">
+                                    <strong>May 15, 2025</strong>
+                                    <span>04:05 PM</span>
+                                </div>
+
+
+                                <div class="material-actions">
+
+                                    <button>
+                                        <i class="fa-solid fa-download"></i>
+                                    </button>
+
+                                    <button>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ==================== MATERIAL ROW 6 ==================== -->
+
+                            <div class="material-row">
+
+                                <div class="material-name">
+
+                                    <div class="material-file-icon pdf">
+                                        <i class="fa-solid fa-file-pdf"></i>
+                                    </div>
+
+
+                                    <div class="material-name-info">
+                                        <h3>Reading Comprehension Worksheet</h3>
+                                        <p>reading_comprehension.pdf</p>
+                                    </div>
+
+                                </div>
+
+
+                                <span class="material-type-badge pdf">
+                                    PDF
+                                </span>
+
+
+                                <div class="material-grade-class">
+
+                                    <span>
+                                        Grade 3
+                                    </span>
+
+                                    <span>
+                                        3-A
+                                    </span>
+
+                                </div>
+
+
+                                <div class="material-date">
+                                    <strong>May 15, 2025</strong>
+                                    <span>10:10 AM</span>
+                                </div>
+
+
+                                <div class="material-actions">
+
+                                    <button>
+                                        <i class="fa-solid fa-download"></i>
+                                    </button>
+
+                                    <button>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ==================== MATERIAL ROW 7 ==================== -->
+
+                            <div class="material-row">
+
+                                <div class="material-name">
+
+                                    <div class="material-file-icon docx">
+                                        <i class="fa-solid fa-file-word"></i>
+                                    </div>
+
+
+                                    <div class="material-name-info">
+                                        <h3>Writing Prompts - Set 2</h3>
+                                        <p>writing_prompts_set2.docx</p>
+                                    </div>
+
+                                </div>
+
+
+                                <span class="material-type-badge docx">
+                                    Docx
+                                </span>
+
+
+                                <div class="material-grade-class">
+
+                                    <span>
+                                        Grade 2
+                                    </span>
+
+                                    <span>
+                                        2-B
+                                    </span>
+
+                                </div>
+
+
+                                <div class="material-date">
+                                    <strong>May 14, 2025</strong>
+                                    <span>02:30 PM</span>
+                                </div>
+
+
+                                <div class="material-actions">
+
+                                    <button>
+                                        <i class="fa-solid fa-download"></i>
+                                    </button>
+
+                                    <button>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ==================== MATERIAL ROW 8 ==================== -->
+
+                            <div class="material-row">
+
+                                <div class="material-name">
+
+                                    <div class="material-file-icon xlsx">
+                                        <i class="fa-solid fa-file-excel"></i>
+                                    </div>
+
+
+                                    <div class="material-name-info">
+                                        <h3>Attendance - May</h3>
+                                        <p>attendance_may.xlsx</p>
+                                    </div>
+
+                                </div>
+
+
+                                <span class="material-type-badge xlsx">
+                                    Xlsx
+                                </span>
+
+
+                                <div class="material-grade-class">
+
+                                    <span>
+                                        Grade 1
+                                    </span>
+
+                                    <span>
+                                        1-A
+                                    </span>
+
+                                </div>
+
+
+                                <div class="material-date">
+                                    <strong>May 12, 2025</strong>
+                                    <span>08:50 AM</span>
+                                </div>
+
+
+                                <div class="material-actions">
+
+                                    <button>
+                                        <i class="fa-solid fa-download"></i>
+                                    </button>
+
+                                    <button>
+                                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ==================== TABLE FOOTER ==================== -->
+
+                            <div class="materials-table-footer">
+
+                                <span>
+                                    Showing 1 to 8 of 28 materials
+                                </span>
+
+
+                                <div class="materials-pagination">
+
+                                    <button>
+                                        <i class="fa-solid fa-chevron-left"></i>
+                                    </button>
+
+                                    <button class="active">
+                                        1
+                                    </button>
+
+                                    <button>
+                                        2
+                                    </button>
+
+                                    <button>
+                                        3
+                                    </button>
+
+                                    <button>
+                                        4
+                                    </button>
+
+                                    <button>
+                                        <i class="fa-solid fa-chevron-right"></i>
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                    </div>
+
+
+                    <!-- ==================== RIGHT SIDEBAR ==================== -->
+
+                    <aside class="materials-side">
+
+
+                        <!-- ==================== UPLOAD CARD ==================== -->
+
+                        <section class="material-upload-card">
+
+                            <h2>
+                                Upload New Material
+                            </h2>
+
+
+                            <div class="material-upload-area">
+
+                                <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                                <p>
+                                    Drag and drop your file here
+                                </p>
+
+                                <span>
+                                    or
+                                </span>
+
+
+                                <label for="material-upload-input">
+                                    Choose File
+                                </label>
+
+                                <input type="file" id="material-upload-input">
+
+
+                                <small>
+                                    Max file size: 50MB
+                                </small>
+
+                            </div>
+
+                        </section>
+
+
+                    
+
+                        <!-- ==================== RECENT UPLOADS ==================== -->
+
+                        <section class="material-side-card">
+
+                            <h2>
+                                Recent Uploads
+                            </h2>
+
+
+                            <div class="recent-material">
+
+                                <strong>
+                                    Unit 5 - Vocabulary List
+                                </strong>
+
+                                <span>
+                                    May 18, 2025
+                                </span>
+
+                            </div>
+
+
+                            <div class="recent-material">
+
+                                <strong>
+                                    Grammar Exercise - Present Simple
+                                </strong>
+
+                                <span>
+                                    May 17, 2025
+                                </span>
+
+                            </div>
+
+
+                            <div class="recent-material">
+
+                                <strong>
+                                    Assessment Results - Unit 4
+                                </strong>
+
+                                <span>
+                                    May 16, 2025
+                                </span>
+
+                            </div>
+
+
+                            <a href="#" class="recent-material-link">
+
+                                View all recent uploads
+
+                                <i class="fa-solid fa-arrow-right"></i>
+
+                            </a>
+
+                        </section>
+
+
+                        <!-- ==================== MATERIALS OVERVIEW ==================== -->
+
+                        <section class="material-side-card materials-overview-card">
+
+                            <h2>
+                                Materials Overview
+                            </h2>
+
+
+                            <div class="materials-overview-stats">
+
+                                <div>
+
+                                    <i class="fa-regular fa-file"></i>
+
+                                    <strong>
+                                        28
+                                    </strong>
+
+                                    <span>
+                                        Total Materials
+                                    </span>
+
+                                </div>
+
+
+                                <div>
+
+                                    <i class="fa-regular fa-calendar"></i>
+
+                                    <strong>
+                                        12
+                                    </strong>
+
+                                    <span>
+                                        This Week
+                                    </span>
+
+                                </div>
+
+
+                                <div>
+
+                                    <i class="fa-regular fa-calendar-days"></i>
+
+                                    <strong>
+                                        45
+                                    </strong>
+
+                                    <span>
+                                        This Month
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                    </aside>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

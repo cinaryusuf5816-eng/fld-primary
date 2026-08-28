@@ -1,0 +1,2985 @@
+/* ==================== GENERAL ==================== */
+
+body {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    background-color: #F1F5F9;
+}
+
+a {
+    text-decoration: none;
+}
+
+.sayfa {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.main-content {
+    flex: 1;
+    background-color: #F1F5F9;
+    overflow-y: auto;
+    padding-bottom: 30px;
+}
+
+
+/* ==================== SIDEBAR ==================== */
+
+.sidebar {
+    background-color: #2563EB;
+    color: white;
+    width: 220px;
+    flex-shrink: 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding-left: 10px;
+}
+
+.sidebar li a {
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    color: white;
+    transition: all 0.3s;
+}
+
+.sidebar li a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    transform: translateX(4px);
+}
+
+.sidebar li a i {
+    margin-right: 8px;
+}
+
+.sidebar-alt {
+    margin-top: 150px;
+}
+
+
+/* ==================== LOGO ==================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+}
+
+.logo-text p {
+    margin: 2px 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+}
+
+.logo-text p:first-child {
+    font-size: 20px;
+}
+
+.logo-text p:last-child {
+    font-size: 12px;
+}
+
+
+/* ==================== TOPBAR ==================== */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 8px 24px;
+    min-height: 56px;
+
+    background-color: #F1F5F9;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+/* ---------- Topbar Left ---------- */
+
+.topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.topbar-left a {
+    color: #0F172A;
+}
+
+.topbar-left span {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+
+/* ---------- Topbar Center ---------- */
+
+.topbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 320px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background-color: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+
+    padding: 8px 12px;
+}
+
+.search-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background-color: transparent;
+
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: #94A3B8;
+}
+
+.search-box:focus-within {
+    border-color: #2563EB;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* ---------- Topbar Right ---------- */
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.notification {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.notification i {
+    font-size: 22px;
+}
+
+.notification:hover {
+    background-color: #E2E8F0;
+}
+
+.divider {
+    width: 1px;
+    height: 30px;
+    background-color: #CBD5E1;
+}
+
+
+/* ==================== PROFILE ==================== */
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 6px 10px;
+
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.profile:hover {
+    background-color: #E2E8F0;
+}
+
+.profile>i:first-child {
+    font-size: 36px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.profile-name {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.profile-role {
+    font-size: 12px;
+    color: #64748B;
+}
+
+.profile-arrow {
+    font-size: 11px;
+    margin-left: 4px;
+}
+
+
+/* ==================== WELCOME SECTION ==================== */
+
+.dashboard {
+    padding: 24px 20px 5px;
+}
+
+.dashboard h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: #0F172A;
+}
+
+.dashboard p {
+    margin: 6px 0 0;
+
+    font-size: 14px;
+    color: #64748B;
+}
+
+
+/* ==================== DASHBOARD CONTENT ==================== */
+
+.dashboard-content {
+    padding: 0 20px 30px;
+}
+
+
+/* ==================== SUMMARY CARDS ==================== */
+
+.summary-cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.summary-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+
+    background-color: white;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+.summary-card>i {
+    font-size: 38px;
+    color: #2563EB;
+}
+
+.summary-card-info {
+    text-align: center;
+}
+
+.summary-card-info p {
+    margin: 0 0 6px;
+
+    font-size: 14px;
+    color: #64748B;
+}
+
+.summary-card-info h3 {
+    margin: 0;
+
+    font-size: 24px;
+    color: #0F172A;
+}
+
+
+/* ==================== DASHBOARD ROW ==================== */
+
+.dashboard-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+
+/* ==================== DASHBOARD CARD ==================== */
+
+.dashboard-card {
+    background-color: white;
+
+    border-radius: 14px;
+
+    padding: 22px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+}
+
+
+/* ==================== CARD HEADER ==================== */
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+.card-header h2 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 700;
+    color: #0F172A;
+}
+
+.card-header a {
+    font-size: 13px;
+    font-weight: 500;
+
+    color: #2563EB;
+}
+
+
+/* ==================== TODAY'S PLAN ==================== */
+
+.plan-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.plan-item:last-child {
+    border-bottom: none;
+}
+
+.plan-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.plan-left>i {
+    font-size: 9px;
+    color: #2563EB;
+}
+
+.plan-left h3 {
+    margin: 0 0 4px;
+
+    font-size: 14px;
+}
+
+.plan-left p {
+    margin: 0;
+
+    font-size: 13px;
+    color: #64748B;
+}
+
+.plan-status {
+    padding: 6px 10px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.plan-status.completed {
+    background-color: #DCFCE7;
+    color: #15803D;
+}
+
+.plan-status.progress {
+    background-color: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.plan-status.pending {
+    background-color: #F1F5F9;
+    color: #64748B;
+}
+
+
+/* ==================== HOMEWORK TO ASSIGN ==================== */
+
+.homework-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.homework-item:last-child {
+    border-bottom: none;
+}
+
+.homework-item h3 {
+    margin: 0 0 4px;
+
+    font-size: 14px;
+}
+
+.homework-item p {
+    margin: 0;
+
+    font-size: 13px;
+    color: #64748B;
+}
+
+.homework-item>span {
+    font-size: 12px;
+    font-weight: 500;
+
+    color: #2563EB;
+}
+
+
+/* ==================== ANNOUNCEMENTS ==================== */
+
+.announcement-item {
+    display: flex;
+    gap: 12px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.announcement-item:last-child {
+    border-bottom: none;
+}
+
+.announcement-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: #EFF6FF;
+
+    border-radius: 8px;
+
+    color: #2563EB;
+}
+
+.announcement-info {
+    flex: 1;
+}
+
+.announcement-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+}
+
+.announcement-top h3 {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+.announcement-top span {
+    font-size: 11px;
+    color: #94A3B8;
+}
+
+.announcement-info p {
+    margin: 5px 0 0;
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    color: #64748B;
+}
+
+
+/* ==================== RECENT MATERIALS ==================== */
+
+.material-item {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.material-item:last-child {
+    border-bottom: none;
+}
+
+.material-icon {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: #EFF6FF;
+
+    border-radius: 8px;
+
+    color: #2563EB;
+}
+
+.material-info {
+    flex: 1;
+}
+
+.material-info h3 {
+    margin: 0 0 4px;
+
+    font-size: 14px;
+}
+
+.material-info p {
+    margin: 0;
+
+    font-size: 12px;
+    color: #64748B;
+}
+
+.material-item>span {
+    font-size: 11px;
+    color: #94A3B8;
+}
+
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 1200px) {
+
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .sidebar {
+        display: none;
+    }
+
+    .dashboard-row {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-info {
+        display: none;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .summary-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar-left span {
+        display: none;
+    }
+
+    .search-box {
+        max-width: 180px;
+    }
+
+}
+
+/* CALENDAR STARTS */
+.app-shell {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.calendar-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.calendar-title {
+    text-align: center;
+}
+
+.calendar-title h1 {
+    margin: 0;
+
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.calendar-view-options {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.view-button {
+    border: none;
+    background-color: transparent;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    color: dimgray;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+}
+
+.view-button:hover {
+    background-color: whitesmoke;
+}
+
+.view-button.active {
+    background-color: lavender;
+    color: royalblue;
+}
+
+.calendar-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.calendar-controls {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* previous - today - next buttons */
+.calendar-controls button {
+    border: none;
+    background-color: transparent;
+
+    border-radius: 7px;
+    padding: 7px 9px;
+
+    color: gray;
+
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.calendar-controls button:hover {
+    background-color: whitesmoke;
+}
+
+/* add event button */
+#add-event-button {
+    background-color: royalblue;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+#add-event-button:hover {
+    background-color: dodgerblue;
+}
+
+/* ADD EVENT MODAL STARTS */
+.add-event-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+}
+
+.add-event-modal-content {
+    width: 420px;
+    max-width: 90%;
+    padding: 22px;
+    background-color: white;
+    border: 1px solid gainsboro;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.add-event-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: gray;
+    cursor: pointer;
+}
+
+.add-event-modal-header {
+    margin-bottom: 20px;
+}
+
+.add-event-modal-header p {
+    margin: 0 0 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: royalblue;
+}
+
+.add-event-modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: dimgray;
+}
+
+.add-event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.add-event-form label {
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: dimgray;
+}
+
+/* Weekdays Checkbox */
+
+.weekdays-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.weekdays-option input {
+    width: auto;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.weekdays-option label {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: dimgray;
+    cursor: pointer;
+}
+
+.add-event-form input:not([type="checkbox"]),
+.add-event-form select,
+.add-event-form textarea {
+    width: 100%;
+    padding: 10px 11px;
+    border: 1px solid gainsboro;
+    border-radius: 8px;
+    background-color: white;
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.add-event-form input:not([type="checkbox"]):focus,
+.add-event-form select:focus,
+.add-event-form textarea:focus {
+    outline: none;
+    border-color: royalblue;
+}
+
+/* event day shortcuts */
+.event-day-shortcuts {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.event-day-shortcuts button {
+    border: 1px solid lightgray;
+    background-color: white;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    color: dimgray;
+    cursor: pointer;
+}
+
+.event-day-shortcuts button:hover {
+    background-color: whitesmoke;
+    border-color: gray;
+}
+
+.event-day-shortcuts.disabled {
+    opacity: 0.4;
+}
+
+.event-day-shortcuts.disabled button {
+    cursor: not-allowed;
+}
+
+/* event days */
+.event-days-options {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 6px;
+    margin-bottom: 4px;
+}
+
+.event-days-option {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.event-days-options.disabled {
+    opacity: 0.4;
+}
+
+.event-days-options.disabled input,
+.event-days-options.disabled label {
+    cursor: not-allowed;
+}
+
+.event-day-option input:not(:disabled),
+.event-day-option label {
+    cursor: pointer;
+}
+
+.event-days-option input {
+    width: auto;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.event-days-option label {
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: dimgray;
+    cursor: pointer;
+}
+
+/* start time and end time */
+.event-time-row {
+    display: flex;
+    gap: 12px;
+}
+
+.event-time-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.event-time-field label {
+    margin-top: 6px;
+}
+
+.add-event-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.save-event-button {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: royalblue;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.save-event-button:hover {
+    background-color: dodgerblue;
+}
+
+/* ADD EVENT MODAL FINISHES */
+
+#today-button {
+    font-size: 12px;
+    font-weight: 500;
+    color: dimgray;
+
+    padding: 7px 10px;
+}
+
+.calendar-section {
+    border: 1px solid lightgray;
+    border-radius: 12px;
+    background-color: white;
+    padding: 20px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    border-radius: 8px;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: whitesmoke;
+    border-radius: 8px;
+    padding: 0px;
+    text-align: left;
+}
+
+.calendar-weekdays div {
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: dimgray;
+}
+
+.calendar-day {
+    min-height: 100px;
+    border: 1px solid gainsboro;
+    padding: 10px;
+    transition: border-color 0.2s ease;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.calendar-event {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    margin-top: 7px;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+
+    font-size: 11px;
+    font-weight: 500;
+    color: dimgray;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    cursor: pointer;
+}
+
+.calendar-event::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background-color: royalblue;
+}
+
+.event-spelling::before {
+    background-color: royalblue;
+}
+
+.event-tell-story::before {
+    background-color: mediumseagreen;
+}
+
+.event-quick-check::before {
+    background-color: darkorange;
+}
+
+.calendar-event:hover {
+    color: black;
+}
+
+.day-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+
+    color: dimgray;
+    font-weight: 500;
+}
+
+.calendar-day:hover {
+    border-color: gray;
+    cursor: pointer;
+}
+
+/* other months in calendar */
+.other-month {
+    color: gray;
+    background-color: whitesmoke;
+}
+
+/* today box */
+.today:hover {
+    border-color: royalblue;
+}
+
+.today .day-number {
+    background-color: royalblue;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* CALENDAR FINISHES */
+
+/* DAY MODAL STARTS */
+.day-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+}
+
+.day-modal-content {
+    width: 380px;
+    max-width: 90%;
+    padding: 22px;
+    background-color: white;
+    border: 1px solid gainsboro;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+.day-modal-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    border: none;
+    background-color: transparent;
+    font-size: 22px;
+    color: gray;
+    cursor: pointer;
+}
+
+.day-modal-header {
+    margin-bottom: 20px;
+}
+
+.day-modal-header h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: dimgray;
+}
+
+.day-modal-date {
+    margin: 0 0 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: royalblue;
+}
+
+.day-modal-events {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-event {
+    display: flex;
+    gap: 4px;
+    padding: 11px 12px;
+    background-color: white;
+    border: 1px solid gainsboro;
+    border-left: 3px solid gainsboro;
+    border-radius: 9px;
+
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.modal-event-main {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.modal-event-title {
+    font-size: 13px;
+    color: black;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal-event-description {
+    font-size: 11px;
+    color: dimgray;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal-event-time {
+    flex-shrink: 0;
+
+    margin-left: 14px;
+
+    font-size: 11px;
+    font-weight: 600;
+    color: dimgray;
+
+    white-space: nowrap;
+}
+
+.modal-event:hover {
+    background-color: whitesmoke;
+}
+
+.modal-event strong {
+    font-size: 12px;
+    font-weight: 600;
+    color: royalblue;
+}
+
+.modal-event span {
+    font-size: 12px;
+    color: gray;
+}
+
+.no-events-message {
+    margin: 0;
+    padding: 14px;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    color: gray;
+    font-size: 12px;
+    text-align: center;
+}
+
+/* DAY MODAL FINISHES */
+
+
+
+/* footer */
+.site-footer {
+    margin-top: 20px;
+    padding: 12px 0;
+    border-top: 1px solid lightgray;
+    text-align: center;
+    color: gray;
+    font-size: 12px;
+}
+
+.site-footer p {
+    margin: 3px 0;
+}
+
+.skaya-quote {
+    font-style: italic;
+}
+
+
+
+/* ==================== HOMEWORK PAGE ==================== */
+.homework-page {
+    padding: 28px 32px;
+}
+
+.homework-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.homework-title h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.homework-title p {
+    margin: 8px 0 0;
+    color: #64748B;
+    font-size: 14px;
+}
+
+/* ==================== ADD HOMEWORK BUTTON ==================== */
+
+.add-homework-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #6C4CF1;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.add-homework-btn:hover {
+    background-color: #5939E8;
+}
+
+.homework-tabs {
+    display: flex;
+    gap: 30px;
+    border-bottom: 1px solid #E5E7EB;
+    margin: 25px 0;
+}
+
+.homework-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 4px;
+    color: #64748B;
+    text-decoration: none;
+}
+
+.homework-tab.active {
+    color: #6C4CF1;
+    border-bottom: 2px solid #6C4CF1;
+}
+
+/* ==================== HOMEWORK OVERVIEW ==================== */
+
+.homework-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.homework-card {
+    background-color: #ffffff;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    overflow: hidden;
+
+}
+
+/* ==================== HOMEWORK CARD TITLE ==================== */
+.homework-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 22px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.homework-card-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.homework-card-icon {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F3F0FF;
+    color: #6C4CF1;
+    flex-shrink: 0;
+}
+
+.homework-card-icon i {
+    font-size: 19px;
+}
+
+.homework-card-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.homework-card-title h2 {
+    margin: 0 0 5px;
+    font-size: 17px;
+    font-weight: 600;
+    color: #0F172A;
+}
+
+.homework-card-title p {
+    margin: 0;
+    font-size: 12px;
+    color: #64748B;
+    font-weight: 400;
+}
+
+
+
+.homework-card-header span {
+    font-size: 13px;
+    color: #64748B;
+}
+
+.view-all-btn {
+    padding: 8px 13px;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    color: #6C4CF1;
+    font-size: 12px;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.homework-columns {
+    display: grid;
+    grid-template-columns: 0.7fr 2.4fr 0.9fr 0.9fr;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748B;
+
+}
+
+/* ==================== HOMEWORK ROW ==================== */
+
+.homework-row {
+    display: grid;
+    grid-template-columns: 0.7fr 2.4fr 0.9fr 0.9fr;
+    align-items: center;
+    padding: 14px 20px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+/* Date */
+.homework-date {
+    width: 44px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+}
+
+.homework-date strong {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.homework-date span {
+    font-size: 10px;
+    color: #64748B;
+}
+
+/* Homework Information */
+
+.homework-info h3 {
+    margin: 0 0 5px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.homework-info p {
+    margin: 0;
+    font-size: 11px;
+    color: #64748B;
+}
+
+/* Grade */
+.grade-badge {
+    width: fit-content;
+    padding: 5px 8px;
+    background-color: #F3F0FF;
+    color: #6C4CF1;
+    border: 1px solid #DDD6FE;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* Status */
+
+.status-badge {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 9px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.status-badge.completed {
+    background-color: #ECFDF3;
+    color: #16A34A;
+}
+
+/* ==================== HOMEWORK VIEW ALL ==================== */
+
+.homework-view-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 12px 16px 16px;
+    padding: 5px 10px;
+    background-color: #F7F5FF;
+    border: 1px solid #E8E3FF;
+    border-radius: 8px;
+    color: #6C4CF1;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.homework-view-all i {
+    position: absolute;
+    right: 16px;
+    font-size: 11px;
+}
+
+
+/* ==================== DUE DATE BADGE ==================== */
+.due-date-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    padding: 6px 10px;
+    background-color: #FFF7ED;
+    color: #D97706;
+    border: 1px solid #FDE7C2;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+/* ==================== HOMEWORK CHECK CARD ==================== */
+
+.homework-check-card {
+    margin-top: 24px;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 22px;
+}
+
+/* ==================== HOMEWORK CHECK FILTERS ==================== */
+
+.homework-check-filters {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    gap: 20px;
+}
+
+/* ==================== FILTER GROUP ==================== */
+
+.homework-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.homework-filter-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.homework-filter-group select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #CBD5E1;
+    background-color: #FFFFFF;
+    color: #0F172A;
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    outline: none;
+    cursor: pointer;
+}
+
+.homework-filter-group select:focus {
+    border-color: #6C4CF1;
+}
+
+/* ==================== HOMEWORK CHECK TABLE ==================== */
+
+.homework-check-table {
+    margin-top: 24px;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ==================== TABLE ROW ==================== */
+
+.homework-check-row {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr 1fr 0.8fr 0.8fr 1.2fr;
+    align-items: center;
+    padding: 14px 16px;
+}
+
+/* ==================== TABLE HEADER ==================== */
+
+.table-header {
+    background-color: #F8FAFC;
+    border-bottom: 1px solid gray;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748B;
+}
+
+.table-header span {
+    text-align: center;
+}
+
+.table-header span:first-child {
+    text-align: left;
+}
+
+.table-header span:last-child {
+    text-align: left;
+}
+
+/* ==================== STUDENT INFO ==================== */
+
+.student-info {
+    display: flex;
+    align-items: center;
+}
+
+.student-info span {
+    font-size: 13px;
+    font-weight: 500;
+    color: #0F172A;
+}
+
+/* ==================== RADIO BUTTONS ==================== */
+
+.homework-checkrow input[type="radio"] {
+    justify-self: center;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #6C4CF1;
+}
+
+/* ==================== STUDENT NOTE ==================== */
+
+.student-note {
+    width: 100%;
+    max-width: 200px;
+    padding: 8px 10px;
+    border: 1px solid #CBD5E1;
+    border-radius: 7px;
+    background-color: #FFFFFF;
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    outline: none;
+    margin-right: 0;
+}
+
+.student-note::placeholder {
+    color: #94A3B8;
+}
+
+.student-note:focus {
+    border-color: #6C4CF1;
+}
+
+/* ==================== CUSTOM STATUS RADIO ==================== */
+
+.status-option {
+    display: flex;
+    justify-content: center;
+}
+
+.status-option input {
+    display: none;
+}
+
+.status-option label {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    justify-content: center;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    color: #94A3B8;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.status-option label:hover {
+    transform: translateY(-1px);
+    border-color: #CBD5E1;
+}
+
+/* Completed - light green */
+.completed-option input:checked+label {
+    background-color: #ECFDF3;
+    border-color: #86EFAC;
+    color: #16A34A;
+}
+
+/* Partially Done - yellow/orange */
+.partial-option input:checked+label {
+    background-color: #FFF7ED;
+    border-color: #FDBA74;
+    color: #EA580C;
+}
+
+/* Late - darker orange */
+.late-option input:checked+label {
+    background-color: #FFEDD5;
+    border-color: #FB923C;
+    color: #C2410C;
+}
+
+/* Not Done - red */
+.notdone-option input:checked+label {
+    background-color: #FEE2E2;
+    border-color: #F87171;
+    color: #DC2626;
+}
+
+/* Absent - darkest */
+.absent-option input:checked+label {
+    background-color: #FECACA;
+    border-color: #B91C1C;
+    color: #7F1D1D;
+}
+
+.homework-check-row:not(.table-header) {
+    background-color: #FFFFFF;
+}
+
+.homework-check-row:not(.table-header):nth-of-type(odd) {
+    background-color: #F8FAFC;
+}
+
+
+
+/* ==================== MATERIALS PAGE ==================== */
+
+.materials-page {
+    padding: 28px 32px 40px;
+}
+
+.materials-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 24px;
+}
+
+.materials-title h1 {
+    margin: 0;
+
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #0F172A;
+}
+
+.materials-title p {
+    margin: 8px 0 0;
+
+    font-size: 14px;
+
+    color: #64748B;
+}
+
+
+/* ==================== MATERIALS LAYOUT ==================== */
+
+.materials-layout {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) 300px;
+
+    gap: 24px;
+
+    align-items: start;
+}
+
+.materials-main {
+    min-width: 0;
+}
+
+
+/* ==================== FILTER CARD ==================== */
+
+.materials-filter-card {
+    padding: 20px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+}
+
+.materials-filter-top {
+    display: grid;
+
+    grid-template-columns:
+        minmax(220px, 2fr) 1fr 1fr 1fr minmax(210px, 1.4fr);
+
+    gap: 14px;
+
+    align-items: end;
+}
+
+
+/* ==================== MATERIAL SEARCH ==================== */
+
+.materials-search {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 10px 12px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+}
+
+.materials-search i {
+    font-size: 13px;
+
+    color: #94A3B8;
+}
+
+.materials-search input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background-color: transparent;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+
+    color: #0F172A;
+}
+
+.materials-search input::placeholder {
+    color: #94A3B8;
+}
+
+.materials-search:focus-within {
+    border-color: #6C4CF1;
+}
+
+
+/* ==================== MATERIAL FILTER GROUP ==================== */
+
+.materials-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.materials-filter-group label {
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #475569;
+}
+
+.materials-filter-group select {
+    width: 100%;
+
+    padding: 10px 11px;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+
+    background-color: #FFFFFF;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+
+    color: #0F172A;
+
+    outline: none;
+    cursor: pointer;
+}
+
+.materials-filter-group select:focus {
+    border-color: #6C4CF1;
+}
+
+
+/* ==================== DATE FILTER ==================== */
+
+.materials-date-filter {
+    min-height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    padding: 9px 11px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+
+    color: #475569;
+
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+
+    cursor: pointer;
+}
+
+.materials-date-filter i {
+    color: #64748B;
+}
+
+
+/* ==================== FILTER BOTTOM ==================== */
+
+.materials-filter-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    margin-top: 18px;
+}
+
+.materials-date-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.materials-date-buttons button,
+.clear-material-filters {
+    padding: 7px 11px;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 7px;
+
+    background-color: #FFFFFF;
+
+    color: #64748B;
+
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.materials-date-buttons button:hover,
+.clear-material-filters:hover {
+    background-color: #F8FAFC;
+}
+
+.materials-date-buttons button.active {
+    background-color: #F3F0FF;
+
+    border-color: #DDD6FE;
+
+    color: #6C4CF1;
+}
+
+.clear-material-filters {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* ==================== MATERIALS TABLE CARD ==================== */
+
+.materials-table-card {
+    margin-top: 20px;
+
+    overflow: hidden;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+}
+
+
+/* ==================== TABLE TOP ==================== */
+
+.materials-table-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 20px;
+
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.materials-table-top h2 {
+    margin: 0;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    color: #0F172A;
+}
+
+.materials-table-top h2 span {
+    color: #64748B;
+
+    font-weight: 500;
+}
+
+.materials-table-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.materials-table-actions>span {
+    font-size: 11px;
+
+    color: #64748B;
+}
+
+.materials-table-actions select {
+    padding: 7px 9px;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 7px;
+
+    background-color: #FFFFFF;
+
+    font-size: 11px;
+
+    outline: none;
+}
+
+
+/* ==================== VIEW BUTTON ==================== */
+
+.material-view-button {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 7px;
+
+    background-color: #FFFFFF;
+
+    color: #64748B;
+
+    cursor: pointer;
+}
+
+.material-view-button.active {
+    background-color: #F3F0FF;
+
+    border-color: #DDD6FE;
+
+    color: #6C4CF1;
+}
+
+
+/* ==================== TABLE HEADER ==================== */
+
+.materials-table-header,
+.material-row {
+    display: grid;
+
+    grid-template-columns:
+        minmax(280px, 2.2fr) 0.8fr 1.2fr 1.2fr 0.7fr;
+
+    align-items: center;
+
+    column-gap: 16px;
+}
+
+.materials-table-header {
+    padding: 11px 20px;
+
+    background-color: #F8FAFC;
+
+    border-bottom: 1px solid #E2E8F0;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #64748B;
+}
+
+
+/* ==================== MATERIAL ROW ==================== */
+
+.material-row {
+    padding: 13px 20px;
+
+    border-bottom: 1px solid #EEF2F7;
+
+    transition: background-color 0.2s ease;
+}
+
+.material-row:hover {
+    background-color: #F8FAFC;
+}
+
+.material-row:last-of-type {
+    border-bottom: none;
+}
+
+
+/* ==================== MATERIAL NAME ==================== */
+
+.material-name {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.material-file-icon {
+    width: 36px;
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+}
+
+.material-name-info {
+    min-width: 0;
+}
+
+.material-name-info h3 {
+    margin: 0 0 4px;
+
+    overflow: hidden;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #0F172A;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.material-name-info p {
+    margin: 0;
+
+    overflow: hidden;
+
+    font-size: 10px;
+
+    color: #94A3B8;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+
+/* ==================== FILE COLORS ==================== */
+
+.material-file-icon.pdf {
+    background-color: #FEF2F2;
+    color: #DC2626;
+}
+
+.material-file-icon.docx {
+    background-color: #EFF6FF;
+    color: #2563EB;
+}
+
+.material-file-icon.xlsx {
+    background-color: #ECFDF3;
+    color: #16A34A;
+}
+
+.material-file-icon.pptx {
+    background-color: #FFF7ED;
+    color: #EA580C;
+}
+
+.material-file-icon.image {
+    background-color: #F3F0FF;
+    color: #6C4CF1;
+}
+
+
+/* ==================== TYPE BADGES ==================== */
+
+.material-type-badge {
+    width: fit-content;
+
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.material-type-badge.pdf {
+    background-color: #FEF2F2;
+    color: #DC2626;
+}
+
+.material-type-badge.docx {
+    background-color: #EFF6FF;
+    color: #2563EB;
+}
+
+.material-type-badge.xlsx {
+    background-color: #ECFDF3;
+    color: #16A34A;
+}
+
+.material-type-badge.pptx {
+    background-color: #FFF7ED;
+    color: #EA580C;
+}
+
+.material-type-badge.image {
+    background-color: #F3F0FF;
+    color: #6C4CF1;
+}
+
+
+/* ==================== GRADE / CLASS ==================== */
+
+.material-grade-class {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    flex-wrap: wrap;
+}
+
+.material-grade-class span {
+    padding: 4px 7px;
+
+    background-color: #F8FAFC;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+
+    font-size: 10px;
+
+    color: #475569;
+}
+
+
+/* ==================== MATERIAL DATE ==================== */
+
+.material-date {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.material-date strong {
+    font-size: 10px;
+    font-weight: 500;
+
+    color: #334155;
+}
+
+.material-date span {
+    font-size: 9px;
+
+    color: #94A3B8;
+}
+
+
+/* ==================== MATERIAL ACTIONS ==================== */
+
+.material-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.material-actions button {
+    width: 29px;
+    height: 29px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 7px;
+
+    background-color: #FFFFFF;
+
+    color: #64748B;
+
+    cursor: pointer;
+}
+
+.material-actions button:hover {
+    background-color: #F8FAFC;
+
+    color: #6C4CF1;
+}
+
+
+/* ==================== TABLE FOOTER ==================== */
+
+.materials-table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding: 14px 20px;
+
+    background-color: #FFFFFF;
+
+    border-top: 1px solid #E2E8F0;
+}
+
+.materials-table-footer>span {
+    font-size: 10px;
+
+    color: #64748B;
+}
+
+
+/* ==================== PAGINATION ==================== */
+
+.materials-pagination {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.materials-pagination button {
+    min-width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 8px;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+
+    background-color: #FFFFFF;
+
+    color: #64748B;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+.materials-pagination button.active {
+    background-color: #6C4CF1;
+
+    border-color: #6C4CF1;
+
+    color: #FFFFFF;
+}
+
+
+/* ==================== RIGHT MATERIALS SIDEBAR ==================== */
+
+.materials-side {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+
+/* ==================== SIDE CARDS ==================== */
+
+.material-upload-card,
+.material-side-card {
+    padding: 18px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+}
+
+.material-upload-card h2,
+.material-side-card h2 {
+    margin: 0 0 14px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #0F172A;
+}
+
+
+/* ==================== UPLOAD AREA ==================== */
+
+.material-upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 26px 16px;
+
+    border: 1.5px dashed #CBD5E1;
+    border-radius: 10px;
+
+    background-color: #F8FAFC;
+
+    text-align: center;
+}
+
+.material-upload-area>i {
+    margin-bottom: 10px;
+
+    font-size: 28px;
+
+    color: #6C4CF1;
+}
+
+.material-upload-area p {
+    margin: 0 0 5px;
+
+    font-size: 11px;
+    font-weight: 500;
+
+    color: #334155;
+}
+
+.material-upload-area>span {
+    margin-bottom: 10px;
+
+    font-size: 10px;
+
+    color: #94A3B8;
+}
+
+.material-upload-area label {
+    padding: 8px 12px;
+
+    border-radius: 7px;
+
+    background-color: #6C4CF1;
+
+    color: #FFFFFF;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.material-upload-area label:hover {
+    background-color: #5939E8;
+}
+
+#material-upload-input {
+    display: none;
+}
+
+.material-upload-area small {
+    margin-top: 10px;
+
+    font-size: 9px;
+
+    color: #94A3B8;
+}
+
+
+
+
+/* ==================== RECENT MATERIAL ==================== */
+
+.recent-material {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    padding: 9px 0;
+
+    border-bottom: 1px solid #EEF2F7;
+}
+
+.recent-material strong {
+    font-size: 10px;
+    font-weight: 600;
+
+    color: #334155;
+}
+
+.recent-material span {
+    font-size: 9px;
+
+    color: #94A3B8;
+}
+
+.recent-material-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 12px;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    color: #6C4CF1;
+}
+
+
+/* ==================== MATERIALS OVERVIEW ==================== */
+
+.materials-overview-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 8px;
+}
+
+.materials-overview-stats>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    padding: 10px 5px;
+
+    background-color: #F8FAFC;
+
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+.materials-overview-stats i {
+    font-size: 14px;
+
+    color: #6C4CF1;
+}
+
+.materials-overview-stats strong {
+    font-size: 14px;
+
+    color: #0F172A;
+}
+
+.materials-overview-stats span {
+    font-size: 8px;
+
+    color: #64748B;
+}
+
+
+/* ==================== MATERIALS RESPONSIVE ==================== */
+
+@media (max-width: 1250px) {
+
+    .materials-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .materials-side {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .materials-filter-top {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .materials-date-filter {
+        grid-column: span 2;
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .materials-page {
+        padding: 20px;
+    }
+
+    .materials-filter-top {
+        grid-template-columns: 1fr;
+    }
+
+    .materials-date-filter {
+        grid-column: auto;
+    }
+
+    .materials-filter-bottom {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .materials-date-buttons {
+        flex-wrap: wrap;
+    }
+
+    .materials-table-card {
+        overflow-x: auto;
+    }
+
+    .materials-table-header,
+    .material-row {
+        min-width: 780px;
+    }
+
+    .materials-side {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ==================== ANNOUNCEMENTS PAGE ==================== */
+
+.announcements-page {
+    padding: 28px;
+}
+
+/* ==================== ANNOUNCEMENTS HEADER ==================== */
+
+.announcements-header {
+    margin-bottom: 10px;
+}
+
+.announcements-title h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    color: #0F172A;
+    letter-spacing: -0.5px;
+}
+
+.announcements-title p {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #64748B;
+}
+
+/* ==================== ANNOUNCEMENTS FILTERS ==================== */
+
+.announcements-filters {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 22px;
+    margin-bottom: 24px;
+}
+
+/* ==================== ANNOUNCEMENT SEARCH ==================== */
+
+.announcement-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    height: 44px;
+    padding: 0 14px;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+}
+
+.announcement-search i {
+    color: #94A3B8;
+    font-size: 14px;
+}
+
+.announcement-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 14px;
+    color: #0F172A;
+}
+
+.announcement-search input::placeholder {
+    color: #94A3B8;
+}
+
+/* ==================== ANNOUNCEMENT SELECT ==================== */
+
+.announcement-filter-select {
+    height: 44px;
+    min-width: 150px;
+    padding: 0 12px;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #334155;
+    outline: none;
+    cursor: pointer;
+}
+
+/* ==================== ANNOUNCEMENT DATE ==================== */
+
+.announcement-date-filter {
+    height: 44px;
+    padding: 0 12px;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    font-size: 14px;
+    color: #334155;
+    outline: none;
+    cursor: pointer;
+}
+
+/* ==================== ANNOUNCEMENTS TABS ==================== */
+
+.announcements-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.announcement-tab {
+    padding: 9px 16px;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.announcement-tab:hover {
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
+}
+
+.announcement-tab.active {
+    background-color: #2F67E9;
+    border-color: #2F67E9;
+    color: #FFFFFF;
+}
+
+/* ==================== ANNOUNCEMENT GROUP ==================== */
+
+.announcement-group {
+    margin-bottom: 32px;
+}
+
+.announcement-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    margin-top: 28px;
+}
+
+.announcement-group-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0F172A;
+}
+
+/* ==================== ANNOUNCEMENT CARD ==================== */
+
+.announcement-card {
+    position: relative;
+    display: flex;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.announcement-card:hover {
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+/* ==================== ANNOUNCEMENT CATEGORY LINE ==================== */
+
+.announcement-card-line {
+    width: 5px;
+    flex-shrink: 0;
+}
+
+.announcement-card-line.meeting {
+    background-color: #8B5CF6;
+}
+
+/* ==================== ANNOUNCEMENT CARD CONTENT ==================== */
+
+.announcement-card-content {
+    flex: 1;
+    padding: 20px 22px;
+}
+
+/* ==================== ANNOUNCEMENT CARD TOP ==================== */
+
+.announcement-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.announcement-card-top h3 {
+    margin: 8px 0 0;
+
+    font-size: 17px;
+    font-weight: 700;
+
+    color: #0F172A;
+}
+
+/* ==================== ANNOUNCEMENT TYPE ==================== */
+
+.announcement-type {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 9px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.announcement-type.meeting {
+    background-color: #F3E8FF;
+    color: #7C3AED;
+}
+
+/* ==================== ANNOUNCEMENT TIME ==================== */
+
+.announcement-time {
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 500;
+    color: #64748B;
+}
+
+/* ==================== ANNOUNCEMENT LOCATION ==================== */
+
+.announcement-location {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 14px 0 0;
+    font-size: 13px;
+    color: #64748B;
+}
+
+.announcement-location i {
+    font-size: 12px;
+    color: #94A3B8;
+}
+
+/* ==================== ANNOUNCEMENT DESCRIPTION ==================== */
+
+.announcement-description {
+    margin: 10px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+}
+
+/* ==================== ANNOUNCEMENT CARD BOTTOM ==================== */
+
+.announcement-card-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #F1F5F9;
+}
+
+/* ==================== ANNOUNCEMENT STATUS ==================== */
+
+.announcement-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 9px;
+    background-color: #EFF6FF;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #2563EB;
+}
+
+/* ==================== VIEW DETAILS BUTTON ==================== */
+
+.announcement-details {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 10px;
+    background: transparent;
+    border: none;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2F67E9;
+    cursor: pointer;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.announcement-details:hover {
+    background-color: #EFF6FF;
+    color: #1D4ED8;
+}
+
+.announcement-details i {
+    font-size: 11px;
+    transition: transform 0.23s ease;
+}
+
+/* ==================== ANNOUNCEMENT COUNT ==================== */
+
+.announcement-count {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    background-color: #F1F5F9;
+    border: 1px solid #E2E8F0;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748B;
+}

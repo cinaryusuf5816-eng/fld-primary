@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FLD Homework Check</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="sayfa">
+
+        <div id="sidebar-container"></div>
+
+        <main class="main-content">
+
+            <div id="topbar-container"></div>
+
+            <div class="homework-page">
+
+                <!-- ==================== PAGE HEADER ==================== -->
+
+                <div class="homework-header">
+
+                    <div class="homework-title">
+                        <h1>Homework</h1>
+                        <p>Check and track student homework progress.</p>
+                    </div>
+
+                </div>
+                <!-- ==================== HOMEWORK TABS ==================== -->
+
+                <div class="homework-tabs">
+                    <a href="homework.html" class="homework-tab">
+                        <i class="fa-regular fa-clipboard"></i>
+                        Overview
+                    </a>
+
+                    <a href="homework-check.html" class="homework-tab active">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        Homework Check
+                    </a>
+                </div>
+                <!-- ==================== HOMEWORK CHECK FILTERS ==================== -->
+
+                <section class="homework-check-card">
+                    <div class="homework-check-filters">
+
+                        <div class="homework-filter-group">
+                            <label for="grade-select">
+                                Select Grade
+                            </label>
+
+                            <select id="grade-select">
+                                <option>Grade 1</option>
+                                <option>Grade 2</option>
+                                <option>Grade 3</option>
+                                <option>Grade 4</option>
+                            </select>
+                        </div>
+
+
+                        <div class="homework-filter-group">
+                            <label for="class-select">
+                                Select Class
+                            </label>
+
+                            <select id="class-select">
+                                <option>Class A</option>
+                                <option>Class B</option>
+                                <option>Class C</option>
+                                <option>Class D</option>
+                                <option>Class E</option>
+                                <option>Class F</option>
+                                <option>Class G</option>
+                            </select>
+                        </div>
+
+
+                        <div class="homework-filter-group">
+                            <label for="homework-select">
+                                Select Homework
+                            </label>
+
+                            <select id="homework-select">
+                                <option>Workbook p.28-29</option>
+                                <option>Reading Comprehension</option>
+                                <option>Grammar Exercise</option>
+                                <option>Writing Practice</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <!-- ==================== HOMEWORK CHECK TABLE ==================== -->
+
+                    <div class="homework-check-table">
+
+                        <div class="homework-check-row table-header">
+                            <span>Student</span>
+                            <span>Completed</span>
+                            <span>Partially Done</span>
+                            <span>Not Done</span>
+                            <span>Late</span>
+                            <span>Absent</span>
+                            <span>Note</span>
+                        </div>
+
+                        <!-- Student Row 1 -->
+                        <div class="homework-check-row">
+
+                            <div class="student-info">
+                                <span>Ali A.</span>
+                            </div>
+
+                            <div class="status-option completed-option">
+                                <input type="radio" name="ali-status" id="ali-completed" value="completed">
+
+                                <label for="ali-completed">
+                                    <i class="fa-solid fa-check"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option partial-option">
+                                <input type="radio" name="ali-status" id="ali-partial" value="partially-done">
+
+                                <label for="ali-partial">
+                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option notdone-option">
+                                <input type="radio" name="ali-status" id="ali-notdone" value="not-done">
+
+                                <label for="ali-notdone">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option late-option">
+                                <input type="radio" name="ali-status" id="ali-late" value="late">
+
+                                <label for="ali-late">
+                                    <i class="fa-regular fa-clock"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option absent-option">
+                                <input type="radio" name="ali-status" id="ali-absent" value="absent">
+
+                                <label for="ali-absent">
+                                    <i class="fa-solid fa-minus"></i>
+                                </label>
+                            </div>
+
+                            <input type="text" class="student-note" placeholder="Add note...">
+
+                        </div>
+
+
+                        <!-- Student Row 2 -->
+                        <div class="homework-check-row">
+
+                            <div class="student-info">
+                                <span>Ayşe Y.</span>
+                            </div>
+
+                            <div class="status-option completed-option">
+                                <input type="radio" name="ayse-status" id="ayse-completed" value="completed">
+                                <label for="ayse-completed">
+                                    <i class="fa-solid fa-check"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option partial-option">
+                                <input type="radio" name="ayse-status" id="ayse-partial" value="partially-done">
+                                <label for="ayse-partial">
+                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option notdone-option">
+                                <input type="radio" name="ayse-status" id="ayse-notdone" value="not-done">
+                                <label for="ayse-notdone">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option late-option">
+                                <input type="radio" name="ayse-status" id="ayse-late" value="late">
+                                <label for="ayse-late">
+                                    <i class="fa-regular fa-clock"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option absent-option">
+                                <input type="radio" name="ayse-status" id="ayse-absent" value="absent">
+                                <label for="ayse-absent">
+                                    <i class="fa-solid fa-minus"></i>
+                                </label>
+                            </div>
+
+                            <input type="text" class="student-note" placeholder="Add note...">
+
+                        </div>
+
+
+                        <!-- Student Row 3 -->
+                        <div class="homework-check-row">
+
+                            <div class="student-info">
+                                <span>Mehmet E.</span>
+                            </div>
+
+                            <div class="status-option completed-option">
+                                <input type="radio" name="mehmet-status" id="mehmet-completed" value="completed">
+                                <label for="mehmet-completed">
+                                    <i class="fa-solid fa-check"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option partial-option">
+                                <input type="radio" name="mehmet-status" id="mehmet-partial" value="partially-done">
+                                <label for="mehmet-partial">
+                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option notdone-option">
+                                <input type="radio" name="mehmet-status" id="mehmet-notdone" value="not-done">
+                                <label for="mehmet-notdone">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option late-option">
+                                <input type="radio" name="mehmet-status" id="mehmet-late" value="late">
+                                <label for="mehmet-late">
+                                    <i class="fa-regular fa-clock"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option absent-option">
+                                <input type="radio" name="mehmet-status" id="mehmet-absent" value="absent">
+                                <label for="mehmet-absent">
+                                    <i class="fa-solid fa-minus"></i>
+                                </label>
+                            </div>
+
+                            <input type="text" class="student-note" placeholder="Add note...">
+
+                        </div>
+
+
+                        <!-- Student Row 4 -->
+                        <div class="homework-check-row">
+
+                            <div class="student-info">
+                                <span>Ece K.</span>
+                            </div>
+
+                            <div class="status-option completed-option">
+                                <input type="radio" name="ece-status" id="ece-completed" value="completed">
+                                <label for="ece-completed">
+                                    <i class="fa-solid fa-check"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option partial-option">
+                                <input type="radio" name="ece-status" id="ece-partial" value="partially-done">
+                                <label for="ece-partial">
+                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option notdone-option">
+                                <input type="radio" name="ece-status" id="ece-notdone" value="not-done">
+                                <label for="ece-notdone">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option late-option">
+                                <input type="radio" name="ece-status" id="ece-late" value="late">
+                                <label for="ece-late">
+                                    <i class="fa-regular fa-clock"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option absent-option">
+                                <input type="radio" name="ece-status" id="ece-absent" value="absent">
+                                <label for="ece-absent">
+                                    <i class="fa-solid fa-minus"></i>
+                                </label>
+                            </div>
+
+                            <input type="text" class="student-note" placeholder="Add note...">
+
+                        </div>
+
+
+                        <!-- Student Row 5 -->
+                        <div class="homework-check-row">
+
+                            <div class="student-info">
+                                <span>Can D.</span>
+                            </div>
+
+                            <div class="status-option completed-option">
+                                <input type="radio" name="can-status" id="can-completed" value="completed">
+                                <label for="can-completed">
+                                    <i class="fa-solid fa-check"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option partial-option">
+                                <input type="radio" name="can-status" id="can-partial" value="partially-done">
+                                <label for="can-partial">
+                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option notdone-option">
+                                <input type="radio" name="can-status" id="can-notdone" value="not-done">
+                                <label for="can-notdone">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option late-option">
+                                <input type="radio" name="can-status" id="can-late" value="late">
+                                <label for="can-late">
+                                    <i class="fa-regular fa-clock"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option absent-option">
+                                <input type="radio" name="can-status" id="can-absent" value="absent">
+                                <label for="can-absent">
+                                    <i class="fa-solid fa-minus"></i>
+                                </label>
+                            </div>
+
+                            <input type="text" class="student-note" placeholder="Add note...">
+
+                        </div>
+
+
+                        <!-- Student Row 6 -->
+                        <div class="homework-check-row">
+
+                            <div class="student-info">
+                                <span>Zeynep T.</span>
+                            </div>
+
+                            <div class="status-option completed-option">
+                                <input type="radio" name="zeynep-status" id="zeynep-completed" value="completed">
+                                <label for="zeynep-completed">
+                                    <i class="fa-solid fa-check"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option partial-option">
+                                <input type="radio" name="zeynep-status" id="zeynep-partial" value="partially-done">
+                                <label for="zeynep-partial">
+                                    <i class="fa-solid fa-circle-half-stroke"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option notdone-option">
+                                <input type="radio" name="zeynep-status" id="zeynep-notdone" value="not-done">
+                                <label for="zeynep-notdone">
+                                    <i class="fa-solid fa-xmark"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option late-option">
+                                <input type="radio" name="zeynep-status" id="zeynep-late" value="late">
+                                <label for="zeynep-late">
+                                    <i class="fa-regular fa-clock"></i>
+                                </label>
+                            </div>
+
+                            <div class="status-option absent-option">
+                                <input type="radio" name="zeynep-status" id="zeynep-absent" value="absent">
+                                <label for="zeynep-absent">
+                                    <i class="fa-solid fa-minus"></i>
+                                </label>
+                            </div>
+
+                            <input type="text" class="student-note" placeholder="Add note...">
+
+                        </div>
+                </section>
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

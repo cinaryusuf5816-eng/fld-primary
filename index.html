@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FLD Dashboard</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="sayfa">
+        <div id="sidebar-container"></div>
+
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+
+        <main class="main-content">
+             <div id="topbar-container"></div>
+
+            <!-- ==================== WELCOME SECTION ==================== -->
+
+            <div class="dashboard">
+
+                <h2 id="greeting">
+                    Good Afternoon, Kuzey 👋
+                </h2>
+
+                <p id="current-date">
+                    Thursday, 13 August 2026
+                </p>
+
+            </div>
+
+
+            <!-- ==================== DASHBOARD CONTENT ==================== -->
+
+            <div class="dashboard-content">
+
+
+                <!-- ==================== SUMMARY CARDS ==================== -->
+
+                <div class="summary-cards">
+
+
+                    <!-- Today's Tasks -->
+                    <div class="summary-card">
+
+                        <i class="fa-solid fa-list-check"></i>
+
+                        <div class="summary-card-info">
+                            <p>Today's Tasks</p>
+                            <h3 id="today-task-count">4</h3>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Homework -->
+                    <div class="summary-card">
+
+                        <i class="fa-solid fa-book-open"></i>
+
+                        <div class="summary-card-info">
+                            <p>Homework</p>
+                            <h3>3</h3>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Exams -->
+                    <div class="summary-card">
+
+                        <i class="fa-solid fa-file-pen"></i>
+
+                        <div class="summary-card-info">
+                            <p>Exams</p>
+                            <h3>2</h3>
+                        </div>
+
+                    </div>
+
+
+                    <!-- Materials -->
+                    <div class="summary-card">
+
+                        <i class="fa-solid fa-folder-open"></i>
+
+                        <div class="summary-card-info">
+                            <p>Materials</p>
+                            <h3 id="material-count">3</h3>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== FIRST DASHBOARD ROW ==================== -->
+
+                <div class="dashboard-row">
+
+
+                    <!-- Today's Plan -->
+                    <section class="dashboard-card todays-plan">
+
+                        <div class="card-header">
+
+                            <h2>Today's Plan</h2>
+
+                            <a href="#">
+                                View All
+                            </a>
+
+                        </div>
+                        <div id="today-plan-list"></div>
+
+
+                    </section>
+
+
+                    <!-- Homework to Assign -->
+                    <section class="dashboard-card homework-to-assign">
+
+                        <div class="card-header">
+
+                            <h2>Homework to Assign</h2>
+
+                            <a href="#">
+                                View All
+                            </a>
+
+                        </div>
+                        
+                        <div id=""homework-list"></div>
+
+
+                        <!-- Homework Item 1 -->
+                        <div class="homework-item">
+
+                            <div>
+                                <h3>Grade 3</h3>
+                                <p>Workbook pages 28–29</p>
+                            </div>
+
+                            <span>Friday</span>
+
+                        </div>
+
+
+                        <!-- Homework Item 2 -->
+                        <div class="homework-item">
+
+                            <div>
+                                <h3>Grade 2</h3>
+                                <p>Reading Worksheet</p>
+                            </div>
+
+                            <span>Monday</span>
+
+                        </div>
+
+
+                        <!-- Homework Item 3 -->
+                        <div class="homework-item">
+
+                            <div>
+                                <h3>Grade 3</h3>
+                                <p>Vocabulary Practice</p>
+                            </div>
+
+                            <span>Tuesday</span>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+
+                <!-- ==================== SECOND DASHBOARD ROW ==================== -->
+
+                <div class="dashboard-row">
+
+
+                    <!-- Announcements -->
+                    <section class="dashboard-card announcements">
+
+                        <div class="card-header">
+
+                            <h2>Announcements</h2>
+
+                            <a href="#">
+                                View All
+                            </a>
+
+                        </div>
+
+                        <div id="announcement-list"></div>
+
+                        <!-- Announcement 1 -->
+                        <div class="announcement-item">
+
+                            <div class="announcement-icon">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+
+                            <div class="announcement-info">
+
+                                <div class="announcement-top">
+
+                                    <h3>Department Meeting</h3>
+
+                                    <span>
+                                        13 Aug
+                                    </span>
+
+                                </div>
+
+                                <p>
+                                    English Department meeting will be held after school.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Announcement 2 -->
+                        <div class="announcement-item">
+
+                            <div class="announcement-icon">
+                                <i class="fa-solid fa-bullhorn"></i>
+                            </div>
+
+                            <div class="announcement-info">
+
+                                <div class="announcement-top">
+
+                                    <h3>Exam Preparation</h3>
+
+                                    <span>
+                                        12 Aug
+                                    </span>
+
+                                </div>
+
+                                <p>
+                                    Grade 3 exam materials should be completed this week.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- Recent Materials -->
+                    <section class="dashboard-card recent-materials">
+
+                        <div class="card-header">
+
+                            <h2>Recent Materials</h2>
+
+                            <a href="#">
+                                View All
+                            </a>
+
+                        </div>
+
+                        <div id=""material-list"></div>
+
+                        <!-- Material 1 -->
+                        <div class="material-item">
+
+                            <div class="material-icon">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+
+                            <div class="material-info">
+
+                                <h3>Past Simple Worksheet</h3>
+
+                                <p>
+                                    Grade 3 • PDF
+                                </p>
+
+                            </div>
+
+                            <span>
+                                Today
+                            </span>
+
+                        </div>
+
+
+                        <!-- Material 2 -->
+                        <div class="material-item">
+
+                            <div class="material-icon">
+                                <i class="fa-solid fa-file-powerpoint"></i>
+                            </div>
+
+                            <div class="material-info">
+
+                                <h3>Unit 3 Presentation</h3>
+
+                                <p>
+                                    Grade 3 • PowerPoint
+                                </p>
+
+                            </div>
+
+                            <span>
+                                Yesterday
+                            </span>
+
+                        </div>
+
+
+                        <!-- Material 3 -->
+                        <div class="material-item">
+
+                            <div class="material-icon">
+                                <i class="fa-solid fa-file-word"></i>
+                            </div>
+
+                            <div class="material-info">
+
+                                <h3>Speaking Worksheet</h3>
+
+                                <p>
+                                    Grade 2 • Word
+                                </p>
+
+                            </div>
+
+                            <span>
+                                11 Aug
+                            </span>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script src="script.js"></script>
+    
+</body>
+
+</html>
