@@ -2983,3 +2983,134 @@ a {
     font-weight: 600;
     color: #64748B;
 }
+
+/* ==================== ANNOUNCEMENTS EMPTY STATE ==================== */
+
+.announcements-empty {
+    display: none;
+    text-align: center;
+    padding: 48px 24px;
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+}
+
+.announcements-empty i {
+    font-size: 32px;
+    color: #94A3B8;
+    margin-bottom: 14px;
+}
+
+.announcements-empty h3 {
+    margin: 0 0 8px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #0F172A;
+}
+
+.announcements-empty p {
+    margin: 0;
+    font-size: 14px;
+    color: #64748B;
+}
+
+/* ==================== ANNOUNCEMENT MODAL ==================== */
+
+.announcement-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.45);
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    z-index: 1000;
+}
+
+/* ==================== MODAL CONTENT ==================== */
+
+.announcement-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    padding: 28px;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.18);
+}
+
+
+/* ==================== MODAL CLOSE BUTTON ==================== */
+
+.announcement-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 10px;
+    background-color: #F1F5F9;
+    color: #475569;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.announcement-modal-close:hover {
+    background-color: #E2E8F0;
+}
+
+
+/* ==================== MODAL TYPE ==================== */
+
+.announcement-modal-type {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    background-color: #F3E8FF;
+    color: #7C3AED;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 14px;
+}
+
+
+/* ==================== MODAL TITLE ==================== */
+
+.announcement-modal-title {
+    margin: 0 44px 18px 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #0F172A;
+}
+
+
+/* ==================== MODAL INFO ==================== */
+
+.announcement-modal-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-bottom: 20px;
+}
+
+.announcement-modal-info span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #64748B;
+}
+
+
+/* ==================== MODAL DESCRIPTION ==================== */
+
+.announcement-modal-description {
+    margin: 0;
+    padding-top: 18px;
+    border-top: 1px solid #E2E8F0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #475569;
+}
