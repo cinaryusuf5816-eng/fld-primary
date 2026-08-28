@@ -96,13 +96,42 @@ function filterAnnouncements() {
 
         const cardsInGroup = group.querySelectorAll(".announcement-card");
 
-        const hasVisibleCard = Array.from(cardsInGroup).some((card) => {
+        const visibleCards = Array.from(cardsInGroup).filter((card) => {
             return card.style.display !== "none";
         });
 
-        group.style.display = hasVisibleCard ? "block" : "none";
+
+        /* ==================== VISIBLE CARD COUNT ==================== */
+
+        const visibleCount = visibleCards.length;
+
+
+        /* ==================== ANNOUNCEMENT COUNT ==================== */
+
+        const countElement = group.querySelector(".announcement-count");
+
+        countElement.textContent =
+            visibleCount === 1
+                ? "1 Announcement"
+                : `${visibleCount} Announcements`;
+
+
+        /* ==================== GROUP VISIBILITY ==================== */
+
+        group.style.display = visibleCount > 0 ? "block" : "none";
 
     });
+
+
+    /* ==================== EMPTY STATE ==================== */
+
+    const emptyState = document.querySelector(".announcements-empty");
+
+    const hasVisibleGroup = Array.from(announcementGroups).some((group) => {
+        return group.style.display !== "none";
+    });
+
+    emptyState.style.display = hasVisibleGroup ? "none" : "block";
 
 }
 
@@ -156,3 +185,34 @@ dateFilter.addEventListener("change", () => {
 /* ==================== INITIAL FILTER ==================== */
 
 filterAnnouncements();
+
+
+/* ==================== ANNOUNCEMENT MODAL ELEMENTS ==================== */
+
+const modal = document.querySelector(".announcement-modal");
+
+const modalClose = document.querySelector(".announcement-modal-close");
+
+const detailButtons = document.querySelectorAll(".announcement-details");
+
+
+/* ==================== OPEN MODAL ==================== */
+
+detailButtons.forEach((button) => {
+
+    button.addEventListener("click", () => {
+
+        modal.style.display = "flex";
+
+    });
+
+});
+
+
+/* ==================== CLOSE MODAL ==================== */
+
+modalClose.addEventListener("click", () => {
+
+    modal.style.display = "none";
+
+});
