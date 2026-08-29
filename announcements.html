@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>FLD Announcements</title>
@@ -14,7 +16,9 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
+
 
 <body>
 
@@ -22,44 +26,92 @@
 
         <div id="sidebar-container"></div>
 
+
         <main class="main-content">
 
             <div id="topbar-container"></div>
 
+
             <div class="announcements-page">
+
 
                 <!-- ==================== ANNOUNCEMENTS HEADER ==================== -->
 
                 <div class="announcements-header">
 
                     <div class="announcements-title">
+
                         <h1>Announcements</h1>
-                        <p>Stay updated with meetings, events and important reminders.</p>
+
+                        <p>
+                            Stay updated with meetings, events and important reminders.
+                        </p>
+
                     </div>
 
+
+                    <!-- ==================== ADD ANNOUNCEMENT BUTTON ==================== -->
+
+                    <button class="add-announcement-button">
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Add Announcement
+
+                    </button>
+
                 </div>
+
 
                 <!-- ==================== ANNOUNCEMENTS FILTERS ==================== -->
 
                 <div class="announcements-filters">
 
+
+                    <!-- ==================== SEARCH ==================== -->
+
                     <div class="announcement-search">
+
                         <i class="fa-solid fa-magnifying-glass"></i>
 
                         <input type="text" placeholder="Search announcements...">
+
                     </div>
+
+
+                    <!-- ==================== TYPE FILTER ==================== -->
 
                     <select class="announcement-filter-select">
 
-                        <option value="all">All Types</option>
-                        <option value="meeting">Meeting</option>
-                        <option value="event">School Event</option>
-                        <option value="reminder">Reminder</option>
-                        <option value="deadline">Deadline</option>
+                        <option value="all">
+                            All Types
+                        </option>
+
+                        <option value="meeting">
+                            Meeting
+                        </option>
+
+                        <option value="event">
+                            School Event
+                        </option>
+
+                        <option value="reminder">
+                            Reminder
+                        </option>
+
+                        <option value="deadline">
+                            Deadline
+                        </option>
+
                     </select>
 
+
+                    <!-- ==================== DATE FILTER ==================== -->
+
                     <input type="date" class="announcement-date-filter">
+
                 </div>
+
 
                 <!-- ==================== ANNOUNCEMENTS TABS ==================== -->
 
@@ -78,17 +130,27 @@
                     </button>
 
                 </div>
+
+
                 <!-- ==================== ANNOUNCEMENTS LIST ==================== -->
 
                 <div class="announcements-list">
 
-                    <!-- ==================== TODAY ==================== -->
+
+                    <!-- ====================================================== -->
+                    <!-- ==================== TODAY ============================ -->
+                    <!-- ====================================================== -->
 
                     <section class="announcement-group">
 
+
+                        <!-- ==================== GROUP HEADER ==================== -->
+
                         <div class="announcement-group-header">
 
-                            <h2>Today</h2>
+                            <h2>
+                                Today
+                            </h2>
 
                             <span class="announcement-count">
                                 1 Announcement
@@ -96,11 +158,19 @@
 
                         </div>
 
-                        <article class="announcement-card" data-status="upcoming" data-date="2026-08-29">
+
+                        <!-- ==================== DEPARTMENT MEETING ==================== -->
+
+                        <article class="announcement-card" data-status="upcoming" data-date="2026-08-29"
+                            data-details="Announcement description will appear here.">
 
                             <div class="announcement-card-line meeting"></div>
 
+
                             <div class="announcement-card-content">
+
+
+                                <!-- ==================== CARD TOP ==================== -->
 
                                 <div class="announcement-card-top">
 
@@ -110,9 +180,12 @@
                                             Meeting
                                         </span>
 
-                                        <h3>Department Meeting</h3>
+                                        <h3>
+                                            Department Meeting
+                                        </h3>
 
                                     </div>
+
 
                                     <span class="announcement-time">
                                         Today · 15:30
@@ -120,14 +193,26 @@
 
                                 </div>
 
+
+                                <!-- ==================== LOCATION ==================== -->
+
                                 <p class="announcement-location">
+
                                     <i class="fa-solid fa-location-dot"></i>
+
                                     Meeting Room A
+
                                 </p>
+
+
+                                <!-- ==================== SHORT DESCRIPTION ==================== -->
 
                                 <p class="announcement-description">
                                     Monthly English department planning meeting.
                                 </p>
+
+
+                                <!-- ==================== CARD BOTTOM ==================== -->
 
                                 <div class="announcement-card-bottom">
 
@@ -135,10 +220,27 @@
                                         Upcoming
                                     </span>
 
-                                    <button class="announcement-details">
-                                        View Details
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
+
+                                    <div class="announcement-actions">
+
+                                        <button class="announcement-delete">
+
+                                            <i class="fa-solid fa-trash"></i>
+
+                                            Delete
+
+                                        </button>
+
+
+                                        <button class="announcement-details">
+
+                                            View Details
+
+                                            <i class="fa-solid fa-chevron-right"></i>
+
+                                        </button>
+
+                                    </div>
 
                                 </div>
 
@@ -149,13 +251,20 @@
                     </section>
 
 
-                    <!-- ==================== THIS WEEK ==================== -->
+                    <!-- ====================================================== -->
+                    <!-- ==================== THIS WEEK ======================== -->
+                    <!-- ====================================================== -->
 
                     <section class="announcement-group">
 
+
+                        <!-- ==================== GROUP HEADER ==================== -->
+
                         <div class="announcement-group-header">
 
-                            <h2>This Week</h2>
+                            <h2>
+                                This Week
+                            </h2>
 
                             <span class="announcement-count">
                                 2 Announcements
@@ -163,11 +272,19 @@
 
                         </div>
 
-                        <article class="announcement-card" data-status="upcoming" data-date="2026-08-29">
+
+                        <!-- ==================== BOOK FAIR ==================== -->
+
+                        <article class="announcement-card" data-status="upcoming" data-date="2026-08-29"
+                            data-details="Announcement description will appear here.">
 
                             <div class="announcement-card-line event"></div>
 
+
                             <div class="announcement-card-content">
+
+
+                                <!-- ==================== CARD TOP ==================== -->
 
                                 <div class="announcement-card-top">
 
@@ -177,9 +294,12 @@
                                             School Event
                                         </span>
 
-                                        <h3>Book Fair</h3>
+                                        <h3>
+                                            Book Fair
+                                        </h3>
 
                                     </div>
+
 
                                     <span class="announcement-time">
                                         Saturday · 11:00
@@ -187,14 +307,26 @@
 
                                 </div>
 
+
+                                <!-- ==================== LOCATION ==================== -->
+
                                 <p class="announcement-location">
+
                                     <i class="fa-solid fa-location-dot"></i>
+
                                     Main Hall
+
                                 </p>
+
+
+                                <!-- ==================== SHORT DESCRIPTION ==================== -->
 
                                 <p class="announcement-description">
                                     Students and teachers are invited to visit the annual school book fair.
                                 </p>
+
+
+                                <!-- ==================== CARD BOTTOM ==================== -->
 
                                 <div class="announcement-card-bottom">
 
@@ -202,10 +334,27 @@
                                         Upcoming
                                     </span>
 
-                                    <button class="announcement-details">
-                                        View Details
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
+
+                                    <div class="announcement-actions">
+
+                                        <button class="announcement-delete">
+
+                                            <i class="fa-solid fa-trash"></i>
+
+                                            Delete
+
+                                        </button>
+
+
+                                        <button class="announcement-details">
+
+                                            View Details
+
+                                            <i class="fa-solid fa-chevron-right"></i>
+
+                                        </button>
+
+                                    </div>
 
                                 </div>
 
@@ -214,11 +363,18 @@
                         </article>
 
 
-                        <article class="announcement-card" data-status="upcoming" data-date="2026-08-29">
+                        <!-- ==================== WEEKLY REPORTS ==================== -->
+
+                        <article class="announcement-card" data-status="upcoming" data-date="2026-08-29"
+                            data-details="Announcement description will appear here.">
 
                             <div class="announcement-card-line reminder"></div>
 
+
                             <div class="announcement-card-content">
+
+
+                                <!-- ==================== CARD TOP ==================== -->
 
                                 <div class="announcement-card-top">
 
@@ -228,9 +384,12 @@
                                             Reminder
                                         </span>
 
-                                        <h3>Submit Weekly Reports</h3>
+                                        <h3>
+                                            Submit Weekly Reports
+                                        </h3>
 
                                     </div>
+
 
                                     <span class="announcement-time">
                                         Friday · 16:00
@@ -238,14 +397,26 @@
 
                                 </div>
 
+
+                                <!-- ==================== LOCATION ==================== -->
+
                                 <p class="announcement-location">
+
                                     <i class="fa-solid fa-location-dot"></i>
+
                                     Online
+
                                 </p>
+
+
+                                <!-- ==================== SHORT DESCRIPTION ==================== -->
 
                                 <p class="announcement-description">
                                     Please submit weekly classroom reports before the end of the day.
                                 </p>
+
+
+                                <!-- ==================== CARD BOTTOM ==================== -->
 
                                 <div class="announcement-card-bottom">
 
@@ -253,10 +424,27 @@
                                         Upcoming
                                     </span>
 
-                                    <button class="announcement-details">
-                                        View Details
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
+
+                                    <div class="announcement-actions">
+
+                                        <button class="announcement-delete">
+
+                                            <i class="fa-solid fa-trash"></i>
+
+                                            Delete
+
+                                        </button>
+
+
+                                        <button class="announcement-details">
+
+                                            View Details
+
+                                            <i class="fa-solid fa-chevron-right"></i>
+
+                                        </button>
+
+                                    </div>
 
                                 </div>
 
@@ -267,13 +455,20 @@
                     </section>
 
 
-                    <!-- ==================== NEXT WEEK ==================== -->
+                    <!-- ====================================================== -->
+                    <!-- ==================== NEXT WEEK ======================== -->
+                    <!-- ====================================================== -->
 
                     <section class="announcement-group">
 
+
+                        <!-- ==================== GROUP HEADER ==================== -->
+
                         <div class="announcement-group-header">
 
-                            <h2>Next Week</h2>
+                            <h2>
+                                Next Week
+                            </h2>
 
                             <span class="announcement-count">
                                 2 Announcements
@@ -281,11 +476,19 @@
 
                         </div>
 
-                        <article class="announcement-card" data-status="upcoming" data-date="2026-09-02">
+
+                        <!-- ==================== PARENT MEETING ==================== -->
+
+                        <article class="announcement-card" data-status="upcoming" data-date="2026-09-02"
+                            data-details="Announcement description will appear here.">
 
                             <div class="announcement-card-line meeting"></div>
 
+
                             <div class="announcement-card-content">
+
+
+                                <!-- ==================== CARD TOP ==================== -->
 
                                 <div class="announcement-card-top">
 
@@ -295,9 +498,12 @@
                                             Meeting
                                         </span>
 
-                                        <h3>Parent Meeting</h3>
+                                        <h3>
+                                            Parent Meeting
+                                        </h3>
 
                                     </div>
+
 
                                     <span class="announcement-time">
                                         Monday · 16:30
@@ -305,14 +511,26 @@
 
                                 </div>
 
+
+                                <!-- ==================== LOCATION ==================== -->
+
                                 <p class="announcement-location">
+
                                     <i class="fa-solid fa-location-dot"></i>
+
                                     Conference Hall
+
                                 </p>
+
+
+                                <!-- ==================== SHORT DESCRIPTION ==================== -->
 
                                 <p class="announcement-description">
                                     Parent meeting to discuss student progress and upcoming activities.
                                 </p>
+
+
+                                <!-- ==================== CARD BOTTOM ==================== -->
 
                                 <div class="announcement-card-bottom">
 
@@ -320,10 +538,27 @@
                                         Upcoming
                                     </span>
 
-                                    <button class="announcement-details">
-                                        View Details
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
+
+                                    <div class="announcement-actions">
+
+                                        <button class="announcement-delete">
+
+                                            <i class="fa-solid fa-trash"></i>
+
+                                            Delete
+
+                                        </button>
+
+
+                                        <button class="announcement-details">
+
+                                            View Details
+
+                                            <i class="fa-solid fa-chevron-right"></i>
+
+                                        </button>
+
+                                    </div>
 
                                 </div>
 
@@ -332,11 +567,18 @@
                         </article>
 
 
-                        <article class="announcement-card" data-status="upcoming" data-date="2026-08-30">
+                        <!-- ==================== EXAM MATERIALS DEADLINE ==================== -->
+
+                        <article class="announcement-card" data-status="upcoming" data-date="2026-08-30"
+                            data-details="Announcement description will appear here.">
 
                             <div class="announcement-card-line deadline"></div>
 
+
                             <div class="announcement-card-content">
+
+
+                                <!-- ==================== CARD TOP ==================== -->
 
                                 <div class="announcement-card-top">
 
@@ -346,9 +588,12 @@
                                             Deadline
                                         </span>
 
-                                        <h3>Exam Materials Deadline</h3>
+                                        <h3>
+                                            Exam Materials Deadline
+                                        </h3>
 
                                     </div>
+
 
                                     <span class="announcement-time">
                                         Wednesday · 17:00
@@ -356,14 +601,26 @@
 
                                 </div>
 
+
+                                <!-- ==================== LOCATION ==================== -->
+
                                 <p class="announcement-location">
+
                                     <i class="fa-solid fa-location-dot"></i>
+
                                     Teachers Office
+
                                 </p>
+
+
+                                <!-- ==================== SHORT DESCRIPTION ==================== -->
 
                                 <p class="announcement-description">
                                     Final exam materials must be submitted before the deadline.
                                 </p>
+
+
+                                <!-- ==================== CARD BOTTOM ==================== -->
 
                                 <div class="announcement-card-bottom">
 
@@ -371,10 +628,27 @@
                                         Upcoming
                                     </span>
 
-                                    <button class="announcement-details">
-                                        View Details
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
+
+                                    <div class="announcement-actions">
+
+                                        <button class="announcement-delete">
+
+                                            <i class="fa-solid fa-trash"></i>
+
+                                            Delete
+
+                                        </button>
+
+
+                                        <button class="announcement-details">
+
+                                            View Details
+
+                                            <i class="fa-solid fa-chevron-right"></i>
+
+                                        </button>
+
+                                    </div>
 
                                 </div>
 
@@ -385,13 +659,20 @@
                     </section>
 
 
-                    <!-- ==================== LATER ==================== -->
+                    <!-- ====================================================== -->
+                    <!-- ==================== LATER ============================ -->
+                    <!-- ====================================================== -->
 
                     <section class="announcement-group">
 
+
+                        <!-- ==================== GROUP HEADER ==================== -->
+
                         <div class="announcement-group-header">
 
-                            <h2>Later</h2>
+                            <h2>
+                                Later
+                            </h2>
 
                             <span class="announcement-count">
                                 1 Announcement
@@ -399,11 +680,19 @@
 
                         </div>
 
-                        <article class="announcement-card" data-status="upcoming" data-date="2026-08-29">
+
+                        <!-- ==================== ENGLISH FESTIVAL ==================== -->
+
+                        <article class="announcement-card" data-status="upcoming" data-date="2026-08-29"
+                            data-details="Announcement description will appear here.">
 
                             <div class="announcement-card-line event"></div>
 
+
                             <div class="announcement-card-content">
+
+
+                                <!-- ==================== CARD TOP ==================== -->
 
                                 <div class="announcement-card-top">
 
@@ -413,9 +702,12 @@
                                             School Event
                                         </span>
 
-                                        <h3>English Festival</h3>
+                                        <h3>
+                                            English Festival
+                                        </h3>
 
                                     </div>
+
 
                                     <span class="announcement-time">
                                         September 18 · 10:00
@@ -423,14 +715,26 @@
 
                                 </div>
 
+
+                                <!-- ==================== LOCATION ==================== -->
+
                                 <p class="announcement-location">
+
                                     <i class="fa-solid fa-location-dot"></i>
+
                                     School Garden
+
                                 </p>
+
+
+                                <!-- ==================== SHORT DESCRIPTION ==================== -->
 
                                 <p class="announcement-description">
                                     A school-wide English festival with activities, games and student presentations.
                                 </p>
+
+
+                                <!-- ==================== CARD BOTTOM ==================== -->
 
                                 <div class="announcement-card-bottom">
 
@@ -438,10 +742,27 @@
                                         Upcoming
                                     </span>
 
-                                    <button class="announcement-details">
-                                        View Details
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
+
+                                    <div class="announcement-actions">
+
+                                        <button class="announcement-delete">
+
+                                            <i class="fa-solid fa-trash"></i>
+
+                                            Delete
+
+                                        </button>
+
+
+                                        <button class="announcement-details">
+
+                                            View Details
+
+                                            <i class="fa-solid fa-chevron-right"></i>
+
+                                        </button>
+
+                                    </div>
 
                                 </div>
 
@@ -457,44 +778,77 @@
                 <!-- ==================== NO RESULTS MESSAGE ==================== -->
 
                 <div class="announcements-empty">
+
                     <i class="fa-regular fa-folder-open"></i>
 
-                    <h3>No announcements found</h3>
+                    <h3>
+                        No announcements found
+                    </h3>
 
-                    <p>Try changing your search or filters.</p>
+                    <p>
+                        Try changing your search or filters.
+                    </p>
+
                 </div>
 
-                <!-- ==================== ANNOUNCEMENT DETAILS MODAL ==================== -->
+
+                <!-- ====================================================== -->
+                <!-- ==================== DETAILS MODAL ==================== -->
+                <!-- ====================================================== -->
 
                 <div class="announcement-modal">
 
                     <div class="announcement-modal-content">
 
+
+                        <!-- ==================== CLOSE BUTTON ==================== -->
+
                         <button class="announcement-modal-close">
+
                             <i class="fa-solid fa-xmark"></i>
+
                         </button>
+
+
+                        <!-- ==================== TYPE ==================== -->
 
                         <span class="announcement-modal-type">
                             Meeting
                         </span>
 
+
+                        <!-- ==================== TITLE ==================== -->
+
                         <h2 class="announcement-modal-title">
                             Announcement Title
                         </h2>
 
+
+                        <!-- ==================== INFO ==================== -->
+
                         <div class="announcement-modal-info">
 
                             <span class="announcement-modal-time">
+
                                 <i class="fa-regular fa-clock"></i>
+
                                 Date & Time
+
                             </span>
 
+
                             <span class="announcement-modal-location">
+
                                 <i class="fa-solid fa-location-dot"></i>
+
                                 Location
+
                             </span>
 
                         </div>
+
+
+                        <!-- ==================== DESCRIPTION ==================== -->
 
                         <p class="announcement-modal-description">
                             Announcement description will appear here.
@@ -504,7 +858,199 @@
 
                 </div>
 
-                <script src="announcements.js"></script>
+
+                <!-- ====================================================== -->
+                <!-- ================= ADD ANNOUNCEMENT MODAL ============== -->
+                <!-- ====================================================== -->
+
+                <div class="add-announcement-modal">
+
+                    <div class="add-announcement-modal-content">
+
+
+                        <!-- ==================== CLOSE BUTTON ==================== -->
+
+                        <button class="add-announcement-modal-close">
+
+                            <i class="fa-solid fa-xmark"></i>
+
+                        </button>
+
+
+                        <!-- ==================== HEADER ==================== -->
+
+                        <div class="add-announcement-modal-header">
+
+                            <h2>
+                                Add Announcement
+                            </h2>
+
+                            <p>
+                                Create a new announcement manually.
+                            </p>
+
+                        </div>
+
+
+                        <!-- ==================== ADD ANNOUNCEMENT FORM ==================== -->
+
+                        <form class="add-announcement-form">
+
+
+                            <!-- ==================== TITLE ==================== -->
+
+                            <div class="form-group">
+
+                                <label for="announcement-title">
+                                    Title
+                                </label>
+
+                                <input type="text" id="announcement-title" required>
+
+                            </div>
+
+
+                            <!-- ==================== TYPE + DATE ==================== -->
+
+                            <div class="form-row">
+
+
+                                <!-- ==================== TYPE ==================== -->
+
+                                <div class="form-group">
+
+                                    <label for="announcement-type">
+                                        Type
+                                    </label>
+
+                                    <select id="announcement-type" required>
+
+                                        <option value="">
+                                            Select type
+                                        </option>
+
+                                        <option value="meeting">
+                                            Meeting
+                                        </option>
+
+                                        <option value="event">
+                                            School Event
+                                        </option>
+
+                                        <option value="reminder">
+                                            Reminder
+                                        </option>
+
+                                        <option value="deadline">
+                                            Deadline
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+
+                                <!-- ==================== DATE ==================== -->
+
+                                <div class="form-group">
+
+                                    <label for="announcement-date">
+                                        Date
+                                    </label>
+
+                                    <input type="date" id="announcement-date" required>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ==================== TIME + LOCATION ==================== -->
+
+                            <div class="form-row">
+
+
+                                <!-- ==================== TIME ==================== -->
+
+                                <div class="form-group">
+
+                                    <label for="announcement-time">
+                                        Time
+                                    </label>
+
+                                    <input type="time" id="announcement-time" required>
+
+                                </div>
+
+
+                                <!-- ==================== LOCATION ==================== -->
+
+                                <div class="form-group">
+
+                                    <label for="announcement-location">
+                                        Location
+                                    </label>
+
+                                    <input type="text" id="announcement-location" required>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ==================== SHORT DESCRIPTION ==================== -->
+
+                            <div class="form-group">
+
+                                <label for="announcement-short-description">
+                                    Short Description
+                                </label>
+
+                                <textarea id="announcement-short-description" rows="3" required></textarea>
+
+                            </div>
+
+
+                            <!-- ==================== DETAILED DESCRIPTION ==================== -->
+
+                            <div class="form-group">
+
+                                <label for="announcement-details">
+                                    Detailed Description
+                                </label>
+
+                                <textarea id="announcement-details" rows="5" required></textarea>
+
+                            </div>
+
+
+                            <!-- ==================== SUBMIT BUTTON ==================== -->
+
+                            <button type="submit" class="save-announcement-button">
+
+                                <i class="fa-solid fa-plus"></i>
+
+                                Add Announcement
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+
+    <script src="announcements.js"></script>
+
 </body>
 
 </html>
