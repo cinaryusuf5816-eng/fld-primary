@@ -3,7 +3,9 @@ const { Pool } = require("pg");
 const cors = require("cors");
 
 const app = express();
+
 app.use(cors());
+app.use(express.json());
 
 const pool = new Pool({
     user: "berkecanyildiz",
@@ -38,6 +40,60 @@ app.get("/api/events", async function (req, res) {
 
         res.status(500).json({
             error: "Could not load events."
+        });
+    }
+
+});
+
+app.post("/api/events", async function (req, res) {
+
+    try {
+        const {
+            title,
+            startDate,
+            endDate,
+            startTime,
+            endTime,
+            category,
+            description,
+            days
+        } = req.body;
+
+        const result = await pool.query(
+            `
+            INSERT INTO events (
+            title,
+            start_date,
+            end_date,
+            start_time,
+            end_time,
+            category,
+            description,
+            days
+            )
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+            RETURNING *
+            `,
+
+            [
+                title,
+                startDate,
+                endDate,
+                startTime || null,
+                endTime || null,
+                category,
+                description,
+                days
+            ]
+        );
+    
+        res.status(201).json(result.rows[0]);
+        
+    } catch (error) {
+        console.error("Database error:", error);
+
+        res.status(500).json({
+            error: "Could not create event."
         });
     }
 
