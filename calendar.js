@@ -1,4 +1,89 @@
 /*========================CALENDAR STARTS HERE====================================*/
+const supabaseUrl = "https://khhkuuuqefcwnotruzyb.supabase.co";
+const supabaseKey = "sb_publishable_2dvxNBIKS4B4EuGAWZtSYA_IKjpjS8Q";
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+let events = [];
+
+async function loadEventsFromBackend() {
+
+    try {
+        const response = await fetch(
+            "http://localhost:3000/api/events"
+        );
+
+        const data = await response.json();
+
+        console.log("Events from our backend:", data);
+
+        events = data.map(function (event) {
+            return {
+                id: event.id,
+                title: event.title,
+
+                startDate: event.start_date
+                    ? event.start_date.slice(0, 10)
+                    : "",
+
+                endDate: event.end_date
+                    ? event.end_date.slice(0, 10)
+                    : "",
+
+                startTime: event.start_time
+                    ? event.start_time.slice(0, 5)
+                    : "",
+
+                endTime: event.end_time
+                    ? event.end_time.slice(0, 5)
+                    : "",
+
+                category: event.category,
+                description: event.description || "",
+                days: event.days
+            };
+        });
+
+        renderCalendar();
+    
+    } catch (error) {
+        console.error("Backend error:", error);
+    }
+}
+
+async function testDatabaseConnection () {
+    const { data, error } = await supabaseClient
+        .from("events")
+        .select("*");
+        
+        if (error) {
+            console.error("Supabase error:", error);
+            return;
+        }
+        
+        console.log("Events from Supabase:", data);
+
+        events = data.map(function(event) {
+            return {
+                id: event.id,
+                title: event.title,
+                startDate: event.start_date,
+                endDate: event.end_date,
+                startTime: event.start_time
+                    ? event.start_time.slice(0, 5)
+                    : "",
+                endTime: event.end_time
+                    ? event.end_time.slice(0, 5)
+                    : "",
+                category: event.category,
+                description: event.description || "",
+                days: event.days
+            };
+        });
+
+        renderCalendar();
+    }
+
+        
 const calendarGrid = document.querySelector("#calendar-grid");
 
 if (calendarGrid) {
@@ -291,37 +376,6 @@ if (calendarGrid) {
 
         return false;
     }
-
-    const events = [
-        {
-            date: "2026-08-21",
-            title: "Spelling Worksheet 405",
-            shortTitle: "SW405",
-            grade: 4,
-            type: "spelling",
-            materialId: "sw405"
-        },
-
-        {
-            date: "2026-08-21",
-            title: "Tell the Story - Week 17",
-            shortTitle: "TS417",
-            grade: 4,
-            type: "tell-story",
-            materialId: "ts417"
-
-        },
-
-        {
-            date: "2026-08-21",
-            title: "Quick Check 401",
-            shortTitle: "QC401",
-            grade: 4,
-            type: "quick-check",
-            materialId: "qc401"
-
-        }
-    ];
 
     /* Calendar Function */
     function renderCalendar() {
@@ -842,7 +896,8 @@ if (calendarGrid) {
         renderCalendar();
     });
 
-    renderCalendar();
+    // testDatabaseConnection();
+    loadEventsFromBackend();
 
 }
 
