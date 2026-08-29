@@ -44,46 +44,46 @@ async function loadEventsFromBackend() {
         });
 
         renderCalendar();
-    
+
     } catch (error) {
         console.error("Backend error:", error);
     }
 }
 
-async function testDatabaseConnection () {
+async function testDatabaseConnection() {
     const { data, error } = await supabaseClient
         .from("events")
         .select("*");
-        
-        if (error) {
-            console.error("Supabase error:", error);
-            return;
-        }
-        
-        console.log("Events from Supabase:", data);
 
-        events = data.map(function(event) {
-            return {
-                id: event.id,
-                title: event.title,
-                startDate: event.start_date,
-                endDate: event.end_date,
-                startTime: event.start_time
-                    ? event.start_time.slice(0, 5)
-                    : "",
-                endTime: event.end_time
-                    ? event.end_time.slice(0, 5)
-                    : "",
-                category: event.category,
-                description: event.description || "",
-                days: event.days
-            };
-        });
-
-        renderCalendar();
+    if (error) {
+        console.error("Supabase error:", error);
+        return;
     }
 
-        
+    console.log("Events from Supabase:", data);
+
+    events = data.map(function (event) {
+        return {
+            id: event.id,
+            title: event.title,
+            startDate: event.start_date,
+            endDate: event.end_date,
+            startTime: event.start_time
+                ? event.start_time.slice(0, 5)
+                : "",
+            endTime: event.end_time
+                ? event.end_time.slice(0, 5)
+                : "",
+            category: event.category,
+            description: event.description || "",
+            days: event.days
+        };
+    });
+
+    renderCalendar();
+}
+
+
 const calendarGrid = document.querySelector("#calendar-grid");
 
 if (calendarGrid) {
@@ -669,7 +669,7 @@ if (calendarGrid) {
         updateDaySelectionState();
     });
 
-    eventEndDateInput.addEventListener("change", function() {
+    eventEndDateInput.addEventListener("change", function () {
 
         updateDaySelectionState();
     });
@@ -762,7 +762,7 @@ if (calendarGrid) {
         }
     });
 
-    saveEventButton.addEventListener("click", function () {
+    saveEventButton.addEventListener("click", async function () {
 
         const title = eventTitleInput.value.trim();
         const startDate = eventStartDateInput.value;
@@ -778,7 +778,10 @@ if (calendarGrid) {
             sunday: eventSundayInput.checked
         };
 
+        const isSingleDay = startDate === endDate;
+
         if (
+            !isSingleDay &&
             !days.monday &&
             !days.tuesday &&
             !days.wednesday &&
@@ -832,11 +835,33 @@ if (calendarGrid) {
             description: description
         };
 
-        events.push(newEvent);
+        try {
+            const response = await fetch(
+                "http://localhost:3000/api/events",
+                {
+                    method: "POST",
 
-        renderCalendar();
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
 
-        addEventModal.style.display = "none";
+                    body: JSON.stringify(newEvent)
+                }
+            );
+
+            if (!response.ok) {
+                throw new Error("Could not save event.");
+            }
+
+            await loadEventsFromBackend();
+
+            addEventModal.style.display = "none";
+
+        } catch (error) {
+            console.error("Save event error:", error);
+
+            alert("Could not save the event.");
+        }
 
     });
 
