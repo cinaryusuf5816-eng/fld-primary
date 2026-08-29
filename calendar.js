@@ -5,6 +5,51 @@ const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
 let events = [];
 
+async function loadEventsFromBackend() {
+
+    try {
+        const response = await fetch(
+            "http://localhost:3000/api/events"
+        );
+
+        const data = await response.json();
+
+        console.log("Events from our backend:", data);
+
+        events = data.map(function (event) {
+            return {
+                id: event.id,
+                title: event.title,
+
+                startDate: event.start_date
+                    ? event.start_date.slice(0, 10)
+                    : "",
+
+                endDate: event.end_date
+                    ? event.end_date.slice(0, 10)
+                    : "",
+
+                startTime: event.start_time
+                    ? event.start_time.slice(0, 5)
+                    : "",
+
+                endTime: event.end_time
+                    ? event.end_time.slice(0, 5)
+                    : "",
+
+                category: event.category,
+                description: event.description || "",
+                days: event.days
+            };
+        });
+
+        renderCalendar();
+    
+    } catch (error) {
+        console.error("Backend error:", error);
+    }
+}
+
 async function testDatabaseConnection () {
     const { data, error } = await supabaseClient
         .from("events")
@@ -851,7 +896,8 @@ if (calendarGrid) {
         renderCalendar();
     });
 
-    testDatabaseConnection();
+    // testDatabaseConnection();
+    loadEventsFromBackend();
 
 }
 
