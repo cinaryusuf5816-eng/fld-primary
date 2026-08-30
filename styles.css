@@ -474,6 +474,496 @@ a {
     color: #2563EB;
 }
 
+/* ============================================================
+   ADD HOMEWORK MODAL
+   ============================================================ */
+
+.homework-modal {
+    position: fixed;
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background-color: rgba(15, 23, 42, 0.38);
+
+    box-sizing: border-box;
+}
+
+
+/* hidden attribute kesin olarak gizlesin */
+.homework-modal[hidden] {
+    display: none;
+}
+
+
+/* ==================== MODAL CONTENT ==================== */
+
+.homework-modal-content {
+    width: 100%;
+    max-width: 520px;
+
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+
+    padding: 24px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 50px
+        rgba(15, 23, 42, 0.18);
+
+    box-sizing: border-box;
+}
+
+
+/* ==================== MODAL HEADER ==================== */
+
+.homework-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 22px;
+}
+
+
+.homework-modal-header h2 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #0F172A;
+}
+
+
+.homework-modal-header p {
+    margin: 6px 0 0;
+
+    font-size: 12px;
+    line-height: 1.5;
+
+    color: #64748B;
+}
+
+
+/* ==================== CLOSE BUTTON ==================== */
+
+.homework-modal-close {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+
+    background-color: #FFFFFF;
+
+    color: #64748B;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.homework-modal-close:hover {
+    background-color: #F8FAFC;
+
+    border-color: #CBD5E1;
+
+    color: #0F172A;
+}
+
+
+/* ============================================================
+   HOMEWORK FORM
+   ============================================================ */
+
+#add-homework-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+/* ==================== FORM GROUP ==================== */
+
+.homework-form-group {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.homework-form-group label {
+    font-size: 11px;
+    font-weight: 600;
+
+    color: #334155;
+}
+
+
+/* ==================== FORM ROW ==================== */
+
+.homework-form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 14px;
+}
+
+
+/* ==================== INPUTS ==================== */
+
+.homework-form-group input,
+.homework-form-group select,
+.homework-form-group textarea {
+    width: 100%;
+
+    padding: 10px 11px;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+
+    background-color: #FFFFFF;
+
+    color: #0F172A;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+
+    outline: none;
+
+    box-sizing: border-box;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.homework-form-group textarea {
+    min-height: 90px;
+
+    resize: vertical;
+}
+
+
+.homework-form-group input::placeholder,
+.homework-form-group textarea::placeholder {
+    color: #94A3B8;
+}
+
+
+.homework-form-group input:focus,
+.homework-form-group select:focus,
+.homework-form-group textarea:focus {
+    border-color: #6C4CF1;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(108, 76, 241, 0.08);
+}
+
+/* ============================================================
+   HOMEWORK ACTION MENU
+   ============================================================ */
+
+.homework-row {
+    position: relative;
+}
+
+
+/* ==================== LAST COLUMN ==================== */
+
+.homework-row-end {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.homework-row-end .status-badge,
+.homework-row-end .due-date-badge {
+    flex-shrink: 0;
+
+    padding: 5px 7px;
+
+    font-size: 10px;
+
+    white-space: nowrap;
+}
+
+
+/* ==================== MORE BUTTON ==================== */
+
+.homework-more-button {
+    width: 26px;
+    height: 26px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: auto;
+    padding: 0;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 7px;
+
+    background-color: #FFFFFF;
+
+    color: #64748B;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.homework-more-button:hover {
+    background-color: #F8FAFC;
+
+    border-color: #CBD5E1;
+
+    color: #6C4CF1;
+}
+
+
+/* ==================== ACTION MENU ==================== */
+
+.homework-actions-menu {
+    position: absolute;
+
+    z-index: 1200;
+
+    top: 48px;
+    right: 18px;
+
+    width: 136px;
+
+    padding: 5px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(15, 23, 42, 0.12);
+
+    box-sizing: border-box;
+}
+
+
+/* Open upward when there is not enough room below */
+.homework-actions-menu.open-up {
+    top: auto;
+    bottom: 48px;
+}
+
+
+/* ==================== MENU BUTTON ==================== */
+
+.homework-actions-menu button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 8px 9px;
+
+    border: none;
+    border-radius: 7px;
+
+    background-color: transparent;
+
+    color: #475569;
+
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+
+.homework-actions-menu button:hover {
+    background-color: #F8FAFC;
+}
+
+
+.homework-actions-menu i {
+    width: 14px;
+
+    text-align: center;
+
+    font-size: 10px;
+}
+
+
+/* ==================== DELETE ==================== */
+
+.homework-actions-menu .homework-menu-delete {
+    color: #DC2626;
+}
+
+
+.homework-actions-menu .homework-menu-delete:hover {
+    background-color: #FEF2F2;
+}
+
+
+/* ==================== FORM MESSAGE ==================== */
+
+.homework-form-message {
+    min-height: 16px;
+
+    margin: 0;
+
+    font-size: 11px;
+
+    color: #DC2626;
+}
+
+
+/* ==================== FORM ACTIONS ==================== */
+
+.homework-form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 4px;
+}
+
+
+/* ==================== CANCEL ==================== */
+
+.homework-cancel-button {
+    padding: 9px 15px;
+
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+
+    background-color: #FFFFFF;
+
+    color: #475569;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.homework-cancel-button:hover {
+    background-color: #F8FAFC;
+}
+
+
+/* ==================== SAVE ==================== */
+
+.homework-save-button {
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: #6C4CF1;
+
+    color: #FFFFFF;
+
+    font-family: "Inter", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.homework-save-button:hover {
+    background-color: #5939E8;
+}
+
+
+/* ==================== BODY LOCK ==================== */
+
+body.homework-modal-open {
+    overflow: hidden;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 600px) {
+
+    .homework-modal {
+        padding: 14px;
+    }
+
+
+    .homework-modal-content {
+        padding: 20px;
+    }
+
+
+    .homework-form-row {
+        grid-template-columns: 1fr;
+    }
+
+}
 
 /* ==================== ANNOUNCEMENTS ==================== */
 
@@ -2359,7 +2849,9 @@ a {
     border-top: 1px solid #E2E8F0;
 }
 
-.materials-table-footer>span {
+.materials-footer-text {
+    margin: 0;
+
     font-size: 10px;
 
     color: #64748B;
@@ -2540,16 +3032,56 @@ a {
 }
 
 .recent-material-link {
+    width: 100%;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 10px;
 
-    margin-top: 12px;
+    margin-top: 14px;
+    padding: 10px 12px;
 
-    font-size: 10px;
-    font-weight: 600;
+    box-sizing: border-box;
+
+    border: 1px solid #E8E3FF;
+    border-radius: 8px;
+
+    background-color: #F7F5FF;
 
     color: #6C4CF1;
+
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.recent-material-link:hover {
+    background-color: #F3F0FF;
+    border-color: #DDD6FE;
+    color: #5939E8;
+}
+
+.recent-material-link span {
+    min-width: 0;
+}
+
+.recent-material-link i {
+    flex-shrink: 0;
+    font-size: 10px;
+    transition: transform 0.2s ease;
+}
+
+.recent-material-link:hover i {
+    transform: translateX(2px);
 }
 
 
@@ -3403,4 +3935,603 @@ a {
     gap: 16px;
 
     margin-left: auto;
+}
+
+
+
+
+
+/* ============================================================
+   MATERIALS GRID VIEW
+   ============================================================ */
+
+/*
+   Grid class is added directly to .materials-table-card by JS.
+   Therefore the table top / footer must span both columns.
+*/
+
+.materials-table-card.materials-grid-view {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+
+    padding: 0 16px 16px;
+
+    overflow: visible;
+}
+
+
+/* ==================== GRID TOP BAR ==================== */
+
+.materials-table-card.materials-grid-view .materials-table-top {
+    grid-column: 1 / -1;
+
+    margin: 0 -16px;
+    margin-bottom: 2px;
+
+    padding: 18px 20px;
+
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+
+/* ==================== GRID TABLE HEADER ==================== */
+
+.materials-table-card.materials-grid-view .materials-table-header {
+    grid-column: 1 / -1;
+}
+
+
+/* ==================== GRID MATERIAL CARD ==================== */
+
+.materials-table-card.materials-grid-view .material-row {
+    min-width: 0;
+    min-height: 150px;
+
+    display: grid;
+
+    grid-template-columns: auto 1fr auto;
+    grid-template-areas:
+        "name name actions"
+        "meta meta actions"
+        "date date actions";
+
+    row-gap: 10px;
+
+    position: relative;
+
+    padding: 18px 20px;
+
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+
+    background-color: #FFFFFF;
+
+    box-sizing: border-box;
+}
+
+
+/* ==================== GRID MATERIAL NAME ==================== */
+
+.materials-table-card.materials-grid-view .material-name {
+    grid-area: name;
+
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* ==================== GRID META ==================== */
+
+.materials-table-card.materials-grid-view .material-type-badge {
+    margin: 0;
+
+    align-self: center;
+}
+
+
+/* Grade/Class */
+
+.materials-table-card.materials-grid-view .material-grade-class {
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+
+/* Put badge + grade/class together */
+
+.materials-table-card.materials-grid-view .material-type-badge,
+.materials-table-card.materials-grid-view .material-grade-class {
+    grid-area: meta;
+}
+
+
+/* ==================== GRID META WRAP FIX ==================== */
+
+.materials-table-card.materials-grid-view .material-type-badge {
+    justify-self: start;
+}
+
+.materials-table-card.materials-grid-view .material-grade-class {
+    margin-left: 54px;
+}
+
+
+/* ==================== GRID DATE ==================== */
+
+.materials-table-card.materials-grid-view .material-date {
+    grid-area: date;
+
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 2px;
+}
+
+
+/* ==================== GRID ACTIONS ==================== */
+
+.materials-table-card.materials-grid-view .material-actions {
+    grid-area: actions;
+
+    position: static;
+
+    align-self: end;
+    justify-self: end;
+
+    display: flex;
+    gap: 6px;
+}
+
+
+.materials-table-card.materials-grid-view .material-actions button {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 8px;
+
+    background-color: #FFFFFF;
+}
+
+
+/* ==================== GRID ACTION MENU ==================== */
+
+.materials-table-card.materials-grid-view .material-actions-menu {
+    top: auto;
+    right: 16px;
+    bottom: 52px;
+
+    z-index: 9999;
+}
+
+
+/* ==================== GRID EMPTY STATE ==================== */
+
+.materials-table-card.materials-grid-view .materials-empty-state {
+    grid-column: 1 / -1;
+
+    min-height: 260px;
+}
+
+
+/* ==================== GRID FOOTER ==================== */
+
+.materials-table-card.materials-grid-view .materials-table-footer {
+    grid-column: 1 / -1;
+
+    margin: 0 -16px -16px;
+
+    padding: 14px 20px;
+
+    border-top: 1px solid #E2E8F0;
+}
+
+
+/* ==================== GRID RESPONSIVE ==================== */
+
+@media (max-width: 1050px) {
+
+    .materials-table-card.materials-grid-view {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ============================================================
+   GENERAL HIDDEN
+   ============================================================ */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+.materials-empty-state {
+    grid-column: 1 / -1;
+
+    width: 100%;
+    min-height: 230px;
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 40px;
+
+    text-align: center;
+}
+
+
+.materials-empty-state svg {
+    width: 34px;
+    height: 34px;
+
+    opacity: 0.45;
+}
+
+
+.materials-empty-state h3 {
+    margin: 4px 0 0;
+
+    font-size: 16px;
+}
+
+
+.materials-empty-state p {
+    margin: 0;
+
+    font-size: 14px;
+
+    opacity: 0.6;
+}
+
+
+/* ============================================================
+   PAGINATION
+   ============================================================ */
+
+.materials-pagination {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+}
+
+
+.materials-pagination button {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #dbe3ee;
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #52647c;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+.materials-pagination button:hover:not(:disabled) {
+    background: #f5f8fc;
+}
+
+
+.materials-pagination button.active {
+    background: #eff5ff;
+
+    border-color: #b9cff3;
+
+    color: #315f9f;
+}
+
+
+.materials-pagination button:disabled {
+    cursor: default;
+
+    opacity: 0.35;
+}
+
+
+.materials-pagination svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* ============================================================
+   CUSTOM DATE RANGE PANEL
+   ============================================================ */
+
+.materials-date-range-panel {
+    position: absolute;
+
+    z-index: 1000;
+
+    width: 310px;
+
+    display: none;
+
+    padding: 16px;
+
+    border: 1px solid #dfe6ef;
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 14px 40px
+        rgba(25, 39, 61, 0.12);
+}
+
+
+.materials-date-range-panel.active {
+    display: block;
+}
+
+
+.materials-date-field {
+    margin-bottom: 12px;
+}
+
+
+.materials-date-field label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #52647c;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+.materials-date-field input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 10px 11px;
+
+    border: 1px solid #dce4ee;
+    border-radius: 9px;
+
+    outline: none;
+
+    font: inherit;
+}
+
+
+.materials-date-field input:focus {
+    border-color: #aabfdd;
+}
+
+
+/* ==================== DATE RANGE ACTIONS ==================== */
+
+.materials-date-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 14px;
+}
+
+
+.materials-date-actions button {
+    padding: 8px 13px;
+
+    border-radius: 8px;
+
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.materials-date-clear {
+    border: 1px solid #dce4ee;
+
+    background: #ffffff;
+
+    color: #55677f;
+}
+
+
+.materials-date-apply {
+    border: 1px solid #315f9f;
+
+    background: #315f9f;
+
+    color: #ffffff;
+}
+
+
+/* ============================================================
+   MATERIAL ACTION MENU
+   ============================================================ */
+
+.material-row {
+    position: relative;
+}
+
+
+.material-actions-menu {
+    position: absolute;
+
+    z-index: 9999;
+
+    /*
+       Menu always opens upward so the last rows do not
+       push Rename / Delete below the visible table area.
+    */
+    top: auto;
+    right: 24px;
+    bottom: 52px;
+
+    width: 170px;
+
+    display: none;
+
+    padding: 6px;
+
+    border: 1px solid #dfe6ef;
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 12px 35px
+        rgba(31, 45, 67, 0.12);
+}
+
+
+.material-actions-menu.active {
+    display: block;
+}
+
+
+.material-actions-menu button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 9px 10px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #3f5068;
+
+    text-align: left;
+
+    font: inherit;
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+
+.material-actions-menu button:hover {
+    background: #f4f7fb;
+}
+
+
+.material-actions-menu button.danger {
+    color: #c84a4a;
+}
+
+
+.material-actions-menu button.danger:hover {
+    background: #fff3f3;
+}
+
+
+.material-actions-menu svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+.material-menu-divider {
+    height: 1px;
+
+    margin: 5px 4px;
+
+    background: #e9eef4;
+}
+
+
+/* ============================================================
+   UPLOAD STATUS
+   ============================================================ */
+
+.material-upload-status {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 3px;
+
+    margin-top: 12px;
+
+    padding: 10px 12px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #dfe7f0;
+    border-radius: 9px;
+
+    background: #f8fafc;
+}
+
+
+.material-upload-status strong {
+    overflow: hidden;
+
+    color: #394b63;
+
+    font-size: 13px;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+.material-upload-status span {
+    color: #8292a8;
+
+    font-size: 12px;
+}
+
+
+/* ============================================================
+   RESPONSIVE MATERIAL GRID
+   ============================================================ */
+
+@media (max-width: 950px) {
+
+    .materials-grid-view {
+        grid-template-columns: 1fr;
+    }
+
 }

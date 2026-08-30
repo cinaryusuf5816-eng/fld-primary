@@ -2,257 +2,483 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>FLD Materials</title>
 
-    <link rel="stylesheet" href="styles.css">
+
+    <!-- ==================== MAIN CSS ==================== -->
+
+    <link
+        rel="stylesheet"
+        href="styles.css"
+    >
+
+
+    <!-- ==================== GOOGLE FONTS ==================== -->
 
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap"
-        rel="stylesheet">
+        rel="stylesheet"
+    >
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- ==================== FONT AWESOME ==================== -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    >
+
 </head>
+
 
 <body>
 
+
+    <!-- ============================================================
+         PAGE
+         ============================================================ -->
+
     <div class="sayfa">
+
+
+        <!-- ==================== SIDEBAR ==================== -->
 
         <div id="sidebar-container"></div>
 
+
+        <!-- ============================================================
+             MAIN CONTENT
+             ============================================================ -->
+
         <main class="main-content">
+
+
+            <!-- ==================== TOPBAR ==================== -->
 
             <div id="topbar-container"></div>
 
+
+            <!-- ============================================================
+                 MATERIALS PAGE
+                 ============================================================ -->
+
             <div class="materials-page">
+
 
                 <!-- ==================== MATERIALS HEADER ==================== -->
 
                 <div class="materials-header">
 
+
                     <div class="materials-title">
-                        <h1>Materials</h1>
-                        <p>Organize, access and reuse all your teaching materials.</p>
+
+                        <h1>
+                            Materials
+                        </h1>
+
+                        <p>
+                            Organize, access and reuse all your teaching materials.
+                        </p>
+
                     </div>
+
 
                 </div>
 
 
-                <!-- ==================== MATERIALS LAYOUT ==================== -->
+                <!-- ============================================================
+                     MATERIALS LAYOUT
+                     ============================================================ -->
 
                 <div class="materials-layout">
 
 
-                    <!-- ==================== LEFT CONTENT ==================== -->
+                    <!-- ========================================================
+                         LEFT CONTENT
+                         ======================================================== -->
 
                     <div class="materials-main">
 
 
-                        <!-- ==================== FILTER CARD ==================== -->
+                        <!-- ====================================================
+                             FILTER CARD
+                             ==================================================== -->
 
                         <section class="materials-filter-card">
 
+
+                            <!-- ==================== FILTER TOP ==================== -->
+
                             <div class="materials-filter-top">
 
-                                <!-- Search -->
+
+                                <!-- ==================== SEARCH ==================== -->
+
                                 <div class="materials-search">
 
                                     <i class="fa-solid fa-magnifying-glass"></i>
 
-                                    <input type="search" placeholder="Search materials...">
+                                    <input
+                                        type="search"
+                                        placeholder="Search materials..."
+                                    >
 
                                 </div>
 
 
-                                <!-- Grade -->
+                                <!-- ==================== GRADE ==================== -->
+
                                 <div class="materials-filter-group">
 
                                     <label for="material-grade">
                                         Grade
                                     </label>
 
+
                                     <select id="material-grade">
-                                        <option>All Grades</option>
-                                        <option>Grade 1</option>
-                                        <option>Grade 2</option>
-                                        <option>Grade 3</option>
-                                        <option>Grade 4</option>
+
+                                        <option>
+                                            All Grades
+                                        </option>
+
+                                        <option>
+                                            Grade 1
+                                        </option>
+
+                                        <option>
+                                            Grade 2
+                                        </option>
+
+                                        <option>
+                                            Grade 3
+                                        </option>
+
+                                        <option>
+                                            Grade 4
+                                        </option>
+
                                     </select>
 
                                 </div>
 
 
-                                <!-- Class -->
+                                <!-- ==================== CLASS ==================== -->
+
                                 <div class="materials-filter-group">
 
                                     <label for="material-class">
                                         Class
                                     </label>
 
+
                                     <select id="material-class">
-                                        <option>All Classes</option>
-                                        <option>Class A</option>
-                                        <option>Class B</option>
-                                        <option>Class C</option>
-                                        <option>Class D</option>
-                                        <option>Class E</option>
-                                        <option>Class F</option>
-                                        <option>Class G</option>
+
+                                        <option>
+                                            All Classes
+                                        </option>
+
+                                        <option>
+                                            Class A
+                                        </option>
+
+                                        <option>
+                                            Class B
+                                        </option>
+
+                                        <option>
+                                            Class C
+                                        </option>
+
+                                        <option>
+                                            Class D
+                                        </option>
+
+                                        <option>
+                                            Class E
+                                        </option>
+
+                                        <option>
+                                            Class F
+                                        </option>
+
+                                        <option>
+                                            Class G
+                                        </option>
+
                                     </select>
 
                                 </div>
 
 
-                                <!-- Type -->
+                                <!-- ==================== TYPE ==================== -->
+
                                 <div class="materials-filter-group">
 
                                     <label for="material-type">
                                         Type
                                     </label>
 
+
                                     <select id="material-type">
-                                        <option>All Types</option>
-                                        <option>PDF</option>
-                                        <option>Word</option>
-                                        <option>PowerPoint</option>
-                                        <option>Excel</option>
-                                        <option>Image</option>
+
+                                        <option>
+                                            All Types
+                                        </option>
+
+                                        <option>
+                                            PDF
+                                        </option>
+
+                                        <option>
+                                            Word
+                                        </option>
+
+                                        <option>
+                                            PowerPoint
+                                        </option>
+
+                                        <option>
+                                            Excel
+                                        </option>
+
+                                        <option>
+                                            Image
+                                        </option>
+
                                     </select>
 
                                 </div>
 
 
-                                <!-- Date -->
-                                <button class="materials-date-filter">
+                                <!-- ==================== DATE RANGE ==================== -->
+
+                                <button
+                                    type="button"
+                                    class="materials-date-filter"
+                                >
 
                                     <i class="fa-regular fa-calendar"></i>
 
                                     <span>
-                                        May 12, 2025 - May 18, 2025
+                                        All Dates
                                     </span>
 
                                     <i class="fa-solid fa-chevron-down"></i>
 
                                 </button>
 
+
                             </div>
 
 
-                            <!-- Quick Date Filters -->
+                            <!-- ==================== FILTER BOTTOM ==================== -->
 
                             <div class="materials-filter-bottom">
 
+
+                                <!-- ==================== QUICK DATE FILTERS ==================== -->
+
                                 <div class="materials-date-buttons">
 
-                                    <button>
+                                    <button type="button">
                                         Today
                                     </button>
 
-                                    <button class="active">
+                                    <button type="button">
                                         This Week
                                     </button>
 
-                                    <button>
+                                    <button type="button">
                                         This Month
                                     </button>
 
-                                    <button>
+                                    <button type="button">
                                         This Year
                                     </button>
 
                                 </div>
 
 
-                                <button class="clear-material-filters">
+                                <!-- ==================== CLEAR FILTERS ==================== -->
+
+                                <button
+                                    type="button"
+                                    class="clear-material-filters"
+                                >
 
                                     <i class="fa-solid fa-filter-circle-xmark"></i>
 
-                                    Clear Filters
+                                    <span>
+                                        Clear Filters
+                                    </span>
 
                                 </button>
 
+
                             </div>
+
 
                         </section>
 
 
-                        <!-- ==================== MATERIALS TABLE CARD ==================== -->
+                        <!-- ====================================================
+                             MATERIALS TABLE CARD
+                             ==================================================== -->
 
-                        <section class="materials-table-card">
+                        <section class="materials-table-card materials-table">
 
 
-                            <!-- Table Top -->
+                            <!-- ==================== TABLE TOP ==================== -->
 
                             <div class="materials-table-top">
 
-                                <h2>
-                                    All Materials <span>(28)</span>
+
+                                <!-- ==================== MATERIAL COUNT ==================== -->
+
+                                <h2 class="materials-table-title">
+
+                                    All Materials
+
+                                    <span>
+                                        (8)
+                                    </span>
+
                                 </h2>
 
 
+                                <!-- ==================== TABLE ACTIONS ==================== -->
+
                                 <div class="materials-table-actions">
+
 
                                     <span>
                                         Sort by:
                                     </span>
 
 
+                                    <!-- ==================== SORT ==================== -->
+
                                     <select>
-                                        <option>Newest</option>
-                                        <option>Oldest</option>
-                                        <option>Name A-Z</option>
-                                        <option>Name Z-A</option>
+
+                                        <option>
+                                            Newest
+                                        </option>
+
+                                        <option>
+                                            Oldest
+                                        </option>
+
+                                        <option>
+                                            Name A-Z
+                                        </option>
+
+                                        <option>
+                                            Name Z-A
+                                        </option>
+
                                     </select>
 
 
-                                    <button class="material-view-button active">
+                                    <!-- ==================== LIST VIEW ==================== -->
+
+                                    <button
+                                        type="button"
+                                        class="material-view-button active"
+                                        title="List view"
+                                    >
+
                                         <i class="fa-solid fa-list"></i>
+
                                     </button>
 
 
-                                    <button class="material-view-button">
+                                    <!-- ==================== GRID VIEW ==================== -->
+
+                                    <button
+                                        type="button"
+                                        class="material-view-button"
+                                        title="Grid view"
+                                    >
+
                                         <i class="fa-solid fa-table-cells-large"></i>
+
                                     </button>
+
 
                                 </div>
 
+
                             </div>
 
 
-                            <!-- Table Header -->
+                            <!-- ==================== TABLE HEADER ==================== -->
 
                             <div class="materials-table-header">
 
-                                <span>Name</span>
+                                <span>
+                                    Name
+                                </span>
 
-                                <span>Type</span>
+                                <span>
+                                    Type
+                                </span>
 
-                                <span>Grade / Class</span>
+                                <span>
+                                    Grade / Class
+                                </span>
 
-                                <span>Date</span>
+                                <span>
+                                    Date
+                                </span>
 
-                                <span>Actions</span>
+                                <span>
+                                    Actions
+                                </span>
 
                             </div>
 
 
-                            <!-- ==================== MATERIAL ROW 1 ==================== -->
+                            <!-- ====================================================
+                                 MATERIAL ROW 1
+                                 ==================================================== -->
 
-                            <div class="material-row">
+                            <div
+                                class="material-row"
+                                data-date="2025-05-18"
+                                data-file="materials/vocabulary_unit5.pdf"
+                            >
+
 
                                 <div class="material-name">
 
+
                                     <div class="material-file-icon pdf">
+
                                         <i class="fa-solid fa-file-pdf"></i>
+
                                     </div>
 
 
                                     <div class="material-name-info">
-                                        <h3>Unit 5 - Vocabulary List</h3>
-                                        <p>vocabulary_unit5.pdf</p>
+
+                                        <h3 class="material-title">
+                                            Unit 5 - Vocabulary List
+                                        </h3>
+
+                                        <p>
+                                            vocabulary_unit5.pdf
+                                        </p>
+
                                     </div>
+
 
                                 </div>
 
@@ -276,41 +502,86 @@
 
 
                                 <div class="material-date">
-                                    <strong>May 18, 2025</strong>
-                                    <span>10:30 AM</span>
+
+                                    <strong>
+                                        May 18, 2025
+                                    </strong>
+
+                                    <span>
+                                        10:30 AM
+                                    </span>
+
                                 </div>
 
 
                                 <div class="material-actions">
 
-                                    <button>
+
+                                    <!-- DOWNLOAD -->
+
+                                    <button
+                                        type="button"
+                                        class="material-download-button"
+                                        title="Download"
+                                    >
+
                                         <i class="fa-solid fa-download"></i>
+
                                     </button>
 
-                                    <button>
+
+                                    <!-- MORE -->
+
+                                    <button
+                                        type="button"
+                                        class="material-more-button"
+                                        title="More actions"
+                                    >
+
                                         <i class="fa-solid fa-ellipsis-vertical"></i>
+
                                     </button>
+
 
                                 </div>
+
 
                             </div>
 
 
-                            <!-- ==================== MATERIAL ROW 2 ==================== -->
+                            <!-- ====================================================
+                                 MATERIAL ROW 2
+                                 ==================================================== -->
 
-                            <div class="material-row">
+                            <div
+                                class="material-row"
+                                data-date="2025-05-17"
+                                data-file="materials/present_simple_exercise.docx"
+                            >
+
 
                                 <div class="material-name">
 
+
                                     <div class="material-file-icon docx">
+
                                         <i class="fa-solid fa-file-word"></i>
+
                                     </div>
 
 
                                     <div class="material-name-info">
-                                        <h3>Grammar Exercise - Present Simple</h3>
-                                        <p>present_simple_exercise.docx</p>
+
+                                        <h3 class="material-title">
+                                            Grammar Exercise - Present Simple
+                                        </h3>
+
+                                        <p>
+                                            present_simple_exercise.docx
+                                        </p>
+
                                     </div>
+
 
                                 </div>
 
@@ -334,41 +605,82 @@
 
 
                                 <div class="material-date">
-                                    <strong>May 17, 2025</strong>
-                                    <span>03:15 PM</span>
+
+                                    <strong>
+                                        May 17, 2025
+                                    </strong>
+
+                                    <span>
+                                        03:15 PM
+                                    </span>
+
                                 </div>
 
 
                                 <div class="material-actions">
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-download-button"
+                                        title="Download"
+                                    >
+
                                         <i class="fa-solid fa-download"></i>
+
                                     </button>
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-more-button"
+                                        title="More actions"
+                                    >
+
                                         <i class="fa-solid fa-ellipsis-vertical"></i>
+
                                     </button>
+
 
                                 </div>
+
 
                             </div>
 
 
-                            <!-- ==================== MATERIAL ROW 3 ==================== -->
+                            <!-- ====================================================
+                                 MATERIAL ROW 3
+                                 ==================================================== -->
 
-                            <div class="material-row">
+                            <div
+                                class="material-row"
+                                data-date="2025-05-16"
+                                data-file="materials/unit4_results.xlsx"
+                            >
+
 
                                 <div class="material-name">
 
+
                                     <div class="material-file-icon xlsx">
+
                                         <i class="fa-solid fa-file-excel"></i>
+
                                     </div>
 
 
                                     <div class="material-name-info">
-                                        <h3>Assessment Results - Unit 4</h3>
-                                        <p>unit4_results.xlsx</p>
+
+                                        <h3 class="material-title">
+                                            Assessment Results - Unit 4
+                                        </h3>
+
+                                        <p>
+                                            unit4_results.xlsx
+                                        </p>
+
                                     </div>
+
 
                                 </div>
 
@@ -392,41 +704,82 @@
 
 
                                 <div class="material-date">
-                                    <strong>May 16, 2025</strong>
-                                    <span>11:20 AM</span>
+
+                                    <strong>
+                                        May 16, 2025
+                                    </strong>
+
+                                    <span>
+                                        11:20 AM
+                                    </span>
+
                                 </div>
 
 
                                 <div class="material-actions">
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-download-button"
+                                        title="Download"
+                                    >
+
                                         <i class="fa-solid fa-download"></i>
+
                                     </button>
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-more-button"
+                                        title="More actions"
+                                    >
+
                                         <i class="fa-solid fa-ellipsis-vertical"></i>
+
                                     </button>
+
 
                                 </div>
+
 
                             </div>
 
 
-                            <!-- ==================== MATERIAL ROW 4 ==================== -->
+                            <!-- ====================================================
+                                 MATERIAL ROW 4
+                                 ==================================================== -->
 
-                            <div class="material-row">
+                            <div
+                                class="material-row"
+                                data-date="2025-05-16"
+                                data-file="materials/modal_verbs_lesson.pptx"
+                            >
+
 
                                 <div class="material-name">
 
+
                                     <div class="material-file-icon pptx">
+
                                         <i class="fa-solid fa-file-powerpoint"></i>
+
                                     </div>
 
 
                                     <div class="material-name-info">
-                                        <h3>Lesson 3 - Modal Verbs</h3>
-                                        <p>modal_verbs_lesson.pptx</p>
+
+                                        <h3 class="material-title">
+                                            Lesson 3 - Modal Verbs
+                                        </h3>
+
+                                        <p>
+                                            modal_verbs_lesson.pptx
+                                        </p>
+
                                     </div>
+
 
                                 </div>
 
@@ -450,41 +803,82 @@
 
 
                                 <div class="material-date">
-                                    <strong>May 16, 2025</strong>
-                                    <span>09:45 AM</span>
+
+                                    <strong>
+                                        May 16, 2025
+                                    </strong>
+
+                                    <span>
+                                        09:45 AM
+                                    </span>
+
                                 </div>
 
 
                                 <div class="material-actions">
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-download-button"
+                                        title="Download"
+                                    >
+
                                         <i class="fa-solid fa-download"></i>
+
                                     </button>
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-more-button"
+                                        title="More actions"
+                                    >
+
                                         <i class="fa-solid fa-ellipsis-vertical"></i>
+
                                     </button>
+
 
                                 </div>
+
 
                             </div>
 
 
-                            <!-- ==================== MATERIAL ROW 5 ==================== -->
+                            <!-- ====================================================
+                                 MATERIAL ROW 5
+                                 ==================================================== -->
 
-                            <div class="material-row">
+                            <div
+                                class="material-row"
+                                data-date="2025-05-15"
+                                data-file="materials/classroom_rules.png"
+                            >
+
 
                                 <div class="material-name">
 
+
                                     <div class="material-file-icon image">
+
                                         <i class="fa-solid fa-file-image"></i>
+
                                     </div>
 
 
                                     <div class="material-name-info">
-                                        <h3>Classroom Poster - Rules</h3>
-                                        <p>classroom_rules.png</p>
+
+                                        <h3 class="material-title">
+                                            Classroom Poster - Rules
+                                        </h3>
+
+                                        <p>
+                                            classroom_rules.png
+                                        </p>
+
                                     </div>
+
 
                                 </div>
 
@@ -508,41 +902,82 @@
 
 
                                 <div class="material-date">
-                                    <strong>May 15, 2025</strong>
-                                    <span>04:05 PM</span>
+
+                                    <strong>
+                                        May 15, 2025
+                                    </strong>
+
+                                    <span>
+                                        04:05 PM
+                                    </span>
+
                                 </div>
 
 
                                 <div class="material-actions">
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-download-button"
+                                        title="Download"
+                                    >
+
                                         <i class="fa-solid fa-download"></i>
+
                                     </button>
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-more-button"
+                                        title="More actions"
+                                    >
+
                                         <i class="fa-solid fa-ellipsis-vertical"></i>
+
                                     </button>
+
 
                                 </div>
+
 
                             </div>
 
 
-                            <!-- ==================== MATERIAL ROW 6 ==================== -->
+                            <!-- ====================================================
+                                 MATERIAL ROW 6
+                                 ==================================================== -->
 
-                            <div class="material-row">
+                            <div
+                                class="material-row"
+                                data-date="2025-05-15"
+                                data-file="materials/reading_comprehension.pdf"
+                            >
+
 
                                 <div class="material-name">
 
+
                                     <div class="material-file-icon pdf">
+
                                         <i class="fa-solid fa-file-pdf"></i>
+
                                     </div>
 
 
                                     <div class="material-name-info">
-                                        <h3>Reading Comprehension Worksheet</h3>
-                                        <p>reading_comprehension.pdf</p>
+
+                                        <h3 class="material-title">
+                                            Reading Comprehension Worksheet
+                                        </h3>
+
+                                        <p>
+                                            reading_comprehension.pdf
+                                        </p>
+
                                     </div>
+
 
                                 </div>
 
@@ -566,41 +1001,82 @@
 
 
                                 <div class="material-date">
-                                    <strong>May 15, 2025</strong>
-                                    <span>10:10 AM</span>
+
+                                    <strong>
+                                        May 15, 2025
+                                    </strong>
+
+                                    <span>
+                                        10:10 AM
+                                    </span>
+
                                 </div>
 
 
                                 <div class="material-actions">
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-download-button"
+                                        title="Download"
+                                    >
+
                                         <i class="fa-solid fa-download"></i>
+
                                     </button>
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-more-button"
+                                        title="More actions"
+                                    >
+
                                         <i class="fa-solid fa-ellipsis-vertical"></i>
+
                                     </button>
+
 
                                 </div>
+
 
                             </div>
 
 
-                            <!-- ==================== MATERIAL ROW 7 ==================== -->
+                            <!-- ====================================================
+                                 MATERIAL ROW 7
+                                 ==================================================== -->
 
-                            <div class="material-row">
+                            <div
+                                class="material-row"
+                                data-date="2025-05-14"
+                                data-file="materials/writing_prompts_set2.docx"
+                            >
+
 
                                 <div class="material-name">
 
+
                                     <div class="material-file-icon docx">
+
                                         <i class="fa-solid fa-file-word"></i>
+
                                     </div>
 
 
                                     <div class="material-name-info">
-                                        <h3>Writing Prompts - Set 2</h3>
-                                        <p>writing_prompts_set2.docx</p>
+
+                                        <h3 class="material-title">
+                                            Writing Prompts - Set 2
+                                        </h3>
+
+                                        <p>
+                                            writing_prompts_set2.docx
+                                        </p>
+
                                     </div>
+
 
                                 </div>
 
@@ -624,41 +1100,82 @@
 
 
                                 <div class="material-date">
-                                    <strong>May 14, 2025</strong>
-                                    <span>02:30 PM</span>
+
+                                    <strong>
+                                        May 14, 2025
+                                    </strong>
+
+                                    <span>
+                                        02:30 PM
+                                    </span>
+
                                 </div>
 
 
                                 <div class="material-actions">
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-download-button"
+                                        title="Download"
+                                    >
+
                                         <i class="fa-solid fa-download"></i>
+
                                     </button>
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-more-button"
+                                        title="More actions"
+                                    >
+
                                         <i class="fa-solid fa-ellipsis-vertical"></i>
+
                                     </button>
+
 
                                 </div>
+
 
                             </div>
 
 
-                            <!-- ==================== MATERIAL ROW 8 ==================== -->
+                            <!-- ====================================================
+                                 MATERIAL ROW 8
+                                 ==================================================== -->
 
-                            <div class="material-row">
+                            <div
+                                class="material-row"
+                                data-date="2025-05-12"
+                                data-file="materials/attendance_may.xlsx"
+                            >
+
 
                                 <div class="material-name">
 
+
                                     <div class="material-file-icon xlsx">
+
                                         <i class="fa-solid fa-file-excel"></i>
+
                                     </div>
 
 
                                     <div class="material-name-info">
-                                        <h3>Attendance - May</h3>
-                                        <p>attendance_may.xlsx</p>
+
+                                        <h3 class="material-title">
+                                            Attendance - May
+                                        </h3>
+
+                                        <p>
+                                            attendance_may.xlsx
+                                        </p>
+
                                     </div>
+
 
                                 </div>
 
@@ -682,78 +1199,97 @@
 
 
                                 <div class="material-date">
-                                    <strong>May 12, 2025</strong>
-                                    <span>08:50 AM</span>
+
+                                    <strong>
+                                        May 12, 2025
+                                    </strong>
+
+                                    <span>
+                                        08:50 AM
+                                    </span>
+
                                 </div>
 
 
                                 <div class="material-actions">
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-download-button"
+                                        title="Download"
+                                    >
+
                                         <i class="fa-solid fa-download"></i>
+
                                     </button>
 
-                                    <button>
+
+                                    <button
+                                        type="button"
+                                        class="material-more-button"
+                                        title="More actions"
+                                    >
+
                                         <i class="fa-solid fa-ellipsis-vertical"></i>
+
                                     </button>
+
 
                                 </div>
+
 
                             </div>
 
 
-                            <!-- ==================== TABLE FOOTER ==================== -->
+                            <!-- ====================================================
+                                 TABLE FOOTER
+                                 ==================================================== -->
 
                             <div class="materials-table-footer">
 
-                                <span>
-                                    Showing 1 to 8 of 28 materials
-                                </span>
+
+                                <!--
+                                    IMPORTANT:
+                                    Burada "No materials to display"
+                                    şeklinde ikinci bir mesaj YOK.
+
+                                    JS sadece pagination / count
+                                    bilgisini güncelleyecek.
+                                -->
+
+                                <p class="materials-footer-text">
+                                    Showing 1 to 8 of 8 materials
+                                </p>
 
 
-                                <div class="materials-pagination">
+                                <!-- ==================== PAGINATION ==================== -->
 
-                                    <button>
-                                        <i class="fa-solid fa-chevron-left"></i>
-                                    </button>
+                                <div class="materials-pagination"></div>
 
-                                    <button class="active">
-                                        1
-                                    </button>
-
-                                    <button>
-                                        2
-                                    </button>
-
-                                    <button>
-                                        3
-                                    </button>
-
-                                    <button>
-                                        4
-                                    </button>
-
-                                    <button>
-                                        <i class="fa-solid fa-chevron-right"></i>
-                                    </button>
-
-                                </div>
 
                             </div>
 
+
                         </section>
+
 
                     </div>
 
 
-                    <!-- ==================== RIGHT SIDEBAR ==================== -->
+                    <!-- ========================================================
+                         RIGHT SIDEBAR
+                         ======================================================== -->
 
                     <aside class="materials-side">
 
 
-                        <!-- ==================== UPLOAD CARD ==================== -->
+                        <!-- ====================================================
+                             UPLOAD NEW MATERIAL
+                             ==================================================== -->
 
                         <section class="material-upload-card">
+
 
                             <h2>
                                 Upload New Material
@@ -762,11 +1298,14 @@
 
                             <div class="material-upload-area">
 
+
                                 <i class="fa-solid fa-cloud-arrow-up"></i>
+
 
                                 <p>
                                     Drag and drop your file here
                                 </p>
+
 
                                 <span>
                                     or
@@ -777,28 +1316,41 @@
                                     Choose File
                                 </label>
 
-                                <input type="file" id="material-upload-input">
+
+                                <input
+                                    type="file"
+                                    id="material-upload-input"
+                                >
 
 
                                 <small>
                                     Max file size: 50MB
                                 </small>
 
+
                             </div>
+
 
                         </section>
 
 
-                    
+                        <!-- ====================================================
+                             RECENT UPLOADS
+                             ==================================================== -->
 
-                        <!-- ==================== RECENT UPLOADS ==================== -->
+                        <section class="material-side-card recent-uploads-card">
 
-                        <section class="material-side-card">
 
-                            <h2>
-                                Recent Uploads
-                            </h2>
+                            <div class="material-side-card-header">
 
+                                <h2>
+                                    Recent Uploads
+                                </h2>
+
+                            </div>
+
+
+                            <!-- ==================== RECENT MATERIAL 1 ==================== -->
 
                             <div class="recent-material">
 
@@ -813,6 +1365,8 @@
                             </div>
 
 
+                            <!-- ==================== RECENT MATERIAL 2 ==================== -->
+
                             <div class="recent-material">
 
                                 <strong>
@@ -825,6 +1379,8 @@
 
                             </div>
 
+
+                            <!-- ==================== RECENT MATERIAL 3 ==================== -->
 
                             <div class="recent-material">
 
@@ -839,20 +1395,31 @@
                             </div>
 
 
-                            <a href="#" class="recent-material-link">
+                            <!-- ==================== VIEW ALL RECENT UPLOADS ==================== -->
 
-                                View all recent uploads
+                            <button
+                                type="button"
+                                class="recent-material-link view-all-recent-uploads"
+                            >
+
+                                <span>
+                                    View all recent uploads
+                                </span>
 
                                 <i class="fa-solid fa-arrow-right"></i>
 
-                            </a>
+                            </button>
+
 
                         </section>
 
 
-                        <!-- ==================== MATERIALS OVERVIEW ==================== -->
+                        <!-- ====================================================
+                             MATERIALS OVERVIEW
+                             ==================================================== -->
 
                         <section class="material-side-card materials-overview-card">
+
 
                             <h2>
                                 Materials Overview
@@ -861,12 +1428,15 @@
 
                             <div class="materials-overview-stats">
 
+
+                                <!-- ==================== TOTAL MATERIALS ==================== -->
+
                                 <div>
 
                                     <i class="fa-regular fa-file"></i>
 
-                                    <strong>
-                                        28
+                                    <strong class="material-overview-number">
+                                        8
                                     </strong>
 
                                     <span>
@@ -876,12 +1446,14 @@
                                 </div>
 
 
+                                <!-- ==================== THIS WEEK ==================== -->
+
                                 <div>
 
                                     <i class="fa-regular fa-calendar"></i>
 
-                                    <strong>
-                                        12
+                                    <strong class="material-overview-number">
+                                        0
                                     </strong>
 
                                     <span>
@@ -891,12 +1463,14 @@
                                 </div>
 
 
+                                <!-- ==================== THIS MONTH ==================== -->
+
                                 <div>
 
                                     <i class="fa-regular fa-calendar-days"></i>
 
-                                    <strong>
-                                        45
+                                    <strong class="material-overview-number">
+                                        0
                                     </strong>
 
                                     <span>
@@ -905,22 +1479,37 @@
 
                                 </div>
 
+
                             </div>
+
 
                         </section>
 
+
                     </aside>
+
 
                 </div>
 
+
             </div>
+
 
         </main>
 
+
     </div>
 
+
+    <!-- ============================================================
+         JAVASCRIPT
+         ============================================================ -->
+
     <script src="script.js"></script>
+
     <script src="materials.js"></script>
+
+
 </body>
 
 </html>
