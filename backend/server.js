@@ -1,6 +1,7 @@
 const express = require("express");
 const { Pool } = require("pg");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 
@@ -8,10 +9,10 @@ app.use(cors());
 app.use(express.json());
 
 const pool = new Pool({
-    user: "berkecanyildiz",
-    host: "localhost",
-    database: "fld_primary",
-    port: 5432
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    port: Number(process.env.DB_PORT)
 });
 
 app.get("/api/events", async function (req, res) {
