@@ -24,73 +24,634 @@ a {
 }
 
 
-/* ==================== SIDEBAR ==================== */
+/* ============================================================
+   MODERN FLD SIDEBAR
+   ============================================================ */
 
 .sidebar {
-    background-color: #2563EB;
-    color: white;
-    width: 220px;
+    width: 230px;
+    height: calc(100vh - 32px);
     flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 16px;
+    padding: 16px 12px;
+
+    box-sizing: border-box;
+
+    background: linear-gradient(
+    180deg,
+    #6C4CF1 0%,
+    #5B3DE1 55%,
+    #4C2FC7 100%
+);
+
+    color: #FFFFFF;
+
+    border-radius: 34px;
+
+    box-shadow:
+        0 16px 36px rgba(190, 0, 25, 0.18),
+        0 5px 12px rgba(15, 23, 42, 0.08);
+
+    position: relative;
+    overflow: visible;
+
+    transition:
+        width 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+        padding 0.32s ease;
 }
 
-.sidebar ul {
-    list-style: none;
-    padding-left: 10px;
-}
 
-.sidebar li a {
-    display: block;
-    padding: 10px;
-    font-size: 14px;
-    color: white;
-    transition: all 0.3s;
-}
+/* ==================== SIDEBAR BRAND ==================== */
 
-.sidebar li a:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-radius: 10px;
-    transform: translateX(4px);
-}
+.sidebar-brand {
+    min-height: 72px;
 
-.sidebar li a i {
-    margin-right: 8px;
-}
-
-.sidebar-alt {
-    margin-top: 150px;
-}
-
-
-/* ==================== LOGO ==================== */
-
-.logo {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 6px 4px 16px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
 }
 
-.logo img {
-    width: 55px;
-    height: 55px;
+.sidebar-brand-main {
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
 }
 
-.logo-text p {
-    margin: 2px 0;
+.sidebar-logo {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+
+    object-fit: contain;
+
+    padding: 4px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    background-color: rgba(255, 255, 255, 0.14);
+}
+
+.sidebar-brand-text {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    opacity: 1;
+
+    transition:
+        width 0.28s ease,
+        opacity 0.18s ease;
+}
+
+.sidebar-brand-text strong {
     font-family: "Montserrat", sans-serif;
+    font-size: 17px;
     font-weight: 700;
+    letter-spacing: 0.3px;
+    color: #FFFFFF;
 }
 
-.logo-text p:first-child {
-    font-size: 20px;
+.sidebar-brand-text span {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    color: rgba(255, 255, 255, 0.74);
 }
 
-.logo-text p:last-child {
-    font-size: 12px;
+
+/* ==================== SIDEBAR TOGGLE ==================== */
+
+.sidebar-toggle {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    border-radius: 50%;
+
+    background-color: rgba(255, 255, 255, 0.14);
+    color: #FFFFFF;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.24);
+    transform: scale(1.06);
+    box-shadow: 0 4px 12px rgba(90, 0, 15, 0.14);
 }
 
 
+/* ==================== SIDEBAR NAVIGATION ==================== */
+
+.sidebar-navigation {
+    flex: 1;
+    min-height: 0;
+    padding-top: 18px;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.sidebar-menu li {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ==================== SIDEBAR LINKS ==================== */
+
+.sidebar-link {
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 8px 12px;
+
+    box-sizing: border-box;
+
+    border-radius: 19px;
+
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+
+    position: relative;
+
+    transition:
+        background-color 0.22s ease,
+        color 0.22s ease,
+        transform 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, 0.11);
+    color: #FFFFFF;
+    transform: translateX(2px);
+}
+
+.sidebar-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+    color: inherit;
+}
+
+.sidebar-icon i {
+    margin: 0;
+    transition: transform 0.22s ease;
+}
+
+.sidebar-link:hover .sidebar-icon i {
+    transform: scale(1.08);
+}
+
+.sidebar-link-text {
+    min-width: 0;
+
+    font-family: "Inter", sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+
+    white-space: nowrap;
+    overflow: hidden;
+
+    opacity: 1;
+
+    transition:
+        width 0.28s ease,
+        opacity 0.18s ease;
+}
+
+
+/* ==================== ACTIVE PAGE ==================== */
+
+.sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.20);
+    color: #FFFFFF;
+
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 6px 16px rgba(140, 0, 18, 0.14);
+
+    transform: translateX(2px);
+}
+
+.sidebar-link.active .sidebar-link-text {
+    font-weight: 600;
+}
+
+.sidebar-link.active .sidebar-icon {
+    color: #FFFFFF;
+}
+
+
+/* ==================== SIDEBAR BOTTOM ==================== */
+
+.sidebar-bottom {
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.sidebar-signout {
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.sidebar-signout:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+}
+
+
+/* ============================================================
+   COLLAPSED SIDEBAR
+   ============================================================ */
+
+.sidebar.collapsed {
+    width: 78px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.sidebar.collapsed .sidebar-brand {
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar.collapsed .sidebar-brand-main {
+    justify-content: center;
+}
+
+.sidebar.collapsed .sidebar-brand-text {
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar.collapsed .sidebar-logo {
+    width: 40px;
+    height: 40px;
+}
+
+.sidebar.collapsed .sidebar-toggle {
+    width: 26px;
+    height: 26px;
+    font-size: 10px;
+}
+
+.sidebar.collapsed .sidebar-link {
+    width: 48px;
+    min-height: 48px;
+
+    justify-content: center;
+
+    gap: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 0;
+
+    border-radius: 18px;
+}
+
+.sidebar.collapsed .sidebar-link:hover,
+.sidebar.collapsed .sidebar-link.active {
+    transform: none;
+}
+
+.sidebar.collapsed .sidebar-link-text {
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar.collapsed .sidebar-icon {
+    width: 30px;
+}
+
+.sidebar.collapsed .sidebar-link.active {
+    background-color: rgba(255, 255, 255, 0.23);
+}
+
+
+/* ==================== COLLAPSED TOOLTIP ==================== */
+
+.sidebar.collapsed .sidebar-link::before {
+    content: attr(data-label);
+
+    position: absolute;
+    left: calc(100% + 13px);
+    top: 50%;
+
+    transform: translateY(-50%) translateX(-4px);
+
+    padding: 7px 10px;
+
+    border-radius: 8px;
+
+    background-color: #17171C;
+    color: #FFFFFF;
+
+    font-family: "Inter", sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.18);
+
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease,
+        visibility 0.15s ease;
+
+    z-index: 9999;
+}
+
+.sidebar.collapsed .sidebar-link:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* ============================================================
+   MOBILE SIDEBAR
+   ============================================================ */
+
+.mobile-sidebar-button {
+    display: none;
+
+    width: 38px;
+    height: 38px;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: transparent;
+
+    color: #0F172A;
+
+    font-size: 19px;
+
+    cursor: pointer;
+}
+
+
+/* ==================== OVERLAY ==================== */
+
+.sidebar-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 8998;
+
+    background-color: rgba(15, 23, 42, 0.38);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+
+@media (max-width: 900px) {
+
+    /* Show hamburger */
+
+    .mobile-sidebar-button {
+        display: flex;
+    }
+
+
+    /* Sidebar becomes drawer */
+
+    .sidebar {
+        position: fixed;
+
+        top: 12px;
+        left: 12px;
+        bottom: 12px;
+
+        z-index: 8999;
+
+        width: min(280px, calc(100vw - 40px));
+        height: calc(100dvh - 24px);
+
+        margin: 0;
+
+        padding: 16px 12px;
+
+        border-radius: 30px;
+
+        transform: translateX(
+            calc(-100% - 25px)
+        );
+
+        transition:
+            transform 0.3s cubic-bezier(.4, 0, .2, 1);
+
+        box-shadow:
+            0 20px 50px rgba(38, 20, 110, 0.30);
+
+        overflow-y: auto;
+    }
+
+
+    /* Do not use desktop collapsed state on mobile */
+
+    .sidebar.collapsed {
+        width: min(280px, calc(100vw - 40px));
+
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+
+    .sidebar.collapsed .sidebar-brand {
+        flex-direction: row;
+        justify-content: space-between;
+
+        gap: 10px;
+    }
+
+
+    .sidebar.collapsed .sidebar-brand-main {
+        justify-content: flex-start;
+    }
+
+
+    .sidebar.collapsed .sidebar-brand-text {
+        width: auto;
+
+        opacity: 1;
+
+        pointer-events: auto;
+    }
+
+
+    .sidebar.collapsed .sidebar-link {
+        width: auto;
+
+        min-height: 48px;
+
+        justify-content: flex-start;
+
+        gap: 12px;
+
+        margin-left: 0;
+        margin-right: 0;
+
+        padding: 8px 12px;
+    }
+
+
+    .sidebar.collapsed .sidebar-link-text {
+        width: auto;
+
+        opacity: 1;
+
+        pointer-events: auto;
+    }
+
+
+    /* Open sidebar */
+
+    body.sidebar-mobile-open .sidebar {
+        transform: translateX(0);
+    }
+
+
+    body.sidebar-mobile-open .sidebar-overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+
+    /* Disable page scrolling */
+
+    body.sidebar-mobile-open {
+        overflow: hidden;
+    }
+
+
+    /* Mobile toggle becomes close button */
+
+    .sidebar-toggle {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    /* Main content always stays full width */
+
+    .main-content {
+        width: 100%;
+    }
+
+
+    #sidebar-container {
+        width: 0;
+
+        flex-shrink: 0;
+    }
+
+}
+
+
+/* ============================================================
+   SMALL PHONES
+   ============================================================ */
+
+@media (max-width: 480px) {
+
+    .sidebar {
+        top: 8px;
+        bottom: 8px;
+        left: 8px;
+
+        width: min(270px, calc(100vw - 28px));
+
+        height: calc(100dvh - 16px);
+
+        border-radius: 26px;
+    }
+
+
+    .sidebar.collapsed {
+        width: min(270px, calc(100vw - 28px));
+    }
+
+}
 /* ==================== TOPBAR ==================== */
 
 .topbar {
@@ -1099,10 +1660,6 @@ body.homework-modal-open {
 
 
 @media (max-width: 900px) {
-
-    .sidebar {
-        display: none;
-    }
 
     .dashboard-row {
         grid-template-columns: 1fr;

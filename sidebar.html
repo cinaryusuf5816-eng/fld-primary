@@ -1,108 +1,173 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- ==================== FLD SIDEBAR ==================== -->
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<aside class="sidebar" id="sidebar">
 
-    <title>FLD Dashboard</title>
+    <!-- ==================== BRAND ==================== -->
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <div class="sidebar-brand">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap"
-        rel="stylesheet">
+        <div class="sidebar-brand-main">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-</head>
+            <img
+                src="logo.png"
+                alt="FLD Logo"
+                class="sidebar-logo"
+            >
 
-<body>
-
-    <div class="sayfa">
-        <div id="sidebar-container"></div>
-
-        <!-- ==================== SIDEBAR ==================== -->
-
-        <aside class="sidebar">
-
-            <!-- Logo -->
-            <div class="logo">
-
-                <img src="logo.png" alt="FLD Logo">
-
-                <div class="logo-text">
-                    <p>FLD</p>
-                    <p>Dashboard</p>
-                </div>
-
+            <div class="sidebar-brand-text">
+                <strong>FLD</strong>
+                <span>Dashboard</span>
             </div>
 
+        </div>
 
-            <!-- Main Navigation -->
-            <ul>
+        <button
+            type="button"
+            class="sidebar-toggle"
+            id="sidebar-toggle"
+            aria-label="Toggle sidebar"
+        >
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
 
-                <li>
-                    <a href="index.html">
+    </div>
+
+
+    <!-- ==================== NAVIGATION ==================== -->
+
+    <nav class="sidebar-navigation">
+
+        <ul class="sidebar-menu">
+
+            <li>
+                <a
+                    href="index.html"
+                    class="sidebar-link"
+                    data-page="index.html"
+                    data-label="Dashboard"
+                >
+                    <span class="sidebar-icon">
                         <i class="fa-solid fa-house"></i>
+                    </span>
+
+                    <span class="sidebar-link-text">
                         Dashboard
-                    </a>
-                </li>
+                    </span>
+                </a>
+            </li>
 
-            
 
-                <li>
-                    <a href="materials.html">
+            <li>
+                <a
+                    href="materials.html"
+                    class="sidebar-link"
+                    data-page="materials.html"
+                    data-label="Materials"
+                >
+                    <span class="sidebar-icon">
                         <i class="fa-solid fa-folder-open"></i>
+                    </span>
+
+                    <span class="sidebar-link-text">
                         Materials
-                    </a>
-                </li>
+                    </span>
+                </a>
+            </li>
 
 
-                <li>
-                    <a href="calendar.html">
+            <li>
+                <a
+                    href="calendar.html"
+                    class="sidebar-link"
+                    data-page="calendar.html"
+                    data-label="Calendar"
+                >
+                    <span class="sidebar-icon">
                         <i class="fa-solid fa-calendar-days"></i>
+                    </span>
+
+                    <span class="sidebar-link-text">
                         Calendar
-                    </a>
-                </li>
+                    </span>
+                </a>
+            </li>
 
-                <li>
-                    <a href="announcements.html">
+
+            <li>
+                <a
+                    href="announcements.html"
+                    class="sidebar-link"
+                    data-page="announcements.html"
+                    data-label="Announcements"
+                >
+                    <span class="sidebar-icon">
                         <i class="fa-solid fa-bullhorn"></i>
+                    </span>
+
+                    <span class="sidebar-link-text">
                         Announcements
-                    </a>
-                </li>
+                    </span>
+                </a>
+            </li>
 
-                <li>
-                    <a href="homework.html">
+
+            <li>
+                <a
+                    href="homework.html"
+                    class="sidebar-link"
+                    data-page="homework.html"
+                    data-label="Homework"
+                >
+                    <span class="sidebar-icon">
                         <i class="fa-solid fa-book-open"></i>
+                    </span>
+
+                    <span class="sidebar-link-text">
                         Homework
-                    </a>
-                </li>
+                    </span>
+                </a>
+            </li>
 
-            
-                <li>
-                    <a href="#">
+
+            <li>
+                <a
+                    href="#"
+                    class="sidebar-link"
+                    data-label="Settings"
+                >
+                    <span class="sidebar-icon">
                         <i class="fa-solid fa-gear"></i>
+                    </span>
+
+                    <span class="sidebar-link-text">
                         Settings
-                    </a>
-                </li>
+                    </span>
+                </a>
+            </li>
 
-            </ul>
+        </ul>
+
+    </nav>
 
 
-            <!-- Sign Out -->
-            <ul class="sidebar-alt">
+    <!-- ==================== BOTTOM ==================== -->
 
-                <li>
-                    <a href="#">
-                        <i class="fa-solid fa-right-from-bracket"></i>
-                        Sign Out
-                    </a>
-                </li>
+    <div class="sidebar-bottom">
 
-            </ul>
+        <a
+            href="#"
+            class="sidebar-link sidebar-signout"
+            data-label="Sign Out"
+        >
+            <span class="sidebar-icon">
+                <i class="fa-solid fa-right-from-bracket"></i>
+            </span>
 
-        </aside>
+            <span class="sidebar-link-text">
+                Sign Out
+            </span>
+        </a>
+
+    </div>
+
+</aside>
