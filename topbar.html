@@ -1,45 +1,30 @@
 <div class="topbar">
-
     <div class="topbar-left">
-            <button
-                type="button"
-                class="mobile-sidebar-button"
-                 id="mobile-sidebar-button"
-                 aria-label="Open menu"
-                >   
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        
-
-        <span>Dashboard</span>
+        <button type="button" class="mobile-sidebar-button" id="mobile-sidebar-button" aria-label="Open menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+        <span id="portal-page-title">Dashboard</span>
     </div>
-
     <div class="topbar-center">
-        <div class="search-box">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search" placeholder="Search">
-        </div>
-    </div>
-
-    <div class="topbar-right">
-
-        <div class="notification">
-            <i class="fa-solid fa-bell"></i>
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="profile">
-            <i class="fa-solid fa-circle-user"></i>
-
-            <div class="profile-info">
-                <span class="profile-name">Kuzey Güney</span>
-                <span class="profile-role">English Teacher</span>
+        <div class="portal-search">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                <input id="portal-search-input" type="search" placeholder="Search the portal…" aria-label="Search the portal" aria-expanded="false" aria-controls="portal-search-results" autocomplete="off">
             </div>
-
-            <i class="fa-solid fa-chevron-down profile-arrow"></i>
+            <div class="portal-popover portal-search-results" id="portal-search-results" role="region" aria-label="Search results" hidden>
+                <p class="portal-popover-caption" id="portal-search-status" role="status">Search pages, homework, events and materials.</p>
+                <div id="portal-search-list"></div>
+            </div>
         </div>
-
     </div>
-
+    <div class="topbar-right">
+        <div class="portal-notification-area">
+            <button type="button" class="notification" id="portal-notifications-button" aria-label="Notifications" aria-expanded="false" aria-controls="portal-notifications">
+                <i class="fa-regular fa-bell" aria-hidden="true"></i><span id="portal-notification-count" class="portal-notification-badge" hidden></span>
+            </button>
+            <div class="portal-popover portal-notifications" id="portal-notifications" role="region" aria-label="Notifications" hidden>
+                <div class="portal-popover-heading"><h2>Notifications</h2><button type="button" id="portal-mark-read" disabled>Mark all read</button></div>
+                <p class="portal-popover-caption" id="portal-notification-status" role="status">Loading reminders…</p>
+                <div id="portal-notification-list"></div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -5092,3 +5092,115 @@ body.homework-modal-open {
     }
 
 }
+/* Account identity stays with navigation on every portal page. */
+.sidebar { z-index: 20; }
+.sidebar-brand, .sidebar-bottom { flex-shrink: 0; }
+.sidebar-navigation {
+    overflow-y: auto;
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff45 transparent;
+    padding-right: 4px;
+    padding-bottom: 16px;
+    margin-right: -4px;
+}
+.sidebar-account { position: relative; margin-bottom: 8px; }
+.sidebar-account-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 66px;
+    padding: 10px;
+    border: 1px solid #ffffff29;
+    border-radius: 17px;
+    background: #ffffff10;
+    color: #fff;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background .18s ease, border-color .18s ease;
+}
+.sidebar-account-button:hover, .sidebar-account-button[aria-expanded="true"] {
+    background: #ffffff21;
+    border-color: #ffffff4d;
+}
+.sidebar-account-button:disabled { cursor: default; }
+.sidebar-account-avatar {
+    display: grid;
+    place-items: center;
+    flex: 0 0 35px;
+    height: 35px;
+    border-radius: 12px;
+    background: #eee9ff;
+    color: #5030c7;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .03em;
+}
+.sidebar-account-identity { display: flex; flex: 1; flex-direction: column; gap: 4px; min-width: 0; }
+.sidebar-account-identity .profile-name { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-size: 12px; line-height: 1.4; }
+.sidebar-account-identity .profile-role { color: #e2dbff; font-size: 10px; line-height: 1.4; }
+.sidebar-account-more { color: #e2dbff; font-size: 13px; flex-shrink: 0; }
+.sidebar-account-menu {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 10px);
+    width: 100%;
+    max-height: calc(100dvh - 165px);
+    overflow-y: auto;
+    box-sizing: border-box;
+    padding: 8px;
+    border: 1px solid #e6e1f1;
+    border-radius: 15px;
+    background: #fff;
+    color: #334155;
+    box-shadow: 0 14px 38px #23124730, 0 3px 8px #2312470a;
+    z-index: 30;
+}
+.sidebar-account-menu[hidden] { display: none !important; }
+.sidebar-account-caption { margin: 6px 9px 8px; font-size: 9px; letter-spacing: .1em; font-weight: 700; color: #7b718e; }
+.sidebar-account-menu a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 42px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border-radius: 9px;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.4;
+}
+.sidebar-account-menu a i { flex: 0 0 15px; text-align: center; color: #765ac1; }
+.sidebar-account-menu a:hover { color: #5735c5; background: #f4f0fd; }
+.sidebar-account-button:focus-visible, .sidebar-toggle:focus-visible, .sidebar-link:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 3px;
+}
+.sidebar-account-menu a:focus-visible { outline: 2px solid #9a81e6; outline-offset: -2px; background: #f4f0fd; }
+@media (min-width: 901px) {
+    .sidebar.collapsed .sidebar-account-button { width: 48px; min-height: 48px; padding: 0; justify-content: center; margin: 0 auto; border-radius: 16px; }
+    .sidebar.collapsed .sidebar-account-avatar { flex-basis: 34px; height: 34px; border-radius: 11px; }
+    .sidebar.collapsed .sidebar-account-identity, .sidebar.collapsed .sidebar-account-more { display: none; }
+    .sidebar.collapsed .sidebar-account-menu { left: calc(100% + 14px); bottom: 0; width: 225px; }
+}
+@media (max-width: 900px) {
+    .sidebar { z-index: 8999; overflow: visible; }
+}
+@media (prefers-reduced-motion: reduce) {
+    html:not([data-reduce-motion="false"]) *, html:not([data-reduce-motion="false"]) *::before, html:not([data-reduce-motion="false"]) *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+html[data-reduce-motion="true"] *, html[data-reduce-motion="true"] *::before, html[data-reduce-motion="true"] *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+}

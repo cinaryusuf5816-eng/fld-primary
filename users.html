@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="fld-api-base" content="">
+    <title>Users | FLD Primary</title>
+    <script src="auth.js"></script><script src="confirm.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="users.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="users.js" defer></script>
+    <link rel="stylesheet" href="page-theme.css">
+</head>
+<body>
+<div class="sayfa">
+    <div id="sidebar-container"></div>
+    <main class="main-content">
+        <div class="topbar users-topbar">
+            <div class="topbar-left"><button type="button" class="mobile-sidebar-button" id="mobile-sidebar-button" aria-label="Open menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button><span>User management</span></div>
+        </div>
+        <section class="users-page" aria-labelledby="page-title">
+            <div class="users-heading"><div><span class="users-eyebrow">ADMINISTRATION</span><h1 id="page-title">Users</h1><p>Every teacher signs in with their own email and password.</p></div><button class="users-button primary" id="new-user" type="button" disabled><span aria-hidden="true">＋</span> New user</button></div>
+            <div id="page-message" class="users-message" role="status" aria-live="polite" hidden></div>
+            <div id="access-denied" class="users-panel users-empty" role="alert" hidden><h2>This page is for admins only.</h2><p>Contact an admin if you need a user account.</p><a href="index.html">Back to dashboard</a></div>
+            <div id="users-content" hidden>
+                <section class="users-roles" aria-label="Roles and permissions">
+                    <article class="users-role"><span class="role-icon" aria-hidden="true"><i class="fa-solid fa-user-shield"></i></span><div><h2>Admin</h2><p>Manages user accounts, grade access and school content.</p></div></article>
+                    <article class="users-role"><span class="role-icon" aria-hidden="true"><i class="fa-solid fa-calendar-check"></i></span><div><h2>Coordinator</h2><p>Manages calendars, homework and resources across all grades.</p></div></article>
+                    <article class="users-role"><span class="role-icon" aria-hidden="true"><i class="fa-solid fa-chalkboard-user"></i></span><div><h2>Teacher</h2><p>Works with assigned grades, adds materials and manages their own homework.</p></div></article>
+                </section>
+                <section class="users-panel" aria-labelledby="accounts-title">
+                    <div class="users-panel-heading"><div><h2 id="accounts-title">User accounts</h2><p>Assign grades, update roles and manage access.</p></div><button class="users-button secondary" id="refresh-users" type="button">Refresh</button></div>
+                    <p class="users-loading" id="users-loading" role="status">Loading accounts…</p>
+                    <div class="users-table-wrap" id="users-table-wrap" hidden>
+                        <table class="users-table"><caption class="users-sr-only">FLD Primary user accounts</caption><thead><tr><th scope="col">Full name</th><th scope="col">Email</th><th scope="col">Role</th><th scope="col">Grades</th><th scope="col">Status</th><th scope="col"><span class="users-sr-only">Action</span></th></tr></thead><tbody id="users-list"></tbody></table>
+                    </div>
+                    <div class="users-empty" id="users-empty" hidden><h3>No users yet</h3><p>Select “New user” to add your first teacher account.</p></div>
+                    <div class="users-pagination"><span id="page-info" aria-live="polite"></span><div><button class="users-button secondary" id="previous-page" type="button" disabled>Previous</button><button class="users-button secondary" id="next-page" type="button" disabled>Next</button></div></div>
+                </section>
+                <p class="users-footnote"><i class="fa-solid fa-lock" aria-hidden="true"></i> Passwords are never listed. Grade assignments control which teaching records a teacher can access.</p>
+            </div>
+        </section>
+    </main>
+</div>
+<dialog id="user-dialog" class="users-dialog" aria-labelledby="dialog-title">
+    <form id="user-form">
+        <div class="users-dialog-heading"><div><h2 id="dialog-title">New user</h2><p id="dialog-description">Create an individual sign-in account.</p></div><button type="button" class="users-close" id="close-dialog" aria-label="Close dialog">×</button></div>
+        <fieldset id="user-fields">
+            <label for="user-name">Full name<input id="user-name" name="full_name" type="text" autocomplete="off" maxlength="120" required></label>
+            <label for="user-email">Email<input id="user-email" name="email" type="email" autocomplete="off" maxlength="254" required></label>
+            <div class="users-field-row"><label for="user-role">Role<select id="user-role" name="role"><option value="teacher">Teacher</option><option value="coordinator">Coordinator</option><option value="admin">Admin</option></select></label><label for="user-active">Account status<select id="user-active" name="is_active"><option value="true">Active</option><option value="false">Inactive</option></select></label></div>
+            <p class="users-field-hint" id="role-hint">Teachers can view the calendar but cannot manage users.</p>
+            <fieldset class="users-grade-fields" id="user-grade-fields"><legend>Assigned grades</legend><div class="users-grade-options"><label><input type="checkbox" data-user-grade value="Grade 1">Grade 1</label><label><input type="checkbox" data-user-grade value="Grade 2">Grade 2</label><label><input type="checkbox" data-user-grade value="Grade 3">Grade 3</label><label><input type="checkbox" data-user-grade value="Grade 4">Grade 4</label></div><p class="users-field-hint">Select every grade this teacher works with. Leave empty to assign grades later; grade-specific teaching data stays unavailable until a grade is assigned.</p></fieldset>
+            <div class="users-password-fields"><label for="user-password"><span id="password-label">Initial password</span><input id="user-password" name="password" type="password" autocomplete="new-password" minlength="12" maxlength="128" aria-describedby="password-hint" required></label><label for="user-confirmation">Confirm password<input id="user-confirmation" name="confirmation" type="password" autocomplete="new-password" minlength="12" maxlength="128" required></label></div>
+            <p class="users-field-hint" id="password-hint">At least 12 characters. Share the email and password privately with the account owner.</p>
+        </fieldset>
+        <p id="form-message" class="users-form-message" role="alert" hidden></p>
+        <div class="users-dialog-actions"><button class="users-button secondary" type="button" id="cancel-dialog">Cancel</button><button class="users-button primary" type="submit" id="save-user">Create account</button></div>
+    </form>
+</dialog>
+<script src="sidebar.js"></script>
+</body>
+</html>

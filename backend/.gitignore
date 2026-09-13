@@ -1,2 +1,6 @@
 node_modules/
 .env
+.local-setup-status.json
+.local-server.pid
+.local-server.log
+.local-server-error.log

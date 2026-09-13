@@ -1,20 +1,25 @@
 /*========================CALENDAR STARTS HERE====================================*/
-const supabaseUrl = "https://khhkuuuqefcwnotruzyb.supabase.co";
-const supabaseKey = "sb_publishable_2dvxNBIKS4B4EuGAWZtSYA_IKjpjS8Q";
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-
 let events = [];
+function schoolCalendarDate() {
+    const parts = new Intl.DateTimeFormat('en-GB',{timeZone:'Europe/Istanbul',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+    const value = type => parts.find(part => part.type === type).value;
+    return new Date(`${value('year')}-${value('month')}-${value('day')}T12:00:00`);
+}
+function calendarEventClass(value) { return 'event-' + String(value || 'activity').replace(/[^a-z0-9_-]/gi,'-'); }
+
+// Event text must not execute HTML in another user's authenticated session.
+function escapeEventText(value) {
+    const element = document.createElement('span');
+    element.textContent = String(value ?? '');
+    return element.innerHTML;
+}
 
 async function loadEventsFromBackend() {
 
     try {
-        const response = await fetch(
-            "http://localhost:3000/api/events"
-        );
-
-        const data = await response.json();
-
-        console.log("Events from our backend:", data);
+        const user = await window.FldAuth.ready;
+        if (!user) return;
+        const data = await window.FldAuth.request('/api/events');
 
         events = data.map(function (event) {
             return {
@@ -39,50 +44,25 @@ async function loadEventsFromBackend() {
 
                 category: event.category,
                 description: event.description || "",
-                days: event.days
+                days: event.days,
+                grades: event.grades || [],
+                materials: event.materials || [],
+                materialIds: event.material_ids || []
             };
         });
 
         renderCalendar();
+        const feedback = document.getElementById('calendar-feedback');
+        if (feedback) feedback.hidden = true;
+        window.dispatchEvent(new Event('fld:calendarloaded'));
+        return true;
 
     } catch (error) {
-        console.error("Backend error:", error);
+        const feedback = document.getElementById('calendar-feedback');
+        if (feedback) { feedback.hidden = false; feedback.textContent = 'Calendar events could not be loaded. Reload this page to try again.'; }
+        return false;
     }
 }
-
-async function testDatabaseConnection() {
-    const { data, error } = await supabaseClient
-        .from("events")
-        .select("*");
-
-    if (error) {
-        console.error("Supabase error:", error);
-        return;
-    }
-
-    console.log("Events from Supabase:", data);
-
-    events = data.map(function (event) {
-        return {
-            id: event.id,
-            title: event.title,
-            startDate: event.start_date,
-            endDate: event.end_date,
-            startTime: event.start_time
-                ? event.start_time.slice(0, 5)
-                : "",
-            endTime: event.end_time
-                ? event.end_time.slice(0, 5)
-                : "",
-            category: event.category,
-            description: event.description || "",
-            days: event.days
-        };
-    });
-
-    renderCalendar();
-}
-
 
 const calendarGrid = document.querySelector("#calendar-grid");
 
@@ -100,6 +80,27 @@ if (calendarGrid) {
     const addEventButton = document.querySelector("#add-event-button");
     const addEventModal = document.querySelector("#add-event-modal");
     const addEventModalClose = document.querySelector("#add-event-modal-close");
+    let canWriteEvents = false;
+    let editingEventId = null;
+    let calendarMaterials = [];
+    let selectedMaterialIds = new Set();
+    let materialLibraryReady = false;
+    let savingEvent = false;
+
+    // Backend enforces this permission even if browser controls are changed.
+    addEventButton.hidden = true;
+    dayAddEventButton.hidden = true;
+    addEventButton.style.display = 'none';
+    dayAddEventButton.style.display = 'none';
+    window.FldAuth.ready.then(user => {
+        const canWrite = !!user && ['admin', 'coordinator'].includes(user.role);
+        canWriteEvents = canWrite;
+        addEventButton.hidden = !canWrite;
+        dayAddEventButton.hidden = !canWrite;
+        addEventButton.style.display = canWrite ? '' : 'none';
+        dayAddEventButton.style.display = canWrite ? '' : 'none';
+        if (canWrite) loadMaterialLibrary();
+    });
 
     /* Add Event Form */
     const eventTitleInput = document.querySelector("#event-title");
@@ -151,6 +152,88 @@ if (calendarGrid) {
     const eventCategoryInput = document.querySelector("#event-category");
     const eventDescriptionInput = document.querySelector("#event-description");
     const saveEventButton = document.querySelector("#save-event-button");
+    const sharedAudience = document.querySelector('#event-shared');
+    const gradeOptions = Array.from(document.querySelectorAll('input[name="event-grade"]'));
+    const materialOptions = document.querySelector('#event-material-options');
+    const materialStatus = document.querySelector('#event-material-status');
+    const materialRetry = document.querySelector('#event-material-retry');
+    const formMessage = document.querySelector('#event-form-message');
+    function audienceGrades() { return sharedAudience.checked ? [] : gradeOptions.filter(input => input.checked).map(input => input.value); }
+    function materialMatches(material) {
+        const grades = material.grades || [];
+        const audience = audienceGrades();
+        const current = events.find(event => String(event.id) === String(editingEventId));
+        const sameAudience = current && current.grades.length === audience.length && current.grades.every(grade => audience.includes(grade));
+        const existingLink = sameAudience && current.materialIds.map(String).includes(String(material.id));
+        return (!material.is_archived || existingLink) && (!grades.length || (audience.length > 0 && audience.every(grade => grades.includes(grade))));
+    }
+    function renderMaterialOptions() {
+        materialOptions.replaceChildren();
+        const currentEvent = events.find(event => String(event.id) === String(editingEventId));
+        const choices = new Map(calendarMaterials.map(material => [String(material.id),material]));
+        for (const material of currentEvent?.materials || []) if (!choices.has(String(material.id))) choices.set(String(material.id),material);
+        let matching = 0;
+        for (const [id,material] of choices) {
+            const compatible = materialMatches(material);
+            if (!compatible && !selectedMaterialIds.has(id)) continue;
+            if (compatible) matching++;
+            const label = document.createElement('label'); label.className = 'event-material-option';
+            const checkbox = document.createElement('input'); checkbox.type = 'checkbox'; checkbox.value = id; checkbox.checked = selectedMaterialIds.has(id);
+            checkbox.disabled = savingEvent || !materialLibraryReady;
+            checkbox.addEventListener('change', () => { if (checkbox.checked) selectedMaterialIds.add(id); else selectedMaterialIds.delete(id); renderMaterialOptions(); });
+            const copy = document.createElement('span');
+            const title = document.createElement('strong'); title.textContent = material.title;
+            const detail = document.createElement('small');
+            detail.textContent = compatible ? `${material.kind === 'link' ? 'Link' : 'File'} · ${(material.grades || []).join(', ') || 'Shared'}${material.is_archived ? ' · Archived, existing link' : ''}` : material.is_archived ? 'Archived — keep the original audience or remove this material.' : 'Audience mismatch — remove this material or change the event audience.';
+            if (!compatible) label.classList.add('incompatible');
+            copy.append(title,detail); label.append(checkbox,copy); materialOptions.append(label);
+        }
+        if (materialLibraryReady) materialStatus.textContent = matching ? `${selectedMaterialIds.size} selected. Only materials available to the event audience are shown.` : 'No matching materials. Open Materials to upload a file or add a link for this audience.';
+    }
+    async function loadMaterialLibrary() {
+        materialLibraryReady = false; saveEventButton.disabled = true; materialRetry.hidden = true;
+        materialStatus.textContent = 'Loading the material library…';
+        try {
+            const response = await window.FldAuth.request('/api/materials');
+            if (!Array.isArray(response.materials)) throw new Error('Invalid library response');
+            calendarMaterials = response.materials; materialLibraryReady = true;
+        } catch {
+            materialStatus.textContent = 'The material library could not be loaded. Try again before saving.';
+            materialRetry.hidden = false;
+        } finally {
+            saveEventButton.disabled = savingEvent || !materialLibraryReady;
+            renderMaterialOptions();
+        }
+    }
+    materialRetry.addEventListener('click', loadMaterialLibrary);
+    sharedAudience.addEventListener('change', () => {
+        if (sharedAudience.checked) gradeOptions.forEach(input => { input.checked = false; });
+        else if (!gradeOptions.some(input => input.checked)) sharedAudience.checked = true;
+        renderMaterialOptions();
+    });
+    gradeOptions.forEach(input => input.addEventListener('change', () => { sharedAudience.checked = !gradeOptions.some(item => item.checked); renderMaterialOptions(); }));
+    window.addEventListener('fld:materialschange', () => { if (canWriteEvents && !savingEvent) loadMaterialLibrary(); });
+    function showEventFormError(message) { formMessage.textContent = message; formMessage.hidden = false; }
+    function editEvent(event) {
+        if (!canWriteEvents || savingEvent) return;
+        resetEventForm();
+        editingEventId = event.id;
+        document.querySelector('#event-form-heading').textContent = 'Edit Event';
+        saveEventButton.textContent = 'Save Changes';
+        eventTitleInput.value = event.title; eventDescriptionInput.value = event.description;
+        eventStartDateInput.value = event.startDate; eventEndDateInput.value = event.endDate;
+        eventStartTimeInput.value = event.startTime; eventEndTimeInput.value = event.endTime;
+        if (!Array.from(eventCategoryInput.options).some(option => option.value === event.category)) {
+            const option = document.createElement('option'); option.value = event.category; option.textContent = event.category; eventCategoryInput.append(option);
+        }
+        eventCategoryInput.value = event.category;
+        for (const day of ['monday','tuesday','wednesday','thursday','friday','saturday','sunday']) document.querySelector(`#event-${day}`).checked = !event.days || event.days[day] === true;
+        gradeOptions.forEach(input => { input.checked = event.grades.includes(input.value); }); sharedAudience.checked = !event.grades.length;
+        selectedMaterialIds = new Set(event.materialIds.map(String));
+        updateDaySelectionState(); renderMaterialOptions();
+        dayModal.style.display = 'none'; addEventModal.style.display = 'flex'; eventTitleInput.focus();
+        loadMaterialLibrary();
+    }
 
 
 
@@ -159,10 +242,14 @@ if (calendarGrid) {
     const todayButton = document.querySelector("#today-button");
     const nextMonthButton = document.querySelector("#next-month");
 
-    const today = new Date();
+    const today = schoolCalendarDate();
+    const requestedParams = new URLSearchParams(location.search);
+    const requestedDate = requestedParams.get('date') || '';
+    const parsedRequestedDate = /^\d{4}-\d{2}-\d{2}$/.test(requestedDate) ? new Date(`${requestedDate}T12:00:00`) : null;
+    const validRequestedDate = parsedRequestedDate && Number.isFinite(parsedRequestedDate.getTime()) && formatDateForInput(parsedRequestedDate) === requestedDate;
 
-    let currentYear = today.getFullYear();
-    let currentMonth = today.getMonth();
+    let currentYear = validRequestedDate ? parsedRequestedDate.getFullYear() : today.getFullYear();
+    let currentMonth = validRequestedDate ? parsedRequestedDate.getMonth() : today.getMonth();
 
     let selectedCalendarDate = ""; /* selected date */
 
@@ -195,6 +282,10 @@ if (calendarGrid) {
 
     /* reset */
     function resetEventForm() {
+        editingEventId = null; selectedMaterialIds = new Set(); formMessage.hidden = true;
+        document.querySelector('#event-form-heading').textContent = 'Add Event'; saveEventButton.textContent = 'Add Event';
+        sharedAudience.checked = true; gradeOptions.forEach(input => { input.checked = false; });
+        renderMaterialOptions();
 
         eventTitleInput.value = "";
         eventDescriptionInput.value = "";
@@ -441,7 +532,7 @@ if (calendarGrid) {
                 const eventType = event.type || event.category;
 
                 eventItem.classList.add("calendar-event");
-                eventItem.classList.add("event-" + eventType);
+                eventItem.classList.add(calendarEventClass(eventType));
 
                 const eventTitleText = document.createElement("span");
 
@@ -474,6 +565,7 @@ if (calendarGrid) {
                 currentYear + "-" +
                 String(currentMonth + 1).padStart(2, "0") + "-" +
                 String(dayNumber).padStart(2, "0");
+            day.dataset.date = currentDate;
 
             /* find events for this day */
             const eventsForThisDay = events.filter(function (event) {
@@ -502,7 +594,7 @@ if (calendarGrid) {
                 const eventType = event.type || event.category;
 
                 eventItem.classList.add("calendar-event");
-                eventItem.classList.add("event-" + eventType);
+                eventItem.classList.add(calendarEventClass(eventType));
 
                 const eventTitleText = document.createElement("span");
 
@@ -548,6 +640,7 @@ if (calendarGrid) {
                     const modalEvent = document.createElement("div");
 
                     modalEvent.classList.add("modal-event");
+                    modalEvent.dataset.eventId = String(event.id);
 
                     const eventStartTime = event.startTime || event.time || "";
                     const eventEndTime = event.endTime || "";
@@ -567,12 +660,12 @@ if (calendarGrid) {
                         <div class="modal-event-main">
 
                             <strong class="modal-event-title">
-                                ${event.title}
+                                ${escapeEventText(event.title)}
                             </strong>
 
                             ${event.description
                             ? `<span class="modal-event-description">
-                                        ${event.description}
+                                        ${escapeEventText(event.description)}
                                     </span>`
                             : ""
                         }
@@ -581,13 +674,30 @@ if (calendarGrid) {
 
                         ${eventTimeText
                             ? `<span class="modal-event-time">
-                                    ${eventTimeText}
+                                    ${escapeEventText(eventTimeText)}
                                 </span>`
                             : ""
                         }
                     `;
 
                     dayModalEvents.appendChild(modalEvent);
+                    const audience = document.createElement('p'); audience.className = 'event-audience-label';
+                    audience.textContent = event.grades.join(', ') || 'Shared with all teachers'; modalEvent.append(audience);
+                    if (event.materials.length) {
+                        const library = document.createElement('div'); library.className = 'event-linked-materials';
+                        const caption = document.createElement('strong'); caption.textContent = 'Materials'; library.append(caption);
+                        for (const material of event.materials) {
+                            const link = document.createElement('a');
+                            link.textContent = `${material.title}${material.is_archived ? ' (Archived)' : ''}`;
+                            link.href = `archive.html?material=${encodeURIComponent(material.id)}`;
+                            library.append(link);
+                        }
+                        modalEvent.append(library);
+                    }
+                    if (canWriteEvents) {
+                        const edit = document.createElement('button'); edit.type = 'button'; edit.className = 'event-edit-button'; edit.textContent = 'Edit Event';
+                        edit.addEventListener('click', () => editEvent(event)); modalEvent.append(edit);
+                    }
                 });
             });
 
@@ -645,7 +755,7 @@ if (calendarGrid) {
                 const eventType = event.type || event.category;
 
                 eventItem.classList.add("calendar-event");
-                eventItem.classList.add("event-" + eventType);
+                eventItem.classList.add(calendarEventClass(eventType));
 
                 const eventTitleText = document.createElement("span");
 
@@ -723,6 +833,7 @@ if (calendarGrid) {
     });
 
     dayAddEventButton.addEventListener("click", function () {
+        if (!canWriteEvents || savingEvent) return;
 
         resetEventForm();
 
@@ -734,14 +845,16 @@ if (calendarGrid) {
 
         dayModal.style.display = "none";
         addEventModal.style.display = "flex";
+        eventTitleInput.focus(); loadMaterialLibrary();
 
     });
 
     addEventButton.addEventListener("click", function () {
+        if (!canWriteEvents || savingEvent) return;
 
         resetEventForm();
 
-        const todayDate = formatDateForInput(new Date());
+        const todayDate = formatDateForInput(schoolCalendarDate());
 
         eventStartDateInput.value = todayDate;
         eventEndDateInput.value = todayDate;
@@ -750,6 +863,7 @@ if (calendarGrid) {
         updateDaySelectionState();
 
         addEventModal.style.display = "flex";
+        eventTitleInput.focus(); loadMaterialLibrary();
     });
 
     addEventModalClose.addEventListener("click", function () {
@@ -763,10 +877,12 @@ if (calendarGrid) {
     });
 
     saveEventButton.addEventListener("click", async function () {
+        if (!canWriteEvents || savingEvent || !materialLibraryReady) return;
+        formMessage.hidden = true;
 
         const title = eventTitleInput.value.trim();
         const startDate = eventStartDateInput.value;
-        let endDate = eventEndDateInput.value;
+        let endDate = eventEndDateInput.value || startDate;
 
         const days = {
             monday: eventMondayInput.checked,
@@ -790,7 +906,7 @@ if (calendarGrid) {
             !days.saturday &&
             !days.sunday
         ) {
-            alert("Please select at least one day.");
+            showEventFormError("Please select at least one day.");
             return;
         }
 
@@ -803,7 +919,7 @@ if (calendarGrid) {
         /* Required fields */
         if (title === "" || startDate === "") {
 
-            alert("Please enter a title and select a start date.");
+            showEventFormError("Please enter a title and select a start date.");
             return;
 
         }
@@ -816,7 +932,7 @@ if (calendarGrid) {
         /* End Date cannot be before start date */
         if (endDate < startDate) {
 
-            alert("End date cannot be before the start date.");
+            showEventFormError("End date cannot be before the start date.");
             return;
         }
 
@@ -832,14 +948,24 @@ if (calendarGrid) {
             endTime: endTime,
 
             category: category,
-            description: description
+            description: description,
+            grades: audienceGrades(),
+            material_ids: Array.from(selectedMaterialIds)
         };
+        if (newEvent.material_ids.length > 30) { showEventFormError('Choose up to 30 materials.'); return; }
+        const incompatible = calendarMaterials.some(material => selectedMaterialIds.has(String(material.id)) && !materialMatches(material));
+        if (incompatible) { showEventFormError('Remove archived materials and materials that do not match this event audience.'); return; }
+        const idToSave = editingEventId;
+        savingEvent = true;
+        const controls = Array.from(document.querySelectorAll('.add-event-form input,.add-event-form select,.add-event-form textarea,.add-event-form button'));
+        const priorDisabled = controls.map(control => control.disabled); controls.forEach(control => { control.disabled = true; });
+        saveEventButton.textContent = 'Saving…';
 
         try {
-            const response = await fetch(
-                "http://localhost:3000/api/events",
+            await window.FldAuth.request(
+                idToSave ? `/api/events/${encodeURIComponent(idToSave)}` : '/api/events',
                 {
-                    method: "POST",
+                    method: idToSave ? 'PATCH' : 'POST',
 
                     headers: {
                         "Content-Type": "application/json"
@@ -849,18 +975,17 @@ if (calendarGrid) {
                 }
             );
 
-            if (!response.ok) {
-                throw new Error("Could not save event.");
-            }
-
             await loadEventsFromBackend();
+            window.dispatchEvent(new Event('fld:calendarchange'));
 
             addEventModal.style.display = "none";
 
         } catch (error) {
-            console.error("Save event error:", error);
-
-            alert("Could not save the event.");
+            showEventFormError(error.status === 403 ? 'You no longer have permission to edit calendar events.' : error.status === 400 || error.status === 409 ? 'Check the event dates, audience and material selection. Linked materials must be active and available to every selected grade.' : error.status === 404 ? 'The event or a selected material is no longer available. Reload the calendar and try again.' : 'The save could not be confirmed. Reload the calendar before retrying to avoid creating a duplicate event.');
+        } finally {
+            savingEvent = false; controls.forEach((control,index) => { control.disabled = priorDisabled[index]; });
+            saveEventButton.disabled = !materialLibraryReady;
+            saveEventButton.textContent = idToSave ? 'Save Changes' : 'Add Event';
         }
 
     });
@@ -913,7 +1038,7 @@ if (calendarGrid) {
 
     todayButton.addEventListener("click", function () {
 
-        const today = new Date();
+        const today = schoolCalendarDate();
 
         currentYear = today.getFullYear(); /* today's year */
         currentMonth = today.getMonth(); /* today's date */
@@ -921,7 +1046,36 @@ if (calendarGrid) {
         renderCalendar();
     });
 
-    // testDatabaseConnection();
+    window.addEventListener('fld:calendarloaded', async () => {
+        let targetDate = validRequestedDate ? requestedDate : '';
+        const linkedEvent = events.find(event => String(event.id) === requestedParams.get('event'));
+        if (linkedEvent) {
+            try {
+                const helpers = window.FldPortalData || await window.FldPortal?.helpersReady;
+                if (!helpers) throw new Error('Calendar helpers unavailable');
+                targetDate = helpers.eventLinkDate({start_date:linkedEvent.startDate,end_date:linkedEvent.endDate,days:linkedEvent.days},requestedDate,helpers.schoolToday());
+                if (!targetDate) {
+                    const feedback = document.getElementById('calendar-feedback');
+                    feedback.hidden = false; feedback.textContent = 'This event has no dates matching its selected weekdays.';
+                    return;
+                }
+            } catch {
+                const feedback = document.getElementById('calendar-feedback');
+                feedback.hidden = false; feedback.textContent = 'The event link could not be opened. Reload the calendar to try again.';
+                return;
+            }
+        }
+        if (!targetDate) return;
+        const target = new Date(`${targetDate}T12:00:00`);
+        currentYear = target.getFullYear(); currentMonth = target.getMonth();
+        renderCalendar();
+        const day = Array.from(calendarGrid.querySelectorAll('[data-date]')).find(item => item.dataset.date === targetDate);
+        if (!day) return;
+        day.click();
+        const selectedEvent = Array.from(dayModalEvents.querySelectorAll('[data-event-id]')).find(item => item.dataset.eventId === requestedParams.get('event'));
+        if (selectedEvent) { selectedEvent.classList.add('portal-found-item'); selectedEvent.tabIndex = -1; selectedEvent.focus(); }
+        else dayModalClose.focus();
+    }, { once: true });
     loadEventsFromBackend();
 
 }

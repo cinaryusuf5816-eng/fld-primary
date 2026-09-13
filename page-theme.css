@@ -1,0 +1,102 @@
+/* Shared content palette. Sidebar and sign-in styles stay independent. */
+:root {
+    --fld-brand: #643dc9;
+    --fld-brand-deep: #4e28ad;
+    --fld-brand-soft: #ece4ff;
+    --fld-ink: #172b49;
+    --fld-muted: #52627a;
+    --fld-line: #dce3ee;
+    --fld-surface: #ffffff;
+    --fld-canvas: #f3f5fa;
+    --fld-radius: 16px;
+    --fld-shadow: 0 3px 14px #172b4908;
+    --fld-teal: #087c72;
+    --fld-teal-soft: #e2f4ee;
+    --fld-blue: #245ea8;
+    --fld-blue-soft: #e7f0ff;
+    --fld-amber: #94620d;
+    --fld-amber-soft: #fff1d6;
+}
+
+.main-content { position: relative; min-width: 0; background: var(--fld-canvas); }
+.main-content > .topbar,
+.main-content > #topbar-container > .topbar {
+    background: var(--fld-canvas);
+    border-bottom: 1px solid var(--fld-line);
+    box-shadow: none;
+}
+.main-content .topbar-left > span {
+    color: var(--fld-muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+.main-content .search-box {
+    border: 1px solid var(--fld-line);
+    border-radius: 10px;
+    background: var(--fld-surface);
+}
+.main-content .search-box input { color: var(--fld-ink); }
+.main-content .search-box input::placeholder { color: #60718a; }
+.main-content .notification { border-color: var(--fld-line); }
+.main-content :is(button,a,input,select,textarea,summary):focus-visible {
+    outline: 3px solid #b7a2ed;
+    outline-offset: 3px;
+}
+.main-content .portal-empty { color: var(--fld-muted); }
+.main-content .portal-popover { border-color: var(--fld-line); border-radius: 14px; }
+.main-content .portal-result strong { color: var(--fld-ink); }
+.main-content .portal-result > span:not(.portal-sr-only) { color: var(--fld-muted); }
+.main-content :is(h1,h2,h3) { color: var(--fld-ink); }
+.main-content :is(.mat-heading,.notice-header,.hw-heading,.users-heading,.settings-heading) h1 { font-weight: 700; }
+.main-content :is(.mat-toolbar,.notice-toolbar,.hw-toolbar) label { color: #344862; }
+.main-content :is(.mat-toolbar,.notice-toolbar,.hw-toolbar) :is(input,select) { border-color: #c8d3e3; }
+
+@media (max-width: 650px) {
+    .main-content :is(.dashboard-eyebrow,.calendar-eyebrow,.mat-eyebrow,.notice-eyebrow,.hw-eyebrow,.users-eyebrow,.settings-eyebrow) { font-size: 11px; }
+    .dashboard-page .summary-card-info > p { font-size: 12px; }
+    .dashboard-page .summary-card-info > span { font-size: 12px; }
+    .dashboard-page .card-header p { font-size: 12px; }
+    .dashboard-page .card-header > a { font-size: 12px; }
+    .dashboard-page .portal-row-copy p { font-size: 12px; }
+    .dashboard-page .portal-row-badge { font-size: 11px; }
+    .calendar-page .calendar-weekdays > div { font-size: 11px; }
+    .calendar-page .calendar-legend { font-size: 11px; }
+    .calendar-page .calendar-bottom-bar > p { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .main-content *, dialog * { scroll-behavior: auto !important; }
+}
+
+/* One compact, accessible confirmation across every content page. */
+dialog.fld-confirm {
+    box-sizing: border-box;
+    width: min(440px, calc(100vw - 32px));
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    padding: 26px;
+    overflow: auto;
+    border: 1px solid #dce3ee;
+    border-radius: 16px;
+    background: #fff;
+    color: #172b49;
+    box-shadow: 0 18px 60px #172b4930;
+    font-family: Inter, sans-serif;
+    text-align: left;
+}
+dialog.fld-confirm::backdrop { background: #12213970; }
+dialog.fld-confirm h2 { margin: 0 0 10px; font: 700 20px/1.3 Inter, sans-serif; color: #172b49; }
+dialog.fld-confirm p { margin: 0; color: #52627a; font-size: 14px; line-height: 1.6; overflow-wrap: anywhere; white-space: pre-line; }
+.fld-confirm-actions { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.fld-confirm-actions button { min-height: 42px; padding: 10px 16px; border: 1px solid #cad3e1; border-radius: 9px; font: 600 13px/1.4 Inter, sans-serif; cursor: pointer; }
+.fld-confirm-cancel { background: #fff; color: #344862; }
+.fld-confirm-cancel:hover { background: #f3f5fa; }
+.fld-confirm-accept { background: #643dc9; border-color: #643dc9 !important; color: #fff; }
+.fld-confirm-accept.danger { background: #a63242; border-color: #a63242 !important; }
+.fld-confirm-accept:hover { filter: brightness(.92); }
+.fld-confirm-actions button:focus-visible { outline: 3px solid #b7a2ed; outline-offset: 3px; }
+@media (max-width: 480px) {
+    dialog.fld-confirm { padding: 22px 20px; }
+    dialog.fld-confirm h2 { font-size: 19px; }
+    .fld-confirm-actions button { flex: 1; min-height: 44px; }
+}

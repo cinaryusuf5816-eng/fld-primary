@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="fld-api-base" content="">
+    <title>Settings | FLD Primary</title>
+    <script src="auth.js"></script><script src="confirm.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="settings.js" defer></script>
+    <link rel="stylesheet" href="page-theme.css">
+</head>
+<body>
+<div class="sayfa">
+    <div id="sidebar-container"></div>
+    <main class="main-content">
+        <div class="topbar settings-topbar"><div class="topbar-left"><button type="button" class="mobile-sidebar-button" id="mobile-sidebar-button" aria-label="Open menu"><i class="fa-solid fa-bars" aria-hidden="true"></i></button><span>Account settings</span></div></div>
+        <div class="settings-page">
+            <header class="settings-heading"><span class="settings-eyebrow">YOUR WORKSPACE</span><h1>Settings</h1><p>Manage your profile, security and browsing preferences.</p></header>
+            <p id="settings-loading" class="settings-notice" role="status">Loading your account…</p>
+            <div class="settings-layout" id="settings-content" hidden>
+                <nav class="settings-navigation" aria-label="Settings sections">
+                    <a href="#profile" aria-current="location"><i class="fa-regular fa-user" aria-hidden="true"></i>Profile</a>
+                    <a href="#security"><i class="fa-solid fa-lock" aria-hidden="true"></i>Security</a>
+                    <a href="#preferences"><i class="fa-solid fa-sliders" aria-hidden="true"></i>Preferences</a>
+                    <div class="settings-admin-link" data-admin-only hidden><span>ADMINISTRATION</span><a href="users.html"><i class="fa-solid fa-users" aria-hidden="true"></i>Manage users<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></div>
+                </nav>
+                <div class="settings-sections">
+                    <section class="settings-card" id="profile" aria-labelledby="profile-heading">
+                        <header class="settings-card-heading"><span class="settings-card-icon"><i class="fa-regular fa-user" aria-hidden="true"></i></span><div><h2 id="profile-heading" tabindex="-1">Profile</h2><p>Your name appears throughout the portal.</p></div></header>
+                        <div class="settings-identity"><span class="settings-avatar" id="account-initials" aria-hidden="true"></span><div><strong id="account-name"></strong><span id="account-role" class="settings-role"></span></div></div>
+                        <form id="profile-form">
+                            <div class="settings-form-body">
+                                <label for="profile-name">Full name<input id="profile-name" name="full_name" type="text" maxlength="120" autocomplete="name" required></label>
+                                <div class="settings-field-row"><label for="profile-email">Email address<input id="profile-email" type="email" readonly aria-describedby="managed-fields-hint"></label><label for="profile-role">Role<input id="profile-role" type="text" readonly aria-describedby="managed-fields-hint"></label></div>
+                                <p class="settings-hint" id="managed-fields-hint"><i class="fa-solid fa-lock" aria-hidden="true"></i>Your email and role are managed by an administrator.</p>
+                                <p id="profile-message" class="settings-message" role="status" aria-live="polite" hidden></p>
+                            </div>
+                            <footer class="settings-card-footer"><span>Visible to you and your administrators.</span><button type="submit" id="save-profile" class="settings-button primary" disabled>Save profile</button></footer>
+                        </form>
+                    </section>
+                    <section class="settings-card" id="security" aria-labelledby="security-heading">
+                        <header class="settings-card-heading"><span class="settings-card-icon"><i class="fa-solid fa-lock" aria-hidden="true"></i></span><div><h2 id="security-heading" tabindex="-1">Security</h2><p>Keep your account protected with a private password.</p></div></header>
+                        <form id="password-form">
+                            <fieldset id="password-fields" class="settings-form-body">
+                                <label for="current-password">Current password<input id="current-password" name="current_password" type="password" autocomplete="current-password" required></label>
+                                <div class="settings-field-row"><label for="new-password">New password<input id="new-password" name="new_password" type="password" autocomplete="new-password" minlength="12" maxlength="128" aria-describedby="new-password-hint" required></label><label for="confirm-password">Confirm new password<input id="confirm-password" name="confirm_password" type="password" autocomplete="new-password" minlength="12" maxlength="128" required></label></div>
+                                <p class="settings-hint" id="new-password-hint">Use 12–128 characters and a password you do not use elsewhere.</p>
+                                <div class="settings-security-note"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><p>Changing your password signs you out on every device. Sign in again with your new password.</p></div>
+                                <p id="password-message" class="settings-message" role="status" aria-live="polite" hidden></p>
+                            </fieldset>
+                            <footer class="settings-card-footer"><span>Your current password is required.</span><button type="submit" id="change-password" class="settings-button primary">Change password</button></footer>
+                        </form>
+                    </section>
+                    <section class="settings-card" id="preferences" aria-labelledby="preferences-heading">
+                        <header class="settings-card-heading"><span class="settings-card-icon"><i class="fa-solid fa-sliders" aria-hidden="true"></i></span><div><h2 id="preferences-heading" tabindex="-1">Preferences</h2><p>Make this workspace comfortable to use.</p></div></header>
+                        <form id="preferences-form">
+                            <div class="settings-form-body">
+                                <div class="settings-preference"><div><label for="preference-sidebar">Sidebar layout</label><p>Choose how the sidebar opens on desktop.</p></div><select id="preference-sidebar"><option value="expanded">Expanded</option><option value="collapsed">Compact</option></select></div>
+                                <div class="settings-preference"><div><label for="preference-motion">Reduce motion</label><p>Limit animations and transitions across the portal.</p></div><input id="preference-motion" class="settings-switch" type="checkbox" role="switch"></div>
+                                <p class="settings-hint">Applies only to this browser. Preferences do not sync across devices.</p>
+                                <p id="preferences-message" class="settings-message" role="status" aria-live="polite" hidden></p>
+                            </div>
+                            <footer class="settings-card-footer"><button type="button" id="reset-preferences" class="settings-button secondary">Reset defaults</button><button type="submit" id="save-preferences" class="settings-button primary">Save preferences</button></footer>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
+<script src="sidebar.js"></script>
+</body>
+</html>

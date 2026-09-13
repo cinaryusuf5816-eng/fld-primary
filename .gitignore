@@ -8,3 +8,10 @@ node_modules/
 
 .env
 .env.*
+!.env.example
+
+# Local PostgreSQL files contain database data and must never enter Git.
+/.local-postgres/
+
+# Private library uploads are backed up separately from source code.
+/backend/.local-materials/

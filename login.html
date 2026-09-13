@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <meta
+        name="theme-color"
+        content="#74408D"
+    >
+
+    <meta
+        name="fld-api-base"
+        content=""
+    >
+
+    <title>Sign In | Şahinkaya Primary Portal</title>
+
+    <!-- FONT -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- LOGIN CSS -->
+    <link
+        rel="stylesheet"
+        href="login.css"
+    >
+
+    <!-- LOGIN JS -->
+    <script
+        src="login.js"
+        defer
+    ></script>
+</head>
+
+<body class="login-page">
+
+    <!-- =====================================================
+         SVG ICONS
+         ===================================================== -->
+
+    <svg
+        class="icon-library"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+    >
+        <symbol id="icon-mail" viewBox="0 0 24 24">
+            <rect
+                x="3"
+                y="5"
+                width="18"
+                height="14"
+                rx="3"
+            />
+            <path d="m4 7 8 6 8-6" />
+        </symbol>
+
+        <symbol id="icon-lock" viewBox="0 0 24 24">
+            <rect
+                x="5"
+                y="10"
+                width="14"
+                height="11"
+                rx="3"
+            />
+            <path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3" />
+        </symbol>
+
+        <symbol id="icon-eye" viewBox="0 0 24 24">
+            <path
+                d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"
+            />
+            <circle cx="12" cy="12" r="3" />
+        </symbol>
+
+        <symbol id="icon-arrow" viewBox="0 0 24 24">
+            <path d="M5 12h14m-5-5 5 5-5 5" />
+        </symbol>
+
+        <symbol id="icon-close" viewBox="0 0 24 24">
+            <path d="m6 6 12 12M18 6 6 18" />
+        </symbol>
+    </svg>
+
+
+    <!-- =====================================================
+         BACKGROUND
+         ===================================================== -->
+
+    <div class="login-background" aria-hidden="true">
+
+        <!-- Dekoratif kanat motifi -->
+
+        <svg
+            class="login-wings"
+            viewBox="0 0 1200 900"
+            fill="currentColor"
+        >
+            <defs>
+
+                <g id="wing">
+
+                    <path
+                        d="M560 766C376 629 178 297 255 29 121 138 112 458 560 766Z"
+                    />
+
+                    <path
+                        d="M546 779C291 658 64 504 73 274-1 443 82 675 546 779Z"
+                    />
+
+                    <path
+                        d="M536 799C315 735 124 677 42 506 43 700 215 775 536 799Z"
+                    />
+
+                    <path
+                        d="M524 820C362 781 231 784 118 702 139 806 318 823 524 820Z"
+                    />
+
+                    <path
+                        d="M511 842C405 808 334 815 260 794 282 851 409 851 511 842Z"
+                    />
+
+                </g>
+
+            </defs>
+
+            <use href="#wing" />
+
+            <use
+                href="#wing"
+                transform="translate(1200 0) scale(-1 1)"
+            />
+
+        </svg>
+
+    </div>
+
+
+    <!-- =====================================================
+         LOGIN CONTENT
+         ===================================================== -->
+
+    <main class="login-shell">
+
+        <!-- ==================== BRAND ==================== -->
+
+        <header class="login-brand">
+
+            <img
+                class="login-logo"
+                src="logo.png"
+                alt="Şahinkaya Schools"
+                width="120"
+                height="120"
+            >
+
+            <p class="login-eyebrow">
+                ŞAHİNKAYA · FLD
+            </p>
+
+            <h1 lang="en">
+                Welcome Back
+            </h1>
+
+            <p class="login-subtitle">
+                Welcome to Şahinkaya Primary Portal.
+            </p>
+
+            <p class="login-motto" lang="en">
+                Learn
+                <span>·</span>
+                Grow
+                <span>·</span>
+                Belong
+            </p>
+
+        </header>
+
+
+        <!-- ==================== LOGIN CARD ==================== -->
+
+        <section
+            class="login-card"
+            aria-label="User sign in"
+        >
+
+            <noscript>
+                <p class="login-message">
+                    Enable JavaScript in your browser to sign in.
+                </p>
+            </noscript>
+
+
+            <form
+                id="login-form"
+                action="/api/auth/login"
+                method="post"
+                novalidate
+            >
+
+                <!-- ==================== EMAIL ==================== -->
+
+                <div class="login-field">
+
+                    <label for="login-email">
+                        Email address
+                    </label>
+
+                    <div class="login-input-wrap">
+
+                        <svg
+                            class="login-icon"
+                            aria-hidden="true"
+                        >
+                            <use href="#icon-mail" />
+                        </svg>
+
+                        <input
+                            id="login-email"
+                            name="email"
+                            type="email"
+                            placeholder="Enter your email address"
+                            autocomplete="username"
+                            inputmode="email"
+                            autocapitalize="none"
+                            spellcheck="false"
+                            maxlength="254"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ==================== PASSWORD ==================== -->
+
+                <div class="login-field">
+
+                    <label for="login-password">
+                        Password
+                    </label>
+
+                    <div class="login-input-wrap">
+
+                        <svg
+                            class="login-icon"
+                            aria-hidden="true"
+                        >
+                            <use href="#icon-lock" />
+                        </svg>
+
+                        <input
+                            id="login-password"
+                            name="password"
+                            type="password"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="toggle-password"
+                            class="login-password-toggle"
+                            aria-label="Show password"
+                            aria-controls="login-password"
+                            aria-pressed="false"
+                        >
+                            <svg
+                                class="login-icon"
+                                aria-hidden="true"
+                            >
+                                <use href="#icon-eye" />
+                            </svg>
+                        </button>
+
+                    </div>
+
+                    <p
+                        class="login-caps"
+                        id="caps-warning"
+                        hidden
+                    >
+                        Caps Lock is on.
+                    </p>
+
+                </div>
+
+
+                <!-- ==================== OPTIONS ==================== -->
+
+                <div class="login-options">
+
+                    <label class="login-remember">
+
+                        <input
+                            type="checkbox"
+                            id="remember-email"
+                        >
+
+                        <span>
+                            Remember my email
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- ==================== FORM MESSAGE ==================== -->
+
+                <p
+                    id="login-message"
+                    class="login-message"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+
+                <!-- ==================== SUBMIT ==================== -->
+
+                <button
+                    class="login-submit"
+                    type="submit"
+                    id="login-submit"
+                >
+
+                    <span
+                        class="login-spinner"
+                        aria-hidden="true"
+                        hidden
+                    ></span>
+
+                    <span id="login-submit-text">
+                        Sign In
+                    </span>
+
+                    <svg
+                        class="login-icon login-submit-arrow"
+                        aria-hidden="true"
+                    >
+                        <use href="#icon-arrow" />
+                    </svg>
+
+                </button>
+
+            </form>
+
+
+        </section>
+
+
+        <!-- ==================== FOOTER ==================== -->
+
+        <footer class="login-footer">
+
+            <p lang="en">
+                A Brighter Tomorrow Together
+            </p>
+
+            <span>
+                FLD · Teacher and administrator portal
+            </span>
+
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

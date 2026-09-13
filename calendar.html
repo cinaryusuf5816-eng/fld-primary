@@ -2,16 +2,21 @@
 <html lang="en">
 
 <head>
+    <script src="auth.js"></script><script src="confirm.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Calendar | FLD Portal</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="calendar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
    <!-- Font Awesome -->
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="page-theme.css">
 </head>
 
-<body>
+<body class="calendar-page">
 
     <div class="app-shell">
         <div id="sidebar-container"></div>
@@ -19,36 +24,31 @@
         <main class="main-content calendar-main">
             <div id="topbar-container"></div>
 
-            <section class="calendar-section">
-                <!-- Calendar-->
+            <div class="calendar-workspace">
+                <header class="calendar-page-header">
+                    <div>
+                        <p class="calendar-eyebrow">School planning</p>
+                        <h1>Calendar</h1>
+                        <p class="calendar-description">Your programmes, school events and linked teaching materials.</p>
+                    </div>
+                    <button class="add-event-button" id="add-event-button" type="button"><i class="fa-solid fa-plus" aria-hidden="true"></i> Add event</button>
+                </header>
 
-                <!-- calendar header -->
+            <section class="calendar-section" aria-label="Monthly calendar">
                 <div class="calendar-header">
-
-                    <div class="calendar-view-options">
-                        <button class="view-button active">Month</button>
-                        <button class="view-button">Week</button>
-                        <button class="view-button">Day</button>
-                    </div>
-
                     <div class="calendar-title">
-                        <h1 id="current-month">October 2026</h1>
+                        <h2 id="current-month">This month</h2>
                     </div>
-
-                    <!-- calendar controls -->
+                    <span class="calendar-view-label"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Month view</span>
                     <div class="calendar-controls">
-
-                        <button class="add-event-button" id="add-event-button">
-                            + Add Event
-                        </button>
-
-                        <button id="previous-month">⬅️</button>
-                        <button id="today-button">Today</button>
-                        <button id="next-month">➡️</button>
+                        <button id="previous-month" type="button" aria-label="Previous month"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button>
+                        <button id="today-button" type="button">Today</button>
+                        <button id="next-month" type="button" aria-label="Next month"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button>
                     </div>
 
                 </div>
 
+                <p id="calendar-feedback" class="portal-notice" role="status" hidden></p>
                 <!-- weekdays -->
                 <div class="calendar-weekdays">
                     <div>MON</div>
@@ -65,6 +65,10 @@
 
                 </div>
 
+                <div class="calendar-bottom-bar">
+                    <p><i class="fa-regular fa-hand-pointer" aria-hidden="true"></i> Select a day to view its events and materials.</p>
+                    <div class="calendar-legend" aria-label="Event categories"><span class="legend-programme">Programme</span><span class="legend-meeting">Meeting</span><span class="legend-activity">Activity</span><span class="legend-material">Material</span></div>
+                </div>
             </section>
 
             <footer class="site-footer">
@@ -72,14 +76,15 @@
                 <p>English Department Hub</p>
                 <p class="skaya-quote">Every legend begins with a teacher.</p>
             </footer>
+            </div>
 
         </main>
     </div>
 
     <!-- DAY MODAL -->
-    <div class="day-modal" id="day-modal">
+    <div class="day-modal" id="day-modal" role="dialog" aria-modal="true" aria-labelledby="day-modal-title">
         <div class="day-modal-content">
-            <button class="day-modal-close" id="day-modal-close">✖️</button>
+            <button class="day-modal-close" id="day-modal-close" aria-label="Close day details"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
 
             <div class="day-modal-header">
                 <p class="day-modal-date" id="day-modal-date"></p>
@@ -87,7 +92,7 @@
             </div>
 
             <button class="day-add-event-button" id="day-add-event-button">
-                ➕ Add Event
+                <i class="fa-solid fa-plus" aria-hidden="true"></i> Add event
             </button>
 
             <div class="day-modal-events" id="day-modal-events">
@@ -97,17 +102,17 @@
     </div>
 
     <!-- ADD EVENT MODAL -->
-    <div class="add-event-modal" id="add-event-modal">
+    <div class="add-event-modal" id="add-event-modal" role="dialog" aria-modal="true" aria-labelledby="event-form-heading">
 
         <div class="add-event-modal-content">
 
-            <button class="add-event-modal-close" id="add-event-modal-close">
-                ✖️
+            <button class="add-event-modal-close" id="add-event-modal-close" aria-label="Close event form">
+                <i class="fa-solid fa-xmark" aria-hidden="true"></i>
             </button>
 
             <div class="add-event-modal-header">
                 <p>Calendar</p>
-                <h2>Add Event</h2>
+                <h2 id="event-form-heading">Add Event</h2>
             </div>
 
             <div class="add-event-form">
@@ -215,6 +220,27 @@
                 <label for="event-description">Description</label>
                 <textarea id="event-description" placeholder="Optional Notes"></textarea>
 
+                <fieldset class="event-audience-fields">
+                    <legend>Visible to</legend>
+                    <label class="event-check-option"><input type="checkbox" id="event-shared" checked> Shared with all teachers</label>
+                    <div class="event-grade-options">
+                        <label class="event-check-option"><input type="checkbox" name="event-grade" value="Grade 1"> Grade 1</label>
+                        <label class="event-check-option"><input type="checkbox" name="event-grade" value="Grade 2"> Grade 2</label>
+                        <label class="event-check-option"><input type="checkbox" name="event-grade" value="Grade 3"> Grade 3</label>
+                        <label class="event-check-option"><input type="checkbox" name="event-grade" value="Grade 4"> Grade 4</label>
+                    </div>
+                    <p class="event-field-hint">Choose the teaching grades for this event. Admins and coordinators can see every event.</p>
+                </fieldset>
+                <fieldset class="event-material-fields">
+                    <legend>Linked materials <span>(Optional)</span></legend>
+                    <p class="event-field-hint">Choose up to 30 items from the library. Materials must be available to everyone who can see this event.</p>
+                    <p id="event-material-status" class="event-field-hint" role="status">Loading the material library…</p>
+                    <div id="event-material-options" class="event-material-options"></div>
+                    <button type="button" id="event-material-retry" class="portal-retry" hidden>Try loading materials again</button>
+                    <a href="materials.html" target="_blank" rel="noopener" class="event-library-link">Open Materials to upload a file or add a link</a>
+                </fieldset>
+                <p id="event-form-message" class="portal-notice portal-error" role="alert" hidden></p>
+
                 <button class="save-event-button" id="save-event-button">
                     Add Event
                 </button>
@@ -224,7 +250,6 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="sidebar.js"></script>
     <script src="script.js"></script>
     <script src="calendar.js"></script>

@@ -77,6 +77,18 @@
 
             <li>
                 <a
+                    href="archive.html"
+                    class="sidebar-link"
+                    data-page="archive.html"
+                    data-label="Archive"
+                >
+                    <span class="sidebar-icon"><i class="fa-solid fa-box-archive" aria-hidden="true"></i></span>
+                    <span class="sidebar-link-text">Archive</span>
+                </a>
+            </li>
+
+            <li>
+                <a
                     href="calendar.html"
                     class="sidebar-link"
                     data-page="calendar.html"
@@ -129,10 +141,29 @@
             </li>
 
 
+            <li data-admin-only hidden>
+                <a
+                    href="users.html"
+                    class="sidebar-link"
+                    data-page="users.html"
+                    data-label="Users"
+                >
+                    <span class="sidebar-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </span>
+
+                    <span class="sidebar-link-text">
+                        Users
+                    </span>
+                </a>
+            </li>
+
+
             <li>
                 <a
-                    href="#"
+                    href="settings.html"
                     class="sidebar-link"
+                    data-page="settings.html"
                     data-label="Settings"
                 >
                     <span class="sidebar-icon">
@@ -153,6 +184,24 @@
     <!-- ==================== BOTTOM ==================== -->
 
     <div class="sidebar-bottom">
+
+        <div class="sidebar-account">
+            <button type="button" class="sidebar-account-button" id="sidebar-account-button"
+                aria-label="Open account menu" aria-expanded="false" aria-controls="sidebar-account-menu" disabled>
+                <span class="sidebar-account-avatar" data-profile-initials aria-hidden="true"></span>
+                <span class="sidebar-account-identity">
+                    <span class="profile-name"></span>
+                    <span class="profile-role"></span>
+                </span>
+                <i class="fa-solid fa-ellipsis-vertical sidebar-account-more" aria-hidden="true"></i>
+            </button>
+            <div class="sidebar-account-menu" id="sidebar-account-menu" hidden>
+                <p class="sidebar-account-caption">YOUR ACCOUNT</p>
+                <a href="settings.html#profile"><i class="fa-regular fa-user" aria-hidden="true"></i>Account settings</a>
+                <a href="settings.html#security"><i class="fa-solid fa-lock" aria-hidden="true"></i>Change password</a>
+                <a href="settings.html#preferences"><i class="fa-solid fa-sliders" aria-hidden="true"></i>Preferences</a>
+            </div>
+        </div>
 
         <a
             href="#"
