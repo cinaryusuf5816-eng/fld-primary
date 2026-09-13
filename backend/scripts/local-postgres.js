@@ -3,7 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const net = require('node:net');
 const { randomBytes } = require('node:crypto');
-const { execFile, spawn } = require('node:child_process');
+const { execFile } = require('node:child_process');
 const { Pool } = require('pg');
 const dotenv = require('dotenv');
 const { migrate } = require('./migrate');
@@ -134,35 +134,14 @@ function writeMarker(complete, port) {
     fs.writeFileSync(markerPath, JSON.stringify({ version: 1, projectRoot, database: DB_NAME, user: DB_USER, port, complete }, null, 2));
 }
 async function startCluster(config) {
-    // Start in this same Windows account; no service, privilege change or token rewrite.
-    const output = fs.openSync(path.join(clusterRoot, 'postgres.log'), 'a');
-    let child;
-    let launchError;
-    try {
-        child = spawn(path.join(binaryDirectory, 'postgres.exe'), ['-D', dataDirectory, '-h', '127.0.0.1', '-p', String(config.port)], {
-            cwd: clusterRoot, detached: true, windowsHide: true,
-            env: { ...process.env, PGPASSWORD: '', PGPASSFILE: path.join(clusterRoot, '.unused-pgpass') },
-            stdio: ['ignore', output, output]
-        });
-        child.once('error', error => { launchError = error; });
-        child.unref();
-    } catch (error) {
-        throw stageFailure('start', error);
-    } finally { fs.closeSync(output); }
-    const deadline = Date.now() + 45000;
-    while (Date.now() < deadline) {
-        if (launchError) throw stageFailure('start', launchError);
-        if (child.exitCode !== null || child.signalCode !== null) throw stageFailure('start', { code: child.exitCode ?? 'SIGNAL' });
-        const ready = await run(path.join(binaryDirectory, 'pg_isready.exe'), [
-            '-h', '127.0.0.1', '-p', String(config.port), '-d', 'postgres', '-U', 'postgres', '-t', '1'
-        ], [0, 1, 2], 'ready');
-        if (launchError) throw stageFailure('start', launchError);
-        if (child.exitCode !== null || child.signalCode !== null) throw stageFailure('start', { code: child.exitCode ?? 'SIGNAL' });
-        if (ready === 0) return;
-        await new Promise(resolve => setTimeout(resolve, 300));
-    }
-    // Preserve the cluster and any still-starting process for inspection; never force-kill PostgreSQL.
-    throw stageFailure('start', { killed: true });
+    // pg_ctl is PostgreSQL's background launcher. Using it avoids Windows Terminal
+    // creating one visible tab for each PostgreSQL worker process.
+    await run(path.join(binaryDirectory, 'pg_ctl.exe'), [
+        '-D', dataDirectory,
+        '-l', path.join(clusterRoot, 'postgres.log'),
+        '-o', `-h 127.0.0.1 -p ${config.port}`,
+        '-w', '-t', '45', 'start'
+    ], [0], 'start');
 }
 
 async function ensureLocalDatabase() {
